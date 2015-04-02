@@ -1,6 +1,6 @@
-## L5Materialize
+## L5Bootstrap
 
-A base framework built up with Laravel 5 and Materialize
+A base framework built up with Laravel 5 and Bootstrap 3
 
 ## Installation
 
@@ -15,7 +15,7 @@ gulp
 ## Official Documentation
 
 Documentation for Laravel can be found on the [Laravel website](http://laravel.com/docs).
-Documentation for Materialize can be found on the [Materialize website](http://materializecss.com/).
+Documentation for Bootstrap can be found on the [Bootstrap website](http://getbootstrap.com/).
 
 ## Contributing
 
