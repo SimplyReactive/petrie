@@ -1,0 +1,14 @@
+@import "bootstrap-sprockets";
+@import "bootstrap-compass";
+@import "bootstrap";
+
+/*
+ * Import the application-specific variables
+ * NOTE: Bootstrap variables are in sass/bootstrap/_variables.scss.
+ *       Do not try to override in our variables file, the Bootstrap
+ *       sass is compiled first.
+ */
+@import "variables";
+
+// Import the application-specific stylesheets
+@import "regions/global";

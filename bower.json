@@ -1,0 +1,22 @@
+{
+  "name": "Laravel5 + Materialize",
+  "version": "0.0.1",
+  "description": "A simple base install of Laravel 5 with the Materialize framework",
+  "authors": [
+    "Nathan Burgess"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "vendor/bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "*",
+    "jquery-ui": "*",
+    "bootstrap-sass-official": "*"
+  }
+}

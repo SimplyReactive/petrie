@@ -1,0 +1,9 @@
+/vendor
+/node_modules
+.env
+/.idea
+/.sass-cache
+/public/build
+/public/css
+/public/js
+/resources/vendor
