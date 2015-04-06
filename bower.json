@@ -20,7 +20,7 @@
     "bootstrap-sass-official": "*",
     "bootstrap-tokenfield": "*",
     "bootstrap.notify": "*",
-    "bootstrap3-editable": "*",
+    "x-editable": "*",
     "typeahead.js": "*"
   }
 }
