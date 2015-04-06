@@ -14,7 +14,7 @@ gulp
 
 ## Official Documentation
 
-Documentation for Laravel can be found on the [Laravel website](http://laravel.com/docs).
+Documentation for Laravel can be found on the [Laravel website](http://laravel.com/docs).  
 Documentation for Bootstrap can be found on the [Bootstrap website](http://getbootstrap.com/).
 
 ## Contributing
