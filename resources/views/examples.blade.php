@@ -720,9 +720,11 @@
     </div>
     <input type="text" class="form-control" id="tokenfield-typeahead" value="red,green,blue" />
 
+
     <div class="page-header">
         <h1>Bootstrap Notify <small><a href="http://bootstrap-growl.remabledesigns.com" target="_blank">http://bootstrap-growl.remabledesigns.com</a></small></h1>
     </div>
+
 
     <br/><br/>
 @endsection
@@ -809,7 +811,12 @@ $(document).ready(function(){
     /*
      * Bootstrap Notifications
      */
-    $.notify("Hello World");
+    $.notify("Example growl-like bootstrap notification", {
+        animate: {
+            enter: 'animated flipInY',
+            exit: 'animated flipOutX'
+        }
+    });
 });
 </script>
 @endsection

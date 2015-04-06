@@ -22,7 +22,8 @@ var paths = {
     'xeditable'     : bowerDir + 'x-editable/dist/bootstrap3-editable/',        // Inline editing of elements
     'typeahead'     : bowerDir + 'typeahead.js/',                               // Autosuggest with look ahead
     'tokenfield'    : bowerDir + 'bootstrap-tokenfield/',                       // Tagging/Tokenizing
-    'notify'        : bowerDir + 'bootstrap.notify/',                           // Notifications
+    'notify'        : bowerDir + 'remarkable-bootstrap-notify/',                // Notifications
+    'animate'       : bowerDir + 'animate.css/',                                // CSS Animations
     'assets': {
         'js'        : assetsDir + 'javascripts/'
     },
@@ -41,7 +42,7 @@ elixir(function(mix) {
             paths.xeditable + 'js/bootstrap-editable.min.js',                   // - bootstrap x-editable
             paths.typeahead + 'dist/typeahead.bundle.min.js',                   // - bootstrap typeahead/bloodhound bundle
             paths.tokenfield + 'dist/bootstrap-tokenfield.min.js',              // - bootstrap tokenfield
-            paths.notify + 'js/bootstrap-notify.js',                            // - bootstrap notify
+            paths.notify + 'dist/bootstrap-notify.min.js',                      // - bootstrap notify
         ], 'public/js/vendor.js', bowerDir)
         .scripts([                                                              // Concatenate the custom javascripts
             paths.assets.js + '*.js'

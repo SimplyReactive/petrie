@@ -19,8 +19,9 @@
     "jquery-ui": "*",
     "bootstrap-sass-official": "*",
     "bootstrap-tokenfield": "*",
-    "bootstrap.notify": "*",
+    "remarkable-bootstrap-notify": "*",
     "x-editable": "*",
-    "typeahead.js": "*"
+    "typeahead.js": "*",
+    "animate.css": "*"
   }
 }
