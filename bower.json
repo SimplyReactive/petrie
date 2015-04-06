@@ -17,6 +17,10 @@
   "dependencies": {
     "jquery": "*",
     "jquery-ui": "*",
-    "bootstrap-sass-official": "*"
+    "bootstrap-sass-official": "*",
+    "bootstrap-tokenfield": "*",
+    "bootstrap.notify": "*",
+    "bootstrap3-editable": "*",
+    "typeahead.js": "*"
   }
 }
