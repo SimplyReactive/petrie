@@ -35,6 +35,7 @@
         <button type="button" class="btn btn-sm btn-link">Link</button>
     </p>
     <p>
+        <button type="button" class="btn btn-xs btn-tina">Tina</button>
         <button type="button" class="btn btn-xs btn-brand">Brand</button>
         <button type="button" class="btn btn-xs btn-default">Default</button>
         <button type="button" class="btn btn-xs btn-primary">Primary</button>
@@ -656,7 +657,6 @@
             <li data-target="#carousel-example-generic" data-slide-to="2"></li>
             <li data-target="#carousel-example-generic" data-slide-to="3"></li>
             <li data-target="#carousel-example-generic" data-slide-to="4"></li>
-            <li data-target="#carousel-example-generic" data-slide-to="5"></li>
         </ol>
         <div class="carousel-inner" role="listbox">
             <div class="item active">
