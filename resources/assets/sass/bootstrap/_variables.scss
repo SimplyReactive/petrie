@@ -1,8 +1,8 @@
-$bootstrap-sass-asset-helper: false !default;
+$bootstrap-sass-asset-helper: true !default;
 //
 // Variables
 // --------------------------------------------------
-
+$brand-color:            #00aeef;
 
 //== Colors
 //
@@ -107,9 +107,9 @@ $padding-xs-horizontal:     5px !default;
 $line-height-large:         1.3333333 !default; // extra decimals for Win 8.1 Chrome
 $line-height-small:         1.5 !default;
 
-$border-radius-base:        4px !default;
-$border-radius-large:       6px !default;
-$border-radius-small:       3px !default;
+$border-radius-base:        0px !default;
+$border-radius-large:       0px !default;
+$border-radius-small:       0px !default;
 
 //** Global color for active items (e.g., navs or dropdowns).
 $component-active-color:    #fff !default;
@@ -148,6 +148,10 @@ $table-border-color:            #ddd !default;
 //## For each of Bootstrap's buttons, define text, background and border color.
 
 $btn-font-weight:                normal !default;
+
+$btn-brand-color:                #fff !default;
+$btn-brand-bg:                   $brand-color !default;
+$btn-brand-border:               darken($brand-color, 5%) !default;
 
 $btn-default-color:              #333 !default;
 $btn-default-bg:                 #fff !default;
@@ -441,7 +445,6 @@ $nav-tabs-justified-active-link-border-color:     $body-bg !default;
 $nav-pills-border-radius:                   $border-radius-base !default;
 $nav-pills-active-link-hover-bg:            $component-active-bg !default;
 $nav-pills-active-link-hover-color:         $component-active-color !default;
-
 
 //== Pagination
 //

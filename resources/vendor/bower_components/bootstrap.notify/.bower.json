@@ -1,0 +1,22 @@
+{
+  "name": "bootstrap-notify",
+  "version": "1.0.0",
+  "main": "js/bootstrap-notify.js",
+  "dependencies": {},
+  "description": "Bootstrap alert system made better.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nijikokun/bootstrap-notify.git"
+  },
+  "homepage": "https://github.com/Nijikokun/bootstrap-notify",
+  "_release": "1.0.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.0.0",
+    "commit": "7891e050b19aff975ecf07c5c0b486e492712160"
+  },
+  "_source": "git://github.com/Nijikokun/bootstrap-notify.git",
+  "_target": "~1.0.0",
+  "_originalSource": "bootstrap.notify",
+  "_direct": true
+}

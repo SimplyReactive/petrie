@@ -1,8 +1,10 @@
 @function twbs-font-path($path) {
+  @return "/fonts/" + $path;
   @return font-url($path, true);
 }
 
 @function twbs-image-path($path) {
+  @return "/images/" + $path;
   @return image-url($path, true);
 }
 

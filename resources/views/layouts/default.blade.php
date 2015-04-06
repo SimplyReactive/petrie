@@ -29,6 +29,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="{{ route('examples') }}">Examples</a></li>
                 <li><a href="{{ route('about') }}">About</a></li>
                 <li class="dropdown">
                     <a href="#!" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
@@ -61,10 +62,6 @@
 
 <script src="{{ asset('js/vendor.js') }}"></script>
 <script src="{{ elixir('js/custom.js') }}"></script>
-<script>
-$(document).ready(function() {
-    $('.dropdown-toggle').dropdown()
-});
-</script>
+@yield('script')
 </body>
 </html>
