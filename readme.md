@@ -19,7 +19,7 @@ Documentation for Bootstrap can be found on the [Bootstrap website](http://getbo
 
 ## Contributing
 
-To contribute, please fork the project to a new branch, make whatever changes you want and then submit a pull request.
+To contribute, create a new branch, make whatever changes you want and then submit a pull request.
 
 ### License
 
