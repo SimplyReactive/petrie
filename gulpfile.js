@@ -19,7 +19,7 @@ var paths = {
     'jqueryui'      : bowerDir + 'jquery-ui/',
     'bootstrap'     : bowerDir + 'bootstrap-sass-official/assets/',
     // Bootstrap addons
-    'xeditable'     : bowerDir + 'x-editable/',                                 // Inline editing of elements
+    'xeditable'     : bowerDir + 'x-editable/dist/bootstrap3-editable',         // Inline editing of elements
     'typeahead'     : bowerDir + 'typeahead.js/',                               // Autosuggest with look ahead
     'tokenfield'    : bowerDir + 'bootstrap-tokenfield/',                       // Tagging/Tokenizing
     'notify'        : bowerDir + 'bootstrap.notify/',                           // Notifications
