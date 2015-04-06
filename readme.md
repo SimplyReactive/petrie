@@ -23,4 +23,4 @@ To contribute, create a new branch, make whatever changes you want and then subm
 
 ### License
 
-Both Laravel and Materialize are open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Both Laravel and Bootstrap are open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
