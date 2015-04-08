@@ -63,6 +63,7 @@ p {
   border-radius: 0px;
 }
 
+// TODO: Convert from 'i' to 'span'
 .navbar-side .nav > li > a > i {
   color: #39C6F0;
   background: rgba(255, 255, 255, 0.09);
@@ -458,6 +459,8 @@ ul.nav.nav-second-level.collapse.in {
 .top-navbar {
   background: #39C6F0;
   border-bottom: none;
+
+  // TODO: Convert from 'i' to 'span'
   .nav > li > a > i {
     margin-right: 2px;
   }
@@ -488,6 +491,7 @@ ul.nav.nav-second-level.collapse.in {
   }
 }
 
+// TODO: Convert from 'i' to 'span'
 .nav > li > a > i {
   margin-right: 10px;
   color: #FFFFFF;
