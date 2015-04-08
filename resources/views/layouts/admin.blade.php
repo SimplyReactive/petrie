@@ -567,13 +567,18 @@
                 </div>
             </div>
             <!-- /. ROW  -->
-            <footer><p>All right reserved. Template by: <a href="http://webthemez.com">WebThemez</a></p></footer>
         </div>
         <!-- /. PAGE INNER  -->
     </div>
     <!-- /. PAGE WRAPPER  -->
 </div>
 <!-- /. WRAPPER  -->
+
+<footer class="footer">
+    <div class="container">
+        <p class="text-muted">Copyright &copy; 2015 <a href="#!">Simply Reactive</a>.</p>
+    </div>
+</footer>
 
 </body>
 <script src="{{ elixir('js/vendor.js') }}"></script>

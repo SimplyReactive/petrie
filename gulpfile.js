@@ -1,6 +1,10 @@
+var elixir = require('laravel-elixir');
 var gulp = require('gulp');
 var shell = require('gulp-shell');
-var elixir = require('laravel-elixir');
+var sass = require('gulp-ruby-sass');
+var foreach = require('gulp-foreach');
+var sourcemaps = require('gulp-sourcemaps');
+var chalk = require('chalk');
 
 /*
  |--------------------------------------------------------------------------
@@ -15,7 +19,12 @@ var elixir = require('laravel-elixir');
 
 var bowerDir = './resources/vendor/bower_components/';
 var assetsDir = './resources/assets/';
-
+var config = {
+    'sass': {
+        'sourcemap'     : true,
+        'lineNumbers'   : true
+    }
+}
 var paths = {
     'jquery'            : bowerDir + 'jquery/',
     'jqueryui'          : bowerDir + 'jquery-ui/',
@@ -34,20 +43,49 @@ var paths = {
         'js'            : assetsDir + 'javascripts/',
         'adminjs'       : assetsDir + 'javascripts/admin/'
     },
-    'fonts'             : './public/fonts/'
+    'fonts'             : './public/fonts/',
+    'css'               : './public/css/',
+    'javascripts'       : './public/js/'
 };
 
-elixir.extend("echo", function(message) {
-    gulp.task("echo", function () {
-        gulp.src("").pipe(shell('echo [ECHO] \033[01;32m'+message));
+elixir.extend('printer', function(message) {
+    gulp.task('printer', function() {
+        console.error(chalk.white('[') + chalk.bold.cyan('PRNTR') + chalk.white('] ') + chalk.green(message));
     });
-    return this.queueTask("echo");
+    return this.queueTask('printer');
+});
+
+elixir.extend('l5sass', function() {
+    gulp.task('style', function() {
+        return sass(assetsDir + '/sass/style.scss', {
+            sourcemap: config.sass.sourcemap,
+            lineNumbers: config.sass.lineNumbers,
+            container: 'gulp-ruby-sass-style' })
+            .on('error', function(err) { console.error('Error', err.message); })
+            .pipe(sourcemaps.write('./', {
+                includeContent: true,
+                sourceRoot: paths.css
+            }))
+            .pipe(gulp.dest(paths.css));
+    });
+    gulp.task('admin', function() {
+        return sass(assetsDir + '/sass/admin.scss', {
+            sourcemap: config.sass.sourcemap,
+            lineNumbers: config.sass.lineNumbers,
+            container: 'gulp-ruby-sass-admin' })
+            .on('error', function(err) { console.error('Error', err.message); })
+            .pipe(sourcemaps.write('./', {
+                includeContent: true,
+                sourceRoot: paths.css
+            }))
+            .pipe(gulp.dest(paths.css));
+    });
+    gulp.task('l5sass', ['admin', 'style']);
+    return this.queueTask('l5sass');
 });
 
 elixir(function(mix) {
-    mix.sass([
-        'style.scss',                                                           // Compile the main SASS
-        'admin.scss'])                                                          // Compile the ACP SASS
+    mix.l5sass()
         .coffee()                                                               // Compile the CoffeeScript
         .scripts([                                                              // Concatenate the vendor javascripts
             paths.jquery            + 'dist/jquery.min.js',                     // - jquery
