@@ -64,7 +64,7 @@ p {
 }
 
 // TODO: Convert from 'i' to 'span'
-.navbar-side .nav > li > a > i {
+.navbar-side .nav > li > a > i, .navbar-side .nav > li > a > span {
   color: #39C6F0;
   background: rgba(255, 255, 255, 0.09);
   padding: 8px;
@@ -461,7 +461,7 @@ ul.nav.nav-second-level.collapse.in {
   border-bottom: none;
 
   // TODO: Convert from 'i' to 'span'
-  .nav > li > a > i {
+  .nav > li > a > i, .nav > li > a > span {
     margin-right: 2px;
   }
   .navbar-brand:hover {
@@ -492,7 +492,7 @@ ul.nav.nav-second-level.collapse.in {
 }
 
 // TODO: Convert from 'i' to 'span'
-.nav > li > a > i {
+.nav > li > a > i, .nav > li > a > span {
   margin-right: 10px;
   color: #FFFFFF;
 }

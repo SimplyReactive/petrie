@@ -30,7 +30,7 @@
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <i class="fa fa-envelope fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    <span class="fa fa-envelope fa-fw"></span> <span class="fa fa-caret-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-messages">
                     <li>
@@ -72,7 +72,7 @@
                     <li>
                         <a class="text-center" href="#">
                             <strong>Read All Messages</strong>
-                            <i class="fa fa-angle-right"></i>
+                            <span class="fa fa-angle-right"></span>
                         </a>
                     </li>
                 </ul>
@@ -81,7 +81,7 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <i class="fa fa-tasks fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    <span class="fa fa-tasks fa-fw"></span> <span class="fa fa-caret-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-tasks">
                     <li>
@@ -151,7 +151,7 @@
                     <li>
                         <a class="text-center" href="#">
                             <strong>See All Tasks</strong>
-                            <i class="fa fa-angle-right"></i>
+                            <span class="fa fa-angle-right"></span>
                         </a>
                     </li>
                 </ul>
@@ -160,13 +160,13 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    <span class="fa fa-bell fa-fw"></span> <span class="fa fa-caret-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-alerts">
                     <li>
                         <a href="#">
                             <div>
-                                <i class="fa fa-comment fa-fw"></i> New Comment
+                                <span class="fa fa-comment fa-fw"></span> New Comment
                                 <span class="pull-right text-muted small">4 min</span>
                             </div>
                         </a>
@@ -175,7 +175,7 @@
                     <li>
                         <a href="#">
                             <div>
-                                <i class="fa fa-twitter fa-fw"></i> 3 New Followers
+                                <span class="fa fa-twitter fa-fw"></span> 3 New Followers
                                 <span class="pull-right text-muted small">12 min</span>
                             </div>
                         </a>
@@ -184,7 +184,7 @@
                     <li>
                         <a href="#">
                             <div>
-                                <i class="fa fa-envelope fa-fw"></i> Message Sent
+                                <span class="fa fa-envelope fa-fw"></span> Message Sent
                                 <span class="pull-right text-muted small">4 min</span>
                             </div>
                         </a>
@@ -193,7 +193,7 @@
                     <li>
                         <a href="#">
                             <div>
-                                <i class="fa fa-tasks fa-fw"></i> New Task
+                                <span class="fa fa-tasks fa-fw"></span> New Task
                                 <span class="pull-right text-muted small">4 min</span>
                             </div>
                         </a>
@@ -202,7 +202,7 @@
                     <li>
                         <a href="#">
                             <div>
-                                <i class="fa fa-upload fa-fw"></i> Server Rebooted
+                                <span class="fa fa-upload fa-fw"></span> Server Rebooted
                                 <span class="pull-right text-muted small">4 min</span>
                             </div>
                         </a>
@@ -211,7 +211,7 @@
                     <li>
                         <a class="text-center" href="#">
                             <strong>See All Alerts</strong>
-                            <i class="fa fa-angle-right"></i>
+                            <span class="fa fa-angle-right"></span>
                         </a>
                     </li>
                 </ul>
@@ -220,13 +220,13 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+                    <span class="fa fa-user fa-fw"></span> <span class="fa fa-caret-down"></span>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
-                    <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a></li>
-                    <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a></li>
+                    <li><a href="#"><span class="fa fa-user fa-fw"></span> User Profile</a></li>
+                    <li><a href="#"><span class="fa fa-gear fa-fw"></span> Settings</a></li>
                     <li class="divider"></li>
-                    <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a></li>
+                    <li><a href="#"><span class="fa fa-sign-out fa-fw"></span> Logout</a></li>
                 </ul>
                 <!-- /.dropdown-user -->
             </li>
@@ -237,14 +237,14 @@
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
-                <li><a class="active-menu" href="#!"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-                <li><a href="#!"><i class="fa fa-desktop"></i> UI Elements</a></li>
-                <li><a href="#!"><i class="fa fa-bar-chart-o"></i> Charts</a></li>
-                <li><a href="#!"><i class="fa fa-qrcode"></i> Tabs & Panels</a></li>
-                <li><a href="#!"><i class="fa fa-table"></i> Responsive Tables</a></li>
-                <li><a href="#!"><i class="fa fa-edit"></i> Forms </a></li>
+                <li><a class="active-menu" href="#!"><span class="fa fa-dashboard"></span> Dashboard</a></li>
+                <li><a href="#!"><span class="fa fa-desktop"></span> UI Elements</a></li>
+                <li><a href="#!"><span class="fa fa-bar-chart-o"></span> Charts</a></li>
+                <li><a href="#!"><span class="fa fa-qrcode"></span> Tabs & Panels</a></li>
+                <li><a href="#!"><span class="fa fa-table"></span> Responsive Tables</a></li>
+                <li><a href="#!"><span class="fa fa-edit"></span> Forms </a></li>
                 <li>
-                    <a href="#"><i class="fa fa-sitemap"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                    <a href="#"><span class="fa fa-sitemap"></span> Multi-Level Dropdown<span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li><a href="#">Second Level Link</a></li>
                         <li><a href="#">Second Level Link</a></li>
@@ -257,7 +257,7 @@
                         </li>
                     </ul>
                 </li>
-                <li><a href="#!"><i class="fa fa-fw fa-file"></i> Empty Page</a></li>
+                <li><a href="#!"><span class="fa fa-fw fa-file"></span> Empty Page</a></li>
             </ul>
         </div>
     </nav>
@@ -286,7 +286,7 @@
                 <div class="col-md-3 col-sm-12 col-xs-12">
                     <div class="panel panel-primary text-center no-boder bg-color-green">
                         <div class="panel-left pull-left green">
-                            <i class="fa fa-bar-chart-o fa-5x"></i>
+                            <span class="fa fa-bar-chart-o fa-5x"></span>
 
                         </div>
                         <div class="panel-right pull-right">
@@ -298,7 +298,7 @@
                 <div class="col-md-3 col-sm-12 col-xs-12">
                     <div class="panel panel-primary text-center no-boder bg-color-blue">
                         <div class="panel-left pull-left blue">
-                            <i class="fa fa-shopping-cart fa-5x"></i>
+                            <span class="fa fa-shopping-cart fa-5x"></span>
                         </div>
 
                         <div class="panel-right pull-right">
@@ -311,7 +311,7 @@
                 <div class="col-md-3 col-sm-12 col-xs-12">
                     <div class="panel panel-primary text-center no-boder bg-color-red">
                         <div class="panel-left pull-left red">
-                            <i class="fa fa fa-comments fa-5x"></i>
+                            <span class="fa fa fa-comments fa-5x"></span>
 
                         </div>
                         <div class="panel-right pull-right">
@@ -324,7 +324,7 @@
                 <div class="col-md-3 col-sm-12 col-xs-12">
                     <div class="panel panel-primary text-center no-boder bg-color-brown">
                         <div class="panel-left pull-left brown">
-                            <i class="fa fa-users fa-5x"></i>
+                            <span class="fa fa-users fa-5x"></span>
 
                         </div>
                         <div class="panel-right pull-right">
@@ -430,31 +430,31 @@
 
                                 <a href="#" class="list-group-item">
                                     <span class="badge">7 minutes ago</span>
-                                    <i class="fa fa-fw fa-comment"></i> Commented on a post
+                                    <span class="fa fa-fw fa-comment"></span> Commented on a post
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <span class="badge">16 minutes ago</span>
-                                    <i class="fa fa-fw fa-truck"></i> Order 392 shipped
+                                    <span class="fa fa-fw fa-truck"></span> Order 392 shipped
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <span class="badge">36 minutes ago</span>
-                                    <i class="fa fa-fw fa-globe"></i> Invoice 653 has paid
+                                    <span class="fa fa-fw fa-globe"></span> Invoice 653 has paid
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <span class="badge">1 hour ago</span>
-                                    <i class="fa fa-fw fa-user"></i> A new user has been added
+                                    <span class="fa fa-fw fa-user"></span> A new user has been added
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <span class="badge">1.23 hour ago</span>
-                                    <i class="fa fa-fw fa-user"></i> A new user has added
+                                    <span class="fa fa-fw fa-user"></span> A new user has added
                                 </a>
                                 <a href="#" class="list-group-item">
                                     <span class="badge">yesterday</span>
-                                    <i class="fa fa-fw fa-globe"></i> Saved the world
+                                    <span class="fa fa-fw fa-globe"></span> Saved the world
                                 </a>
                             </div>
                             <div class="text-right">
-                                <a href="#">More Tasks <i class="fa fa-arrow-circle-right"></i></a>
+                                <a href="#">More Tasks <span class="fa fa-arrow-circle-right"></span></a>
                             </div>
                         </div>
                     </div>
