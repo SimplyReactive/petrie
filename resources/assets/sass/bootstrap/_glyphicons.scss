@@ -31,6 +31,26 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.gi-xs {
+  font-size: $font-size-xsmall;
+}
+.gi-sm {
+  font-size: $font-size-small;
+}
+
+.gi-2x {
+  font-size: 5em;
+}
+.gi-3x {
+  font-size: 3em;
+}
+.gi-4x {
+  font-size: 4em;
+}
+.gi-5x {
+  font-size: 5em;
+}
+
 // Individual icons
 .glyphicon-asterisk               { &:before { content: "\2a"; } }
 .glyphicon-plus                   { &:before { content: "\2b"; } }

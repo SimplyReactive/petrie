@@ -22,6 +22,8 @@
     "remarkable-bootstrap-notify": "*",
     "x-editable": "*",
     "typeahead.js": "*",
-    "animate.css": "*"
+    "animate.css": "*",
+    "owl.carousel": "*",
+    "bootstrap-table": "*"
   }
 }

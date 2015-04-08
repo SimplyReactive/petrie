@@ -149,6 +149,7 @@ return [
          * Custom Service Providers...
          */
         'Zizaco\Entrust\EntrustServiceProvider',
+        'Illuminate\Html\HtmlServiceProvider',
 
 	],
 
@@ -199,6 +200,7 @@ return [
 		'View'          => 'Illuminate\Support\Facades\View',
 
         'Entrust'       => 'Zizaco\Entrust\EntrustFacade',
+        'Form'          => 'Illuminate\Html\FormFacade',
+        'HTML'          => 'Illuminate\Html\HtmlFacade',
 	],
-
 ];

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,6 +10,7 @@
     <title>L5Boot</title>
 
     <link href="{{ elixir('css/style.css') }}" rel="stylesheet">
+@yield('style')
 </head>
 
 <body>
@@ -60,7 +60,7 @@
 </footer>
 
 
-<script src="{{ asset('js/vendor.js') }}"></script>
+<script src="{{ elixir('js/vendor.js') }}"></script>
 <script src="{{ elixir('js/custom.js') }}"></script>
 @yield('script')
 </body>

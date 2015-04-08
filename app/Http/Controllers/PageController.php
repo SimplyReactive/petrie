@@ -33,13 +33,23 @@ class PageController extends Controller {
         return view('about');
     }
 
-    /**
-     * Display the theme page
-     *
-     * @return Response
-     */
-    public function examples()
-    {
-        return view('examples');
-    }
+	/**
+	 * Display the theme page
+	 *
+	 * @return Response
+	 */
+	public function examples()
+	{
+		return view('examples');
+	}
+
+	/**
+	 * Display the theme page
+	 *
+	 * @return Response
+	 */
+	public function admin()
+	{
+		return view('admin.index');
+	}
 }

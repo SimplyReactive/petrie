@@ -1,8 +1,20 @@
 @extends('layouts.default')
 
+@section('style')
+<style>
+    div.page-header:nth-child(n+2) {
+        padding-top: 50px;
+    }
+</style>
+@endsection
+
 @section('content')
-    <div class="page-header">
+    <div class="page-header" id="buttons">
         <h1>Buttons</h1>
+        <button type="button" class="btn btn-xs btn-default" data-gist="45e83a87cf59155db51d">Show code sample</button>
+    </div>
+    <div class="gist hidden" id="45e83a87cf59155db51d">
+        <script src="https://gist.github.com/atroxmavenia/45e83a87cf59155db51d.js"></script>
     </div>
     <p>
         <button type="button" class="btn btn-lg btn-brand">Brand</button>
@@ -35,7 +47,6 @@
         <button type="button" class="btn btn-sm btn-link">Link</button>
     </p>
     <p>
-        <button type="button" class="btn btn-xs btn-tina">Tina</button>
         <button type="button" class="btn btn-xs btn-brand">Brand</button>
         <button type="button" class="btn btn-xs btn-default">Default</button>
         <button type="button" class="btn btn-xs btn-primary">Primary</button>
@@ -47,53 +58,57 @@
     </p>
 
 
-    <div class="page-header">
+    <div class="page-header" id="standardForm">
         <h1>Standard Form</h1>
     </div>
-    <form nosubmit>
-        <div class="form-group">
-            <div class="row">
-                <div class="col-sm-8">
-                    <label class="control-label" for="inputExample">Input Example</label>
-                    <input class="form-control" name="inputExample" type="text" />
-                    <p class="help-block">Input Example help text</p>
-                </div>
-                <div class="col-sm-4 selectContainer">
-                    <label class="control-label" for="selectExample">Select Example</label>
-                    <select class="form-control" name="selectExample">
-                        <option value="">Choose an option</option>
-                        <option value="">Option One</option>
-                        <option value="">Option Two</option>
-                        <option value="">Option Three</option>
-                        <option value="">Option Four</option>
-                    </select>
+    {!! Form::open(['nosubmit']) !!}
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-sm-8">
+                        <label class="control-label" for="inputExample">Input Example</label>
+                        <input class="form-control" name="inputExample" type="text" />
+                        <p class="help-block">Input Example help text</p>
+                    </div>
+                    <div class="col-sm-4 selectContainer">
+                        <label class="control-label" for="selectExample">Select Example</label>
+                        <select class="form-control" name="selectExample">
+                            <option value="">Choose an option</option>
+                            <option value="">Option One</option>
+                            <option value="">Option Two</option>
+                            <option value="">Option Three</option>
+                            <option value="">Option Four</option>
+                        </select>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="form-group">
-            <label class="control-label" for="textareaExample">Textarea Example</label>
-            <textarea class="form-control" name="textareaExample" rows="8"></textarea>
-            <p class="help-block">Textarea Example help text</p>
-        </div>
-        <div class="form-group">
-            <label class="control-label">Radio Example</label>
-            <div>
-                <label class="radio-inline">
-                    <input name="radioExample" value="terrible" type="radio" /> Radio One
-                </label>
-                <label class="radio-inline">
-                    <input name="radioExample" value="watchable" type="radio" /> Radio Two
-                </label>
-                <label class="radio-inline">
-                    <input name="radioExample" value="best" type="radio" /> Radio Three
-                </label>
+            <div class="form-group">
+                <label class="control-label" for="textareaExample">Textarea Example</label>
+                <textarea class="form-control" name="textareaExample" rows="8"></textarea>
+                <p class="help-block">Textarea Example help text</p>
             </div>
+            <div class="form-group">
+                <label class="control-label">Radio Example</label>
+                <div>
+                    <label class="radio-inline">
+                        <input name="radioExample" value="terrible" type="radio" /> Radio One
+                    </label>
+                    <label class="radio-inline">
+                        <input name="radioExample" value="watchable" type="radio" /> Radio Two
+                    </label>
+                    <label class="radio-inline">
+                        <input name="radioExample" value="best" type="radio" /> Radio Three
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
         </div>
-        <button type="submit" class="btn btn-default">Validate</button>
-    </form>
+    </div>
+    {!! Form::close() !!}
 
 
-    <div class="page-header">
+    <div class="page-header" id="inlineForm">
         <h1>Inline Form</h1>
     </div>
     <form class="form-inline">
@@ -109,7 +124,7 @@
     </form>
 
 
-    <div class="page-header">
+    <div class="page-header" id="horizontalForm">
         <h1>Horizontal Form</h1>
     </div>
     <form class="form-horizontal" nosubmit>
@@ -142,7 +157,7 @@
     </form>
 
 
-    <div class="page-header">
+    <div class="page-header" id="tables">
         <h1>Tables</h1>
     </div>
     <div class="row">
@@ -283,7 +298,7 @@
     </div>
 
 
-    <div class="page-header">
+    <div class="page-header" id="labels">
         <h1>Labels</h1>
     </div>
     <h1>
@@ -344,7 +359,7 @@
     </p>
 
 
-    <div class="page-header">
+    <div class="page-header" id="badges">
         <h1>Badges</h1>
     </div>
     <p>
@@ -357,7 +372,7 @@
     </ul>
 
 
-    <div class="page-header">
+    <div class="page-header" id="dropdownMenus">
         <h1>Dropdown menus</h1>
     </div>
     <div class="dropdown">
@@ -386,7 +401,7 @@
     </div>
 
 
-    <div class="page-header">
+    <div class="page-header" id="navs">
         <h1>Navs</h1>
     </div>
     <ul class="nav nav-tabs" role="tablist">
@@ -401,10 +416,9 @@
     </ul>
 
 
-    <div class="page-header">
+    <div class="page-header" id="navBars">
         <h1>Navbars</h1>
     </div>
-
     <nav class="navbar navbar-default">
         <div class="container">
             <div class="navbar-header">
@@ -437,7 +451,6 @@
             </div><!--/.nav-collapse -->
         </div>
     </nav>
-
     <nav class="navbar navbar-inverse">
         <div class="container">
             <div class="navbar-header">
@@ -472,7 +485,7 @@
     </nav>
 
 
-    <div class="page-header">
+    <div class="page-header" id="alerts">
         <h1>Alerts</h1>
     </div>
     <div class="alert alert-success" role="alert">
@@ -489,7 +502,7 @@
     </div>
 
 
-    <div class="page-header">
+    <div class="page-header" id="progressBars">
         <h1>Progress bars</h1>
     </div>
     <div class="progress">
@@ -520,7 +533,7 @@
     </div>
 
 
-    <div class="page-header">
+    <div class="page-header" id="listGroups">
         <h1>List groups</h1>
     </div>
     <div class="row">
@@ -563,7 +576,7 @@
     </div>
 
 
-    <div class="page-header">
+    <div class="page-header" id="panels">
         <h1>Panels</h1>
     </div>
     <div class="row">
@@ -624,7 +637,7 @@
     </div>
 
 
-    <div class="page-header">
+    <div class="page-header" id="wells">
         <h1>Wells</h1>
     </div>
     <div class="well">
@@ -632,7 +645,7 @@
     </div>
 
 
-    <div class="page-header">
+    <div class="page-header" id="thumbNails">
         <h1>Thumbnails</h1>
     </div>
     <img data-src="holder.js/200x200/random/auto" class="img-thumbnail" />
@@ -647,8 +660,8 @@
     <img data-src="holder.js/200x200/random/auto" class="img-thumbnail img-circle" />
 
 
-    <div class="page-header">
-        <h1>Carousel</h1>
+    <div class="page-header" id="bootstrapCarousel">
+        <h1>Bootstrap Carousel</h1>
     </div>
     <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
@@ -686,7 +699,37 @@
     </div>
 
 
-    <div class="page-header">
+    <div class="page-header" id="owlCarouselStandard">
+        <h1>Owl Carousel (Standard) <small><a href="http://owlgraphic.com/owlcarousel/" target="_blank">http://owlgraphic.com/owlcarousel</a></small></h1>
+        <button type="button" class="btn btn-xs btn-default" data-gist="ace83c433a546d8ad2a5">Show code sample</button>
+    </div>
+    <div class="gist hidden" id="ace83c433a546d8ad2a5">
+        <script src="https://gist.github.com/atroxmavenia/ace83c433a546d8ad2a5.js"></script>
+    </div>
+    <div class="owl-carousel" style="max-width:100%;overflow:hidden;">
+        <div><img class="img-responsive" data-src="holder.js/1140x500/auto/#00aeef:#FFFFFF/text:First slide" alt="First slide"></div>
+        <div><img class="img-responsive" data-src="holder.js/1140x500/auto/#ef9d00:#ffe1a9/text:Second slide" alt="Second slide"></div>
+        <div><img class="img-responsive" data-src="holder.js/1140x500/auto/#0027ef:#92a4ff/text:Third slide" alt="Third slide"></div>
+        <div><img class="img-responsive" data-src="holder.js/1140x500/auto/#006227:#58f095/text:Fourth slide" alt="Fourth slide"></div>
+        <div><img class="img-responsive" data-src="holder.js/1140x500/auto/#720000:#d4a2a2/text:Fifth slide" alt="Fifth slide"></div>
+    </div>
+
+
+</div>
+    <div class="page-header" id="owlCarouselFull">
+        <h1>Owl Carousel (Full) <small><a href="http://owlgraphic.com/owlcarousel/" target="_blank">http://owlgraphic.com/owlcarousel</a></small></h1>
+    </div>
+    <div class="owl-carousel" style="max-width:100%;overflow:hidden;">
+        <div><img class="img-responsive" data-src="holder.js/1940x500/auto/#00aeef:#FFFFFF/text:First slide" alt="First slide"></div>
+        <div><img class="img-responsive" data-src="holder.js/1940x500/auto/#ef9d00:#ffe1a9/text:Second slide" alt="Second slide"></div>
+        <div><img class="img-responsive" data-src="holder.js/1940x500/auto/#0027ef:#92a4ff/text:Third slide" alt="Third slide"></div>
+        <div><img class="img-responsive" data-src="holder.js/1940x500/auto/#006227:#58f095/text:Fourth slide" alt="Fourth slide"></div>
+        <div><img class="img-responsive" data-src="holder.js/1940x500/auto/#720000:#d4a2a2/text:Fifth slide" alt="Fifth slide"></div>
+    </div>
+<div class="container">
+
+
+    <div class="page-header" id="typeahead">
         <h1>Twitter typeahead.js and Bloodhound <small><a href="http://twitter.github.io/typeahead.js/" target="_blank">http://twitter.github.io/typeahead.js/</a></small></h1>
     </div>
     <div id="form-group">
@@ -694,44 +737,112 @@
     </div>
 
 
-    <div class="page-header">
+    <div class="page-header" id="editables">
         <h1>Editables <small><a href="http://vitalets.github.io/x-editable" target="_blank">http://vitalets.github.io/x-editable</a></small></h1>
     </div>
-    <table id="user" class="table table-bordered table-striped" style="clear: both">
+    <table class="table table-bordered table-striped table-responsive">
         <tbody>
         <tr>
-            <td width="35%">Simple text field</td>
-            <td width="65%"><a href="#" class="xeditable" id="username" data-type="text" data-pk="1" data-title="Enter username">superuser</a></td>
+            <td>Simple text field</td>
+            <td><a href="#!" class="xeditable" data-type="text" data-title="Enter username">superuser</a></td>
         </tr>
         <tr>
             <td>Empty text field, required</td>
-            <td><a href="#" class="xeditable-required" id="firstname" data-type="text" data-pk="1" data-placement="right" data-placeholder="Required" data-title="Enter your firstname"></a></td>
+            <td><a href="#!" class="xeditable-required" data-type="text" data-placement="right" data-placeholder="Required" data-title="Enter your firstname"></a></td>
         </tr>
         <tr>
             <td>Select, local array, custom display</td>
-            <td><a href="#" id="select-editable" data-type="select" data-pk="1" data-value="" data-title="Select sex"></a></td>
+            <td><a href="#!" id="select-editable" data-type="select" data-pk="1" data-value="" data-title="Select sex"></a></td>
         </tr>
         </tbody>
     </table>
 
 
-    <div class="page-header">
+    <div class="page-header" id="tokenfield">
         <h1>Tokenfield <small><a href="http://sliptree.github.io/bootstrap-tokenfield" target="_blank">http://sliptree.github.io/bootstrap-tokenfield</a></small></h1>
     </div>
     <input type="text" class="form-control" id="tokenfield-typeahead" value="red,green,blue" />
 
 
-    <div class="page-header">
+    <div class="page-header" id="notify">
         <h1>Bootstrap Notify <small><a href="http://bootstrap-growl.remabledesigns.com" target="_blank">http://bootstrap-growl.remabledesigns.com</a></small></h1>
+        <button type="button" class="btn btn-xs btn-default" data-gist="450c0e7704e9edc1486b">Show code sample</button>
     </div>
+    <div class="gist hidden" id="450c0e7704e9edc1486b">
+        <script src="https://gist.github.com/atroxmavenia/450c0e7704e9edc1486b.js"></script>
+    </div>
+    <button class="btn btn-success" type="button" data-type="growl" data-style="success"
+            data-title="Sample" data-message="An example of a growl-like notification.">Trigger Notification</button>
+    <button class="btn btn-info" type="button" data-type="growl" data-style="info"
+            data-title="Sample" data-message="An example of a growl-like notification.">Trigger Notification</button>
+    <button class="btn btn-warning" type="button" data-type="growl" data-style="warning"
+            data-title="Sample" data-message="An example of a growl-like notification.">Trigger Notification</button>
+    <button class="btn btn-danger" type="button" data-type="growl" data-style="danger"
+            data-title="Sample" data-message="An example of a growl-like notification.">Trigger Notification</button>
+
+
+    <div class="page-header" id="bootstrapTables">
+        <h1>Bootstrap Tables <small><a href="http://bootstrap-table.wenzhixin.net.cn/" target="_blank">http://bootstrap-table.wenzhixin.net.cn</a></small></h1>
+        <button type="button" class="btn btn-xs btn-default" data-gist="756e70e4c64c504f3d9c">Show code sample</button>
+    </div>
+    <div class="gist hidden" id="756e70e4c64c504f3d9c">
+        <script src="https://gist.github.com/atroxmavenia/756e70e4c64c504f3d9c.js"></script>
+    </div>
+    <table data-toggle="table"
+           data-search="true"
+           data-show-refresh="true"
+           data-show-toggle="true"
+           data-show-columns="true"
+           data-show-export="true"
+           data-show-pagination-switch="true"
+           data-pagination="true"
+           data-show-footer="true"
+           data-url="/data/table-data.json">
+        <thead>
+        <tr>
+            <th data-sortable="true" data-field="name">Name</th>
+            <th data-sortable="true" data-field="employees">Employees</th>
+            <th data-field="phoneNumber">Phone Number</th>
+            <th data-field="street">Street Address</th>
+            <th data-sortable="true" data-field="city">City</th>
+            <th data-sortable="true" data-field="state">State</th>
+            <th data-sortable="true" data-field="description">Description</th>
+        </tr>
+        </thead>
+    </table>
 
 
     <br/><br/>
 @endsection
 
 @section('script')
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js?autoload=true"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/holder/2.5.2/holder.min.js"></script>
 <script>
+var animations = ["bounce", "flash", "pulse", "rubberBand", "shake", "swing", "tada", "wobble", "flip"];
+var entrances = [
+    "bounceIn", "bounceInDown", "bounceInLeft", "bounceInRight", "bounceInUp", "rollIn",
+    "fadeIn", "fadeInDown", "fadeInDownBig", "fadeInLeft", "fadeInLeftBig", "fadeInRight", "fadeInRightBig", "fadeInUp", "fadeInUpBig",
+    "flipInX", "flipInY", "lightSpeedIn", "rotateIn", "rotateInDownLeft", "rotateInDownRight", "rotateInUpLeft", "rotateInUpRight",
+    "slideInUp", "slideInDown", "slideInLeft", "slideInRight", "zoomIn", "zoomInDown", "zoomInLeft", "zoomInRight", "zoomInUp",
+];
+var exits = [
+    "bounceOut", "bounceOutDown", "bounceOutLeft", "bounceOutRight", "bounceOutUp", "rollOut",
+    "fadeOut", "fadeOutDown", "fadeOutDownBig", "fadeOutLeft", "fadeOutLeftBig", "fadeOutRight", "fadeOutRightBig", "fadeOutUp", "fadeOutUpBig",
+    "flipOutX", "flipOutY", "lightSpeedOut", "rotateOut", "rotateOutDownLeft", "rotateOutDownRight", "rotateOutUpLeft", "rotateOutUpRight",
+    "slideOutUp", "slideOutDown", "slideOutLeft", "slideOutRight", "zoomOut", "zoomOutDown", "zoomOutLeft", "zoomOutRight", "zoomOutUp",
+];
+function animateEl(el, anim, show) {
+    anim = exits[Math.floor(Math.random()*exits.length)];
+    if(show)
+        anim = entrances[Math.floor(Math.random()*entrances.length)];
+    el.removeClass().addClass(anim + ' animated').one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function(){
+        el.removeClass();
+        if(!show)
+            el.addClass('hidden');
+    });
+};
+
 $(document).ready(function(){
     // Disable form submits
     $('form').submit(function(e){
@@ -739,6 +850,26 @@ $(document).ready(function(){
             e.preventDefault();
             return false;
         }
+    });
+
+
+    $('[data-gist]').click(function(){
+        var gist = $('#'+$(this).data('gist'));
+        if(gist.is(':visible')) {
+            $(this).html('Show code sample');
+            animateEl(gist, 'flipOutX', false);
+        }
+        else {
+            $(this).html('Hide code sample');
+            animateEl(gist, 'flipInX', true);
+        }
+    });
+
+
+    $('.owl-carousel').owlCarousel({
+        items: 1,
+        loop: true,
+        autoplay: true
     });
 
     /*
@@ -811,11 +942,18 @@ $(document).ready(function(){
     /*
      * Bootstrap Notifications
      */
-    $.notify("Example growl-like bootstrap notification", {
-        animate: {
-            enter: 'animated flipInY',
-            exit: 'animated flipOutX'
-        }
+    $('[data-type=growl]').click(function(){
+        $.notify({
+            title: '<strong>'+ $(this).data('title') +'</strong>',
+            message: $(this).data('message')
+        }, {
+            type: $(this).data('style'),
+            newest_on_top: true,
+            animate: {
+                enter: 'animated flipInY',
+                exit: 'animated flipOutX'
+            }
+        });
     });
 });
 </script>
