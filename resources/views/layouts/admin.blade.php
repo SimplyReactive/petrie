@@ -30,7 +30,8 @@
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <span class="fa fa-envelope fa-fw"></span> <span class="fa fa-caret-down"></span>
+                    <svg class="icon icon-envelope icon-fw"><use xlink:href="#icon-envelope"></use></svg>
+                    <svg class="icon icon-caret-down"><use xlink:href="#icon-caret-down"></use></svg>
                 </a>
                 <ul class="dropdown-menu dropdown-messages">
                     <li>
@@ -81,7 +82,8 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <span class="fa fa-tasks fa-fw"></span> <span class="fa fa-caret-down"></span>
+                    <svg class="icon icon-tasks icon-fw"><use xlink:href="#icon-tasks"></use></svg>
+                    <svg class="icon icon-caret-down"><use xlink:href="#icon-caret-down"></use></svg>
                 </a>
                 <ul class="dropdown-menu dropdown-tasks">
                     <li>
@@ -160,7 +162,8 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <span class="fa fa-bell fa-fw"></span> <span class="fa fa-caret-down"></span>
+                    <svg class="icon icon-bell icon-fw"><use xlink:href="#icon-bell"></use></svg>
+                    <svg class="icon icon-caret-down"><use xlink:href="#icon-caret-down"></use></svg>
                 </a>
                 <ul class="dropdown-menu dropdown-alerts">
                     <li>
@@ -220,7 +223,8 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <span class="fa fa-user fa-fw"></span> <span class="fa fa-caret-down"></span>
+                    <svg class="icon icon-user icon-fw"><use xlink:href="#icon-user"></use></svg>
+                    <svg class="icon icon-caret-down"><use xlink:href="#icon-caret-down"></use></svg>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><span class="fa fa-user fa-fw"></span> User Profile</a></li>
@@ -546,6 +550,7 @@
 
 </body>
 <script src="{{ elixir('js/vendor.js') }}"></script>
+<script src="{{ elixir('js/custom.js') }}"></script>
 <script src="{{ elixir('js/admin.js') }}"></script>
 @yield('script')
 </body>

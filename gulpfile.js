@@ -5,6 +5,8 @@ var sass = require('gulp-ruby-sass');
 var foreach = require('gulp-foreach');
 var sourcemaps = require('gulp-sourcemaps');
 var chalk = require('chalk');
+var gutil = require('gulp-util');
+var dateformat = require('dateformat');
 
 /*
  |--------------------------------------------------------------------------
@@ -23,8 +25,9 @@ var config = {
     'sass': {
         'sourcemap'     : true,
         'lineNumbers'   : true
-    }
-}
+    },
+    'debug'             : true // Enabling this will expose the SASS in the browser development tools
+};
 var paths = {
     'jquery'            : bowerDir + 'jquery/',
     'jqueryui'          : bowerDir + 'jquery-ui/',
@@ -37,22 +40,31 @@ var paths = {
     'animate'           : bowerDir + 'animate.css/',                            // CSS Animations
     'owlcarousel'       : bowerDir + 'owl.carousel/',                           // CSS Animations
     'bootstraptable'    : bowerDir + 'bootstrap-table/',                        // Bootstrap Datatable
-    'modernizr'         : bowerDir + 'modernizr/',                              // Bootstrap Datatable
+    'modernizr'         : bowerDir + 'modernizr/',                              // Modernizr
     'fontawesome'       : bowerDir + 'fontawesome/',                            // Fontawesome
+    'underscore'        : bowerDir + 'underscore/',                             // Underscore
     'assets': {
         'js'            : assetsDir + 'javascripts/',
         'adminjs'       : assetsDir + 'javascripts/admin/'
     },
     'fonts'             : './public/fonts/',
     'css'               : './public/css/',
+    'sass'              : './resources/assets/sass/',
     'javascripts'       : './public/js/'
 };
 
-elixir.extend('printer', function(message) {
-    gulp.task('printer', function() {
-        console.error(chalk.white('[') + chalk.bold.cyan('PRNTR') + chalk.white('] ') + chalk.green(message));
+elixir.extend('prntr', function(message) {
+    gulp.task('prntr', function(e) {
+        var time = '['+chalk.grey(dateformat(new Date(), 'HH:MM:ss'))+']';
+        console.error(
+            time +
+            chalk.dim.bold.blue(' [' +
+                chalk.cyan.underline('PRNTR') +
+            '] ') +
+            chalk.green(message) +
+            chalk.white(''));
     });
-    return this.queueTask('printer');
+    return this.queueTask('prntr');
 });
 
 elixir.extend('l5sass', function() {
@@ -64,7 +76,7 @@ elixir.extend('l5sass', function() {
             .on('error', function(err) { console.error('Error', err.message); })
             .pipe(sourcemaps.write('./', {
                 includeContent: true,
-                sourceRoot: paths.css
+                sourceRoot: config.debug ? paths.sass : paths.css
             }))
             .pipe(gulp.dest(paths.css));
     });
@@ -76,7 +88,7 @@ elixir.extend('l5sass', function() {
             .on('error', function(err) { console.error('Error', err.message); })
             .pipe(sourcemaps.write('./', {
                 includeContent: true,
-                sourceRoot: paths.css
+                sourceRoot: config.debug ? paths.sass : paths.css
             }))
             .pipe(gulp.dest(paths.css));
     });
@@ -97,7 +109,8 @@ elixir(function(mix) {
             paths.notify            + 'dist/bootstrap-notify.min.js',           // - bootstrap notify
             paths.bootstraptable    + 'dist/bootstrap-table.min.js',            // - bootstrap datatables
             paths.owlcarousel       + 'dist/owl.carousel.min.js',               // - owl carousel
-            paths.modernizr         + 'modernizr.js'                            // - modernizr
+            paths.modernizr         + 'modernizr.js',                           // - modernizr
+            paths.underscore        + 'underscore.js'                           // - underscore
         ], 'public/js/vendor.js', bowerDir)
         .scripts([                                                              // Concatenate the admin javascripts
             paths.assets.adminjs + '*.js'
@@ -110,10 +123,12 @@ elixir(function(mix) {
             'public/js/custom.js',                                              // JS Version Control
             'public/css/admin.css',                                             // Admin CSS Version Control
             'public/js/admin.js',                                               // Admin JS Version Control
-            'public/js/vendor.js'                                               // Vendor JS Version Control
+            'public/js/vendor.js',                                              // Vendor JS Version Control
+            'public/images/svg/svgdefs.svg'                                     // SVGDefs Version Control
         ])
         .copy(paths.bootstrap + 'fonts/*', paths.fonts)                         // Copy bootstrap fonts from resources to public
         .copy(paths.fontawesome + 'fonts/*', paths.fonts + 'fontawesome/')      // Copy fontawesome fonts from resources to public
         .phpUnit()                                                              // Complete phpUnit testing
         .phpSpec();                                                             // Run phpSpec
+    mix.prntr('All tasks complete, cleaning up...');
 });

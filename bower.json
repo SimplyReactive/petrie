@@ -15,6 +15,7 @@
     "tests"
   ],
   "dependencies": {
+    "bootstrap": "*",
     "jquery": "*",
     "jquery-ui": "*",
     "bootstrap-sass-official": "*",
@@ -24,6 +25,7 @@
     "typeahead.js": "*",
     "animate.css": "*",
     "owl.carousel": "*",
-    "bootstrap-table": "*"
+    "bootstrap-table": "*",
+    "underscore": "*"
   }
 }
