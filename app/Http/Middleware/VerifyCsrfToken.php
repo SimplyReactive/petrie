@@ -1,4 +1,4 @@
-<?php namespace L5MatProto\Http\Middleware;
+<?php namespace L5Boot\Http\Middleware;
 
 use Closure;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;

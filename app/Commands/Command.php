@@ -1,4 +1,4 @@
-<?php namespace L5MatProto\Commands;
+<?php namespace L5Boot\Commands;
 
 abstract class Command {
 

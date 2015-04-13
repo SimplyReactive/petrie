@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: L5MatProto
-        psr4_prefix: L5MatProto
+        namespace: L5Boot
+        psr4_prefix: L5Boot
         src_path: app

@@ -1,4 +1,4 @@
-<?php namespace L5MatProto\Http;
+<?php namespace L5Boot\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -15,7 +15,7 @@ class Kernel extends HttpKernel {
 		'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
 		'Illuminate\Session\Middleware\StartSession',
 		'Illuminate\View\Middleware\ShareErrorsFromSession',
-		'L5MatProto\Http\Middleware\VerifyCsrfToken',
+		'L5Boot\Http\Middleware\VerifyCsrfToken',
 	];
 
 	/**
@@ -24,9 +24,9 @@ class Kernel extends HttpKernel {
 	 * @var array
 	 */
 	protected $routeMiddleware = [
-		'auth' => 'L5MatProto\Http\Middleware\Authenticate',
+		'auth' => 'L5Boot\Http\Middleware\Authenticate',
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
-		'guest' => 'L5MatProto\Http\Middleware\RedirectIfAuthenticated',
+		'guest' => 'L5Boot\Http\Middleware\RedirectIfAuthenticated',
 	];
 
 }

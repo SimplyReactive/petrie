@@ -1,4 +1,4 @@
-<?php namespace L5MatProto\Http\Controllers;
+<?php namespace L5Boot\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Routing\Controller as BaseController;

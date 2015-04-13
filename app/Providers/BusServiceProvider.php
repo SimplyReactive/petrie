@@ -1,4 +1,4 @@
-<?php namespace L5MatProto\Providers;
+<?php namespace L5Boot\Providers;
 
 use Illuminate\Bus\Dispatcher;
 use Illuminate\Support\ServiceProvider;
@@ -16,7 +16,7 @@ class BusServiceProvider extends ServiceProvider {
 		$dispatcher->mapUsing(function($command)
 		{
 			return Dispatcher::simpleMapping(
-				$command, 'L5MatProto\Commands', 'L5MatProto\Handlers\Commands'
+				$command, 'L5Boot\Commands', 'L5Boot\Handlers\Commands'
 			);
 		});
 	}

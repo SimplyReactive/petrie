@@ -19,7 +19,7 @@
 			"database"
 		],
 		"psr-4": {
-			"L5MatProto\\": "app/"
+			"L5Boot\\": "app/"
 		}
 	},
 	"autoload-dev": {

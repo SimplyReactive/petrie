@@ -139,11 +139,11 @@ return [
 		/*
 		 * Application Service Providers...
 		 */
-		'L5MatProto\Providers\AppServiceProvider',
-		'L5MatProto\Providers\BusServiceProvider',
-		'L5MatProto\Providers\ConfigServiceProvider',
-		'L5MatProto\Providers\EventServiceProvider',
-		'L5MatProto\Providers\RouteServiceProvider',
+		'L5Boot\Providers\AppServiceProvider',
+		'L5Boot\Providers\BusServiceProvider',
+		'L5Boot\Providers\ConfigServiceProvider',
+		'L5Boot\Providers\EventServiceProvider',
+		'L5Boot\Providers\RouteServiceProvider',
 
         /*
          * Custom Service Providers...

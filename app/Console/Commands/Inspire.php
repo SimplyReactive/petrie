@@ -1,4 +1,4 @@
-<?php namespace L5MatProto\Console\Commands;
+<?php namespace L5Boot\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

@@ -1,4 +1,4 @@
-<?php namespace L5MatProto\Providers;
+<?php namespace L5Boot\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider {
 	{
 		$this->app->bind(
 			'Illuminate\Contracts\Auth\Registrar',
-			'L5MatProto\Services\Registrar'
+			'L5Boot\Services\Registrar'
 		);
 	}
 

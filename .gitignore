@@ -1,8 +1,10 @@
+.env
 /vendor
 /node_modules
-.env
 /.idea
 /.sass-cache
 /public/build
 /public/css
 /public/js
+/public/images/svg
+/public/fonts

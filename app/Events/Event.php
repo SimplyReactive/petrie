@@ -1,4 +1,4 @@
-<?php namespace L5MatProto\Events;
+<?php namespace L5Boot\Events;
 
 abstract class Event {
 

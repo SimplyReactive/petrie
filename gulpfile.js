@@ -45,26 +45,28 @@ var paths = {
     'underscore'        : bowerDir + 'underscore/',                             // Underscore
     'assets': {
         'js'            : assetsDir + 'javascripts/',
-        'adminjs'       : assetsDir + 'javascripts/admin/'
+        'adminjs'       : assetsDir + 'javascripts/admin/',
+        'svg'           : assetsDir + 'svg/'
     },
     'fonts'             : './public/fonts/',
     'css'               : './public/css/',
     'sass'              : './resources/assets/sass/',
-    'javascripts'       : './public/js/'
+    'javascripts'       : './public/js/',
+    'svg'               : './public/images/svg/'
 };
 
-elixir.extend('prntr', function(message) {
-    gulp.task('prntr', function(e) {
+elixir.extend('l5say', function(message) {
+    gulp.task('l5say', function(e) {
         var time = '['+chalk.grey(dateformat(new Date(), 'HH:MM:ss'))+']';
         console.error(
             time +
             chalk.dim.bold.blue(' [' +
-                chalk.cyan.underline('PRNTR') +
+                chalk.cyan.underline('L5B3') +
             '] ') +
             chalk.green(message) +
             chalk.white(''));
     });
-    return this.queueTask('prntr');
+    return this.queueTask('l5say');
 });
 
 elixir.extend('l5sass', function() {
@@ -118,6 +120,9 @@ elixir(function(mix) {
         .scripts([                                                              // Concatenate the custom javascripts
             paths.assets.js + '*.js'
         ], 'public/js/custom.js', assetsDir)
+        .copy(paths.bootstrap + 'fonts/*', paths.fonts)                         // Copy bootstrap fonts from resources to public
+        .copy(paths.fontawesome + 'fonts/*', paths.fonts + 'fontawesome/')      // Copy fontawesome fonts from resources to public
+        .copy(paths.assets.svg + '*.*', paths.svg )                             // Copy the SVG assets to public
         .version([
             'public/css/style.css',                                             // CSS Version Control
             'public/js/custom.js',                                              // JS Version Control
@@ -126,9 +131,7 @@ elixir(function(mix) {
             'public/js/vendor.js',                                              // Vendor JS Version Control
             'public/images/svg/svgdefs.svg'                                     // SVGDefs Version Control
         ])
-        .copy(paths.bootstrap + 'fonts/*', paths.fonts)                         // Copy bootstrap fonts from resources to public
-        .copy(paths.fontawesome + 'fonts/*', paths.fonts + 'fontawesome/')      // Copy fontawesome fonts from resources to public
         .phpUnit()                                                              // Complete phpUnit testing
-        .phpSpec();                                                             // Run phpSpec
-    mix.prntr('All tasks complete, cleaning up...');
+        .phpSpec()                                                             // Run phpSpec
+        .l5say('All tasks complete, cleaning up...');
 });

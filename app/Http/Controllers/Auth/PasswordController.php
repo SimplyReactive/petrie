@@ -1,6 +1,6 @@
-<?php namespace L5MatProto\Http\Controllers\Auth;
+<?php namespace L5Boot\Http\Controllers\Auth;
 
-use L5MatProto\Http\Controllers\Controller;
+use L5Boot\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Foundation\Auth\ResetsPasswords;
