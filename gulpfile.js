@@ -55,8 +55,8 @@ var paths = {
     'svg'               : './public/images/svg/'
 };
 
-elixir.extend('l5say', function(message) {
-    gulp.task('l5say', function(e) {
+elixir.extend('say', function(message) {
+    gulp.task('say', function(e) {
         var time = '['+chalk.grey(dateformat(new Date(), 'HH:MM:ss'))+']';
         console.error(
             time +
@@ -66,10 +66,10 @@ elixir.extend('l5say', function(message) {
             chalk.green(message) +
             chalk.white(''));
     });
-    return this.queueTask('l5say');
+    return this.queueTask('say');
 });
 
-elixir.extend('l5sass', function() {
+elixir.extend('l5sass', function(mix) {
     gulp.task('style', function() {
         return sass(assetsDir + '/sass/style.scss', {
             sourcemap: config.sass.sourcemap,
@@ -133,5 +133,5 @@ elixir(function(mix) {
         ])
         .phpUnit()                                                              // Complete phpUnit testing
         .phpSpec()                                                             // Run phpSpec
-        .l5say('All tasks complete, cleaning up...');
+        .say('All tasks complete, cleaning up...');
 });

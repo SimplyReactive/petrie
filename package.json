@@ -1,6 +1,6 @@
 {
   "private": true,
-  "devDependencies": {
+  "dependencies": {
     "gulp": "*",
     "gulp-autoprefixer": "*",
     "gulp-sass": "^1.1.0",
@@ -11,6 +11,8 @@
     "gulp-util": "*",
     "chalk": "*",
     "dateformat": "*",
-    "laravel-elixir": "*"
+    "laravel-elixir": "*",
+    "through2": "*",
+    "xtend": "*"
   }
 }
