@@ -5,6 +5,9 @@
     div.page-header:nth-child(n+2) {
         padding-top: 50px;
     }
+    small {
+        word-wrap: break-word;
+    }
 </style>
 @endsection
 
@@ -802,9 +805,6 @@
         <tr>
             <th data-sortable="true" data-field="name">Name</th>
             <th data-sortable="true" data-field="employees">Employees</th>
-            <th data-field="phoneNumber">Phone Number</th>
-            <th data-field="street">Street Address</th>
-            <th data-sortable="true" data-field="city">City</th>
             <th data-sortable="true" data-field="state">State</th>
             <th data-sortable="true" data-field="description">Description</th>
         </tr>
@@ -1747,6 +1747,7 @@ $(document).ready(function(){
         autoplay: true
     });
 
+
     /*
      * X-Editable
      */
@@ -1769,6 +1770,7 @@ $(document).ready(function(){
         }
     });
 
+
     /*
      * Typeahead and Bloodhound with prefetch
      */
@@ -1783,17 +1785,14 @@ $(document).ready(function(){
             }
         }
     });
-    // kicks off the loading/processing of `local` and `prefetch`
+    // Initialize the processing of local and prefetch
     countries.initialize();
-    // passing in `null` for the `options` arguments will result in the default
-    // options being used
     $('#twtypeahead').typeahead(null, {
         hint: true,
         highlight: true,
         name: 'countries',
         displayKey: 'name',
-        // `ttAdapter` wraps the suggestion engine in an adapter that
-        // is compatible with the typeahead jQuery plugin
+        // `ttAdapter` wraps the suggestion engine in an adapter that is compatible with the Typeahead plugin
         source: countries.ttAdapter()
     });
 
@@ -1813,6 +1812,7 @@ $(document).ready(function(){
     $('#tokenfield-typeahead').tokenfield({
         typeahead: [null, { source: engine.ttAdapter() }]
     });
+
 
     /*
      * Bootstrap Notifications
