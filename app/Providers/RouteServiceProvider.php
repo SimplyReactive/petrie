@@ -1,4 +1,4 @@
-<?php namespace L5Boot\Providers;
+<?php namespace L5B3\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -12,7 +12,7 @@ class RouteServiceProvider extends ServiceProvider {
 	 *
 	 * @var string
 	 */
-	protected $namespace = 'L5Boot\Http\Controllers';
+	protected $namespace = 'L5B3\Http\Controllers';
 
 	/**
 	 * Define your route model bindings, pattern filters, etc.

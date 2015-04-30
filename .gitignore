@@ -6,5 +6,6 @@
 /public/build
 /public/css
 /public/js
-/public/images/svg
+/public/svg
 /public/fonts
+bower_components

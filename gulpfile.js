@@ -19,7 +19,8 @@ var dateformat = require('dateformat');
  |
  */
 
-var bowerDir = './resources/vendor/bower_components/';
+var bowerDir  = './bower_components/';
+var nodeDir   = './node_modules/';
 var assetsDir = './resources/assets/';
 var config = {
     'sass': {
@@ -52,7 +53,7 @@ var paths = {
     'css'               : './public/css/',
     'sass'              : './resources/assets/sass/',
     'javascripts'       : './public/js/',
-    'svg'               : './public/images/svg/'
+    'svg'               : './public/svg/'
 };
 
 elixir.extend('say', function(message) {
@@ -70,17 +71,25 @@ elixir.extend('say', function(message) {
 });
 
 elixir.extend('l5sass', function(mix) {
+    var Notification = require(nodeDir + 'laravel-elixir/ingredients/commands/Notification.js');
+    var notify = new Notification();
+
     gulp.task('style', function() {
         return sass(assetsDir + '/sass/style.scss', {
             sourcemap: config.sass.sourcemap,
             lineNumbers: config.sass.lineNumbers,
             container: 'gulp-ruby-sass-style' })
-            .on('error', function(err) { console.error('Error', err.message); })
+            .on('error', function(err) {
+                console.error('Error', err.message);
+                notify.forFailedTests(err, 'l5sass');
+                this.emit('end');
+            })
             .pipe(sourcemaps.write('./', {
                 includeContent: true,
                 sourceRoot: config.debug ? paths.sass : paths.css
             }))
-            .pipe(gulp.dest(paths.css));
+            .pipe(gulp.dest(paths.css))
+            .pipe(notify.forPassedTests('l5sass'));
     });
     gulp.task('admin', function() {
         return sass(assetsDir + '/sass/admin.scss', {
@@ -121,7 +130,7 @@ elixir(function(mix) {
             paths.assets.js + '*.js'
         ], 'public/js/custom.js', assetsDir)
         .copy(paths.bootstrap + 'fonts/*', paths.fonts)                         // Copy bootstrap fonts from resources to public
-        .copy(paths.fontawesome + 'fonts/*', paths.fonts + 'fontawesome/')      // Copy fontawesome fonts from resources to public
+        .copy(paths.fontawesome + 'fonts/*.*', paths.fonts + '/fontawesome')    // Copy fontawesome fonts from resources to public
         .copy(paths.assets.svg + '*.*', paths.svg )                             // Copy the SVG assets to public
         .version([
             'public/css/style.css',                                             // CSS Version Control
@@ -129,9 +138,24 @@ elixir(function(mix) {
             'public/css/admin.css',                                             // Admin CSS Version Control
             'public/js/admin.js',                                               // Admin JS Version Control
             'public/js/vendor.js',                                              // Vendor JS Version Control
-            'public/images/svg/svgdefs.svg'                                     // SVGDefs Version Control
+            'public/svg/svgdefs.svg'                                            // SVGDefs Version Control
         ])
         .phpUnit()                                                              // Complete phpUnit testing
-        .phpSpec()                                                             // Run phpSpec
+        .phpSpec()                                                              // Run phpSpec
         .say('All tasks complete, cleaning up...');
 });
+
+/*
+ * Troubleshooting problems with running Gulp
+ *
+ * .--------------------------------------------------------------------------------------------------------
+ * | TASK: phpUnit()
+ * |--------------------------------------------------------------------------------------------------------
+ * | ISSUE: Tests fail due to an unrecognized command.
+ * |--------------------------------------------------------------------------------------------------------
+ * | SOLUTION: Change the default phpunit command.
+ * |   Modify the file: ./node_modules/laravel-elixir/node_modules/gulp-phpunit/index.js
+ * |   On line 82, change the command variable to just 'phpunit'
+ * |   NOTE: This assumes phpunit is installed globally. If it isn't, run: composer global require "phpunit/phpunit=4.6.*"
+ * '--------------------------------------------------------------------------------------------------------
+ */

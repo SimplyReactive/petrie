@@ -19,7 +19,7 @@ if (document.addEventListener) {
             body.insertBefore(x.firstChild, body.firstChild);
         };
 
-        var svgDefs = '/images/svg/svgdefs.svg';
+        var svgDefs = '/svg/svgdefs.svg';
         /*
         var xmlHttp = new XMLHttpRequest();
         xmlHttp.open("GET", '/build/rev-manifest.json', true);

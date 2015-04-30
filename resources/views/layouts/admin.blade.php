@@ -290,7 +290,7 @@
                 <div class="col-md-3 col-sm-12 col-xs-12">
                     <div class="panel panel-primary text-center no-boder bg-color-green">
                         <div class="panel-left pull-left green">
-                            <span class="fa fa-bar-chart-o fa-5x"></span>
+                            <svg class="icon icon-bar-chart icon-5x"><use xlink:href="#icon-bar-chart"></use></svg>
 
                         </div>
                         <div class="panel-right pull-right">
@@ -548,10 +548,10 @@
     </div>
 </footer>
 
-</body>
 <script src="{{ elixir('js/vendor.js') }}"></script>
 <script src="{{ elixir('js/custom.js') }}"></script>
 <script src="{{ elixir('js/admin.js') }}"></script>
+</body>
 @yield('script')
 </body>
 

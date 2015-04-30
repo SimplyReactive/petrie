@@ -1,4 +1,4 @@
-<?php namespace L5Boot\Events;
+<?php namespace L5B3\Events;
 
 abstract class Event {
 

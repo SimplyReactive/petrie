@@ -1,4 +1,4 @@
-<?php namespace L5Boot\Exceptions;
+<?php namespace L5B3\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

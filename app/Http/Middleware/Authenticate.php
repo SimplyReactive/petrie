@@ -1,4 +1,4 @@
-<?php namespace L5Boot\Http\Middleware;
+<?php namespace L5B3\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;

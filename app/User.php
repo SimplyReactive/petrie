@@ -1,4 +1,4 @@
-<?php namespace L5Boot;
+<?php namespace L5B3;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;

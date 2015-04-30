@@ -1,6 +1,6 @@
-<?php namespace L5Boot\Services;
+<?php namespace L5B3\Services;
 
-use L5Boot\User;
+use L5B3\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 

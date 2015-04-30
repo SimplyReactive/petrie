@@ -1,4 +1,4 @@
-<?php namespace L5Boot\Providers;
+<?php namespace L5B3\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

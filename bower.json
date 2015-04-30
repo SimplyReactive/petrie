@@ -6,14 +6,6 @@
     "Nathan Burgess"
   ],
   "license": "MIT",
-  "ignore": [
-    "**/.*",
-    "node_modules",
-    "bower_components",
-    "vendor/bower_components",
-    "test",
-    "tests"
-  ],
   "dependencies": {
     "bootstrap": "*",
     "jquery": "*",
@@ -26,6 +18,8 @@
     "animate.css": "*",
     "owl.carousel": "*",
     "bootstrap-table": "*",
-    "underscore": "*"
+    "underscore": "*",
+    "fontawesome": "*",
+    "modernizr": "*"
   }
 }
