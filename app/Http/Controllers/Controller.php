@@ -1,4 +1,4 @@
-<?php namespace L5B3\Http\Controllers;
+<?php namespace Petri\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Routing\Controller as BaseController;

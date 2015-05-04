@@ -1,4 +1,4 @@
-<?php namespace L5B3\Exceptions;
+<?php namespace Petri\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

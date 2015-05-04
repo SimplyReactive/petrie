@@ -1,6 +1,6 @@
-<?php namespace L5B3\Services;
+<?php namespace Petri\Services;
 
-use L5B3\User;
+use Petri\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 

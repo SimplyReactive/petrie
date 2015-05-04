@@ -1,4 +1,4 @@
-<?php namespace L5B3\Http;
+<?php namespace Petri\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -15,7 +15,7 @@ class Kernel extends HttpKernel {
 		'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
 		'Illuminate\Session\Middleware\StartSession',
 		'Illuminate\View\Middleware\ShareErrorsFromSession',
-		'L5B3\Http\Middleware\VerifyCsrfToken',
+		'Petri\Http\Middleware\VerifyCsrfToken',
 	];
 
 	/**
@@ -24,9 +24,9 @@ class Kernel extends HttpKernel {
 	 * @var array
 	 */
 	protected $routeMiddleware = [
-		'auth' => 'L5B3\Http\Middleware\Authenticate',
+		'auth' => 'Petri\Http\Middleware\Authenticate',
 		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
-		'guest' => 'L5B3\Http\Middleware\RedirectIfAuthenticated',
+		'guest' => 'Petri\Http\Middleware\RedirectIfAuthenticated',
 	];
 
 }

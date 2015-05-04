@@ -19,7 +19,7 @@
 			"database"
 		],
 		"psr-4": {
-			"L5B3\\": "app/"
+			"Petri\\": "app/"
 		}
 	},
 	"autoload-dev": {

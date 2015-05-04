@@ -1,4 +1,4 @@
-<?php namespace L5B3;
+<?php namespace Petri;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;

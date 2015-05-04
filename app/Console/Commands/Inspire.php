@@ -1,4 +1,4 @@
-<?php namespace L5B3\Console\Commands;
+<?php namespace Petri\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

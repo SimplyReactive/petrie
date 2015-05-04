@@ -1,7 +1,7 @@
 {
-  "name": "Laravel5 + Materialize",
+  "name": "Laravel 5 + Bootstrap 3",
   "version": "0.0.1",
-  "description": "A simple base install of Laravel 5 with the Materialize framework",
+  "description": "A starter project for creating an application with Laravel 5 and Bootstrap 3.",
   "authors": [
     "Nathan Burgess"
   ],
@@ -19,7 +19,6 @@
     "owl.carousel": "*",
     "bootstrap-table": "*",
     "underscore": "*",
-    "fontawesome": "*",
     "modernizr": "*"
   }
 }

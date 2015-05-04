@@ -1,6 +1,6 @@
-## L5Bootstrap
+## Petri
 
-A base framework built up with Laravel 5 and Bootstrap 3
+A framework built on top of Laravel 5 with Bootstrap 3 as the front-end
 
 ## Installation
 

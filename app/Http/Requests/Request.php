@@ -1,4 +1,4 @@
-<?php namespace L5B3\Http\Requests;
+<?php namespace Petri\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

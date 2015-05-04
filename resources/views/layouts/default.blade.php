@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Simply Reactive">
 
-    <title>L5Boot</title>
+    <title>Petri</title>
 
     <link href="{{ elixir('css/style.css') }}" rel="stylesheet">
 @yield('style')
@@ -25,7 +25,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('index') }}">L5Boot</a>
+            <a class="navbar-brand" href="{{ route('index') }}">Petri</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">

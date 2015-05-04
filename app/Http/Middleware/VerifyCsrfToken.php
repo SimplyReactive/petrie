@@ -1,4 +1,4 @@
-<?php namespace L5B3\Http\Middleware;
+<?php namespace Petri\Http\Middleware;
 
 use Closure;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;

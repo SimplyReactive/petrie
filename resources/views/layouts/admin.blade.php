@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Simply Reactive">
 
-    <title>L5Boot ACP</title>
+    <title>Petri Administration</title>
 
     <link href="{{ elixir('css/style.css') }}" rel="stylesheet">
     <link href="{{ elixir('css/admin.css') }}" rel="stylesheet">
@@ -24,7 +24,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('admin') }}">L5Boot</a>
+            <a class="navbar-brand" href="{{ route('admin') }}">Petri</a>
         </div>
 
         <ul class="nav navbar-top-links navbar-right">

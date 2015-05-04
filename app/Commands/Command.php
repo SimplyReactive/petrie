@@ -1,4 +1,4 @@
-<?php namespace L5B3\Commands;
+<?php namespace Petri\Commands;
 
 abstract class Command {
 
