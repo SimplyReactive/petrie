@@ -32,7 +32,7 @@ $ npm i -g gulp --save
 
 Now that we have the prerequisites, we can install Petri
 ```sh
-$ git clone [git-repo-url] petri
+$ git clone [git-repo] petri
 $ cd petri
 $ npm install
 $ bower install
@@ -61,3 +61,4 @@ MIT
 [jQuery]:http://jquery.com
 [Gulp]:http://gulpjs.com
 [@_nathanburgess]:https://twitter.com/_nathanburgess
+[git-repo]:https://bitbucket.org/simplyreactive/petri
