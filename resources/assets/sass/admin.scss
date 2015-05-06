@@ -11,6 +11,7 @@
 @import "variables";
 
 // Import the application-specific stylesheets
+@import "regions/global";
 @import "regions/acp";
 
 // Import the extra stylesheets to support addons and extensions

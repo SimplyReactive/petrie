@@ -30,18 +30,20 @@ var config = {
 	'debug': true // Enabling this will expose the SASS in the browser development tools
 };
 var paths = {
-	'jquery'        : bowerDir + 'jquery/',
-	'jqueryui'      : bowerDir + 'jquery-ui/',
-	'bootstrap'     : bowerDir + 'bootstrap-sass-official/assets/',
+	'jquery'        : bowerDir + 'jquery/',									// jQuery
+	'jqueryui'      : bowerDir + 'jquery-ui/',								// jQuery UI
+	'bootstrap'     : bowerDir + 'bootstrap-sass-official/assets/',			// Bootstrap SASS
 	'xeditable'     : bowerDir + 'x-editable/dist/bootstrap3-editable/',    // Inline editing of elements
-	'typeahead'     : bowerDir + 'typeahead.js/',                           // Autosuggest with look ahead
+	'typeahead'     : bowerDir + 'typeahead.js/',                           // Auto-suggest with look ahead
 	'tokenfield'    : bowerDir + 'bootstrap-tokenfield/',                   // Tagging/Tokenizing
 	'notify'        : bowerDir + 'remarkable-bootstrap-notify/',            // Notifications
 	'animate'       : bowerDir + 'animate.css/',                            // CSS Animations
-	'owlcarousel'   : bowerDir + 'owl.carousel/',                           // CSS Animations
-	'bootstraptable': bowerDir + 'bootstrap-table/',                        // Bootstrap Datatable
+	'owlcarousel'   : bowerDir + 'owl.carousel/',                           // Responsive Carousel
+	'bootstraptable': bowerDir + 'bootstrap-table/',                        // Bootstrap Data-table
 	'modernizr'     : bowerDir + 'modernizr/',                              // Modernizr
-	'underscore'    : bowerDir + 'underscore/',                             // Underscore
+	'underscore'    : bowerDir + 'underscore/',                             // Underscore.js
+	'easypiechart'  : bowerDir + 'jquery.easy-pie-chart/',                  // Easy Pie Charts
+	'animatenumber' : bowerDir + 'jquery-animatenumber/',                   // Number Animation
 	'assets'        : {
 		'sass'      : assetsDir + 'sass/',                                  // SASS directory
 		'js'        : assetsDir + 'javascripts/',                           // JS source directory
@@ -110,7 +112,7 @@ elixir.extend('petriSass', function (mix) {
 elixir(function (mix) {
 	mix.sass(['style.scss', 'admin.scss'])
 		.coffee()                                                       // Compile the CoffeeScript
-		.scripts([                                                      // Concatenate the vendor javascripts
+		.scripts([                                                      // Concatenate the vendor javascript
 			paths.jquery + 'dist/jquery.min.js',                        // - jquery
 			paths.jqueryui + 'jquery-ui.min.js',                        // - jqueryui
 			paths.bootstrap + 'javascripts/bootstrap.min.js',           // - bootstrap
@@ -121,7 +123,9 @@ elixir(function (mix) {
 			paths.bootstraptable + 'dist/bootstrap-table.min.js',       // - bootstrap datatables
 			paths.owlcarousel + 'dist/owl.carousel.min.js',             // - owl carousel
 			paths.modernizr + 'modernizr.js',                           // - modernizr
-			paths.underscore + 'underscore.js'                          // - underscore
+			paths.underscore + 'underscore.js',                         // - underscore
+			paths.easypiechart + 'dist/jquery.easypiechart.min.js',     // - jquery.easy-pie-chart
+			paths.animatenumber + 'jquery.animateNumber.min.js'         // - jquery.animatenumber
 		], 'public/js/vendor.js', bowerDir)
 		.scripts([                                                      // Concatenate the admin javascripts
 			paths.assets.adminjs + '*.js'

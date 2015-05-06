@@ -13,12 +13,14 @@
     "bootstrap-sass-official": "*",
     "bootstrap-tokenfield": "*",
     "remarkable-bootstrap-notify": "*",
+    "bootstrap-table": "*",
     "x-editable": "*",
     "typeahead.js": "*",
     "animate.css": "*",
     "owl.carousel": "*",
-    "bootstrap-table": "*",
     "underscore": "*",
+    "jquery.easy-pie-chart": "*",
+    "jquery-animatenumber": "*",
     "modernizr": "*"
   }
 }

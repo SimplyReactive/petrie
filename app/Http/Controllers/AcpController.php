@@ -14,7 +14,7 @@ class AcpController extends Controller {
 	}
 
     /**
-     * Display the index
+     * Display the adminstration index
      *
      * @return Response
      */
@@ -23,13 +23,21 @@ class AcpController extends Controller {
         return view('admin.index');
     }
 
-	/**
-	 * Display the theme page
-	 *
-	 * @return Response
-	 */
+	// SVG Icon Glossary
 	public function svg()
 	{
 		return view('admin.svg');
+	}
+
+	// Morris Chart Examples
+	public function morris()
+	{
+		return view('admin.morris');
+	}
+
+	// Morris Chart Examples
+	public function easypie()
+	{
+		return view('admin.easypie');
 	}
 }

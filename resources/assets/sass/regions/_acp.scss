@@ -56,12 +56,6 @@ h4 {
 	border-radius         : 0px;
 }
 
-p {
-	padding-top : 20px;
-	font-size   : 16px;
-	line-height : 25px;
-}
-
 .panel {
 	border-radius : 0px;
 }
@@ -107,7 +101,7 @@ p {
 	width      : 35%;
 	height     : 158px;
 	background : #5CB85C;
-	.icon {
+	[class^="svg-"], [class*=" svg-"] {
 		padding   : 0 10px;
 		max-width : 10em;
 		width     : 100%;
@@ -335,12 +329,11 @@ p {
 .top-navbar {
 	margin : 0px;
 	.navbar-brand {
-		width          : 260px;
 		height         : 60px;
 		color          : #fff;
 		text-align     : left;
-		text-transform : uppercase;
-		font-weight    : 700;
+		text-transform : lowercase;
+		font-weight    : 300;
 		font-size      : 30px;
 		line-height    : 30px;
 	}

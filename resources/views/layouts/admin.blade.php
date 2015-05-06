@@ -23,14 +23,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('admin') }}">Petri</a>
+            <a class="navbar-brand" href="{{ route('admin') }}">Petri Administration</a>
         </div>
 
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <svg class="svg svg-envelop3"><use xlink:href="#svg-envelop3"></use></svg>
-                    <svg class="svg svg-arrow-down5"><use xlink:href="#svg-arrow-down5"></use></svg>
+                    <svg class="svg-envelop3"><use xlink:href="#svg-envelop3"></use></svg>
+                    <svg class="svg-arrow-down5"><use xlink:href="#svg-arrow-down5"></use></svg>
                 </a>
                 <ul class="dropdown-menu dropdown-messages">
                     <li>
@@ -81,8 +81,8 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <svg class="icon icon-bell icon-fw"><use xlink:href="#icon-bell"></use></svg>
-                    <svg class="icon icon-caret-down"><use xlink:href="#icon-caret-down"></use></svg>
+                    <svg class="svg-bell2"><use xlink:href="#svg-bell2"></use></svg>
+                    <svg class="svg-arrow-down5"><use xlink:href="#svg-arrow-down5"></use></svg>
                 </a>
                 <ul class="dropdown-menu dropdown-alerts">
                     <li>
@@ -142,8 +142,8 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <svg class="icon icon-user icon-fw"><use xlink:href="#icon-user"></use></svg>
-                    <svg class="icon icon-caret-down"><use xlink:href="#icon-caret-down"></use></svg>
+                    <svg class="svg-user"><use xlink:href="#svg-user"></use></svg>
+                    <svg class="svg-arrow-down5"><use xlink:href="#svg-arrow-down5"></use></svg>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><span class="fa fa-user fa-fw"></span> User Profile</a></li>
@@ -162,24 +162,18 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li><a class="active-menu" href="{{ route('admin') }}"><span class="fa fa-dashboard"></span> Dashboard</a></li>
-                <li><a href="#!"><span class="fa fa-desktop"></span> UI Elements</a></li>
                 <li><a href="{{ route('admin.svg') }}"><svg class="svg svg-svg"><use xlink:href="#svg-svg"></use></svg> SVG Icons</a></li>
                 <li><a href="#!"><span class="fa fa-bar-chart-o"></span> Charts</a></li>
                 <li><a href="#!"><span class="fa fa-qrcode"></span> Tabs & Panels</a></li>
                 <li><a href="#!"><span class="fa fa-table"></span> Responsive Tables</a></li>
                 <li><a href="#!"><span class="fa fa-edit"></span> Forms </a></li>
                 <li>
-                    <a href="#"><span class="fa fa-sitemap"></span> Multi-Level Dropdown<span class="fa arrow"></span></a>
+                    <a href="#"><span class="fa fa-sitemap"></span> Charts
+                        <svg class="svg-arrow-down2 pull-right"><use xlink:href="#svg-arrow-down2"></use></svg></a>
                     <ul class="nav nav-second-level">
-                        <li><a href="#">Second Level Link</a></li>
-                        <li><a href="#">Second Level Link</a></li>
-                        <li><a href="#">Second Level Link<span class="fa arrow"></span></a>
-                            <ul class="nav nav-third-level">
-                                <li><a href="#">Third Level Link</a></li>
-                                <li><a href="#">Third Level Link</a></li>
-                                <li><a href="#">Third Level Link</a></li>
-                            </ul>
-                        </li>
+                        <li><a href="#">Chart.js</a></li>
+                        <li><a href="{{ route('admin.easypie') }}">Easy-Pie-Chart</a></li>
+                        <li><a href="{{ route('admin.morris') }}">Morris</a></li>
                     </ul>
                 </li>
                 <li><a href="#!"><span class="fa fa-fw fa-file"></span> Empty Page</a></li>
@@ -219,8 +213,6 @@
 <script src="{{ elixir('js/vendor.js') }}"></script>
 <script src="{{ elixir('js/custom.js') }}"></script>
 <script src="{{ elixir('js/admin.js') }}"></script>
-</body>
 @yield('script')
 </body>
-
 </html>
