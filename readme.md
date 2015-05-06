@@ -3,7 +3,7 @@
 Petri is a purposely designed framework by [@_nathanburgess] to enable developers to quickly iterate simple or complex websites.
 
 ### Version
-0.1.2-alpha
+0.1.3-alpha
 
 ### Tech
 
