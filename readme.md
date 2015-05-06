@@ -11,7 +11,7 @@ Petri uses a number of open source projects to work properly:
 
 * [Laravel] - The PHP Framework For Web Artisans
 * [Twitter Bootstrap] - Front-end UI
-* [node.js] - Evented I/O for the backend]
+* [node.js] - Evented I/O for the backend
 * [Gulp] - The streaming build system
 * [jQuery] - Javascript simplified
 

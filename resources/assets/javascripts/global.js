@@ -3,6 +3,8 @@
  */
 
 $(document).ready(function () {
+	debugger;
+
 	// Enable dropdowns
 	$(".dropdown-button").dropdown();
 	$(".dropdown-toggle").dropdown();
