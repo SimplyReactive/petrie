@@ -43,15 +43,15 @@ var paths = {
 	'modernizr'     : bowerDir + 'modernizr/',                              // Modernizr
 	'underscore'    : bowerDir + 'underscore/',                             // Underscore
 	'assets'        : {
-		'js'     : assetsDir + 'javascripts/',
-		'adminjs': assetsDir + 'javascripts/admin/',
-		'svg'    : assetsDir + 'svg/'
+		'sass'      : assetsDir + 'sass/',                                  // SASS directory
+		'js'        : assetsDir + 'javascripts/',                           // JS source directory
+		'adminjs'   : assetsDir + 'javascripts/admin/',                     // Administration JS source directory
+		'svg'       : assetsDir + 'svg/'                                    // SVG definitions file
 	},
-	'fonts'         : './public/fonts/',
-	'css'           : './public/css/',
-	'sass'          : './resources/assets/sass/',
-	'javascripts'   : './public/js/',
-	'svg'           : './public/svg/'
+	'fonts'         : './public/fonts/',                                    // Public fonts directory
+	'css'           : './public/css/',                                      // Public CSS directory
+	'javascripts'   : './public/js/',                                       // Public JS directory
+	'svg'           : './public/svg/'                                       // Public SVG directory
 };
 
 elixir.extend('say', function (message) {
@@ -108,7 +108,7 @@ elixir.extend('petriSass', function (mix) {
 });
 
 elixir(function (mix) {
-	mix.petriSass()
+	mix.sass(['style.scss', 'admin.scss'])
 		.coffee()                                                       // Compile the CoffeeScript
 		.scripts([                                                      // Concatenate the vendor javascripts
 			paths.jquery + 'dist/jquery.min.js',                        // - jquery
@@ -130,7 +130,7 @@ elixir(function (mix) {
 			paths.assets.js + '*.js'
 		], 'public/js/custom.js', assetsDir)
 		.copy(paths.bootstrap + 'fonts/*', paths.fonts)                 // Copy bootstrap fonts from resources to public
-		.copy(paths.assets.svg + '*.*', paths.svg)                      // Copy the SVG assets to public
+		.copy(paths.assets.svg + 'svgdefs.svg', paths.svg)              // Copy the SVG assets to public
 		.version([
 			'public/css/style.css',                                     // CSS Version Control
 			'public/js/custom.js',                                      // JS Version Control
