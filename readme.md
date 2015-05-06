@@ -1,26 +1,63 @@
-## Petri
+# Petri
 
-A framework built on top of Laravel 5 with Bootstrap 3 as the front-end
+Petri is a purposely designed framework by [@_nathanburgess] to enable developers to quickly iterate simple or complex websites.
 
-## Installation
+### Version
+0.1.2-alpha
 
-Fork the repo into your own project  
-Clone that repo to your development environment  
-Navigate to the project root in a terminal and run the following commands:  
-npm install  
-bower install  
-composer update  
-gulp  
+### Tech
 
-## Official Documentation
+Petri uses a number of open source projects to work properly:
 
-Documentation for Laravel can be found on the [Laravel website](http://laravel.com/docs).  
-Documentation for Bootstrap can be found on the [Bootstrap website](http://getbootstrap.com/).
+* [Laravel] - The PHP Framework For Web Artisans
+* [Twitter Bootstrap] - Front-end UI
+* [node.js] - Evented I/O for the backend]
+* [Gulp] - The streaming build system
+* [jQuery] - Javascript simplified
 
-## Contributing
+### Installation
+Composer:
+```sh
+$ curl -sS https://getcomposer.org/installer | php
+$ mv composer.phar /usr/local/bin/composer
+```
+NodeJS:
+```sh
+$ sudo apt-get install nodejs
+```
+Gulp:
+```sh
+$ npm i -g gulp --save
+```
 
-To contribute, create a new branch, make whatever changes you want and then submit a pull request.
+Now that we have the prerequisites, we can install Petri
+```sh
+$ git clone https://bitbucket.org/simplyreactive/petri petri
+$ cd petri
+$ cp .env.example .env
+$ php artisan key:generate
+$ npm install
+$ bower install
+$ composer update
+$ gulp
+```
+The final step is to edit the .env file and adjust the database settings to your own.
 
-### License
+### Development
 
-Both Laravel and Bootstrap are open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+Want to make Petri even better? Awesome!  
+It's simple enough; just fork the repo and make your change.  
+When you're done, submit a pull request.
+
+License
+----
+MIT
+
+
+
+[Laravel]:http://laravel.com/docs/5.0
+[Twitter Bootstrap]:http://twitter.github.com/bootstrap/
+[node.js]:http://nodejs.org
+[jQuery]:http://jquery.com
+[Gulp]:http://gulpjs.com
+[@_nathanburgess]:https://twitter.com/_nathanburgess
