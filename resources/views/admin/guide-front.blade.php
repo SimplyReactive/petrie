@@ -21,7 +21,6 @@
     <h3>HTML</h3><br/>
     <ul>
         <li>Element attributes must be in alphabetical order.</li>
-        <li>Inputs should be inside label tags.</li>
     </ul>
 @endsection
 
