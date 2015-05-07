@@ -13,15 +13,50 @@ class AcpController extends Controller {
 		// $this->middleware('auth');
 	}
 
-    /**
-     * Display the adminstration index
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        return view('admin.index');
-    }
+	/**
+	 * Display the administration dashboard
+	 *
+	 * @return Response
+	 */
+	public function index()
+	{
+		return view('admin.index');
+	}
+
+	/**
+	 * Display the user administration page
+	 *
+	 * @return Response
+	 */
+	public function users()
+	{
+		return view('admin.users');
+	}
+
+	/**
+	 * Display the back-end style guide
+	 *
+	 * @return Response
+	 */
+	public function backend()
+	{
+		return view('admin.guide-back');
+	}
+
+	/**
+	 * Display the front-end style guide
+	 *
+	 * @return Response
+	 */
+	public function frontend()
+	{
+		return view('admin.guide-front');
+	}
+
+
+	/*
+	 * Temporary pages that should be removed for any site other than Petri
+	 */
 
 	// SVG Icon Glossary
 	public function svg()
@@ -35,7 +70,7 @@ class AcpController extends Controller {
 		return view('admin.morris');
 	}
 
-	// Morris Chart Examples
+	// Easy-Pie-Chart Examples
 	public function easypie()
 	{
 		return view('admin.easypie');

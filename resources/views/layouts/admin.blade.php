@@ -29,8 +29,8 @@
         <ul class="nav navbar-top-links navbar-right">
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <svg class="svg-envelop3"><use xlink:href="#svg-envelop3"></use></svg>
-                    <svg class="svg-arrow-down5"><use xlink:href="#svg-arrow-down5"></use></svg>
+                    <svg class="svg-envelope"><use xlink:href="#svg-envelope"></use></svg>
+                    <svg class="svg-triangle-down"><use xlink:href="#svg-triangle-down"></use></svg>
                 </a>
                 <ul class="dropdown-menu dropdown-messages">
                     <li>
@@ -72,7 +72,7 @@
                     <li>
                         <a class="text-center" href="#">
                             <strong>Read All Messages</strong>
-                            <span class="fa fa-angle-right"></span>
+                            <svg class="svg-arrow-right"><use xlink:href="#arrow-right"></use></svg>
                         </a>
                     </li>
                 </ul>
@@ -81,14 +81,14 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                    <svg class="svg-bell2"><use xlink:href="#svg-bell2"></use></svg>
-                    <svg class="svg-arrow-down5"><use xlink:href="#svg-arrow-down5"></use></svg>
+                    <svg class="svg-bell"><use xlink:href="#svg-bell"></use></svg>
+                    <svg class="svg-triangle-down"><use xlink:href="#svg-triangle-down"></use></svg>
                 </a>
                 <ul class="dropdown-menu dropdown-alerts">
                     <li>
                         <a href="#">
                             <div>
-                                <span class="fa fa-comment fa-fw"></span> New Comment
+                                <svg class="svg-comment"><use xlink:href="#svg-comment"></use></svg> New Comment
                                 <span class="pull-right text-muted small">4 min</span>
                             </div>
                         </a>
@@ -97,7 +97,7 @@
                     <li>
                         <a href="#">
                             <div>
-                                <span class="fa fa-twitter fa-fw"></span> 3 New Followers
+                                <svg class="svg-twitter"><use xlink:href="#svg-twitter"></use></svg> 3 New Followers
                                 <span class="pull-right text-muted small">12 min</span>
                             </div>
                         </a>
@@ -106,7 +106,7 @@
                     <li>
                         <a href="#">
                             <div>
-                                <span class="fa fa-envelope fa-fw"></span> Message Sent
+                                <svg class="svg-envelope"><use xlink:href="#svg-envelope"></use></svg> Message Sent
                                 <span class="pull-right text-muted small">4 min</span>
                             </div>
                         </a>
@@ -115,7 +115,7 @@
                     <li>
                         <a href="#">
                             <div>
-                                <span class="fa fa-tasks fa-fw"></span> New Task
+                                <svg class="svg-clipboard"><use xlink:href="#svg-clipboard"></use></svg> New Task
                                 <span class="pull-right text-muted small">4 min</span>
                             </div>
                         </a>
@@ -124,7 +124,7 @@
                     <li>
                         <a href="#">
                             <div>
-                                <span class="fa fa-upload fa-fw"></span> Server Rebooted
+                                <svg class="svg-reboot"><use xlink:href="#svg-reboot"></use></svg> Server Rebooted
                                 <span class="pull-right text-muted small">4 min</span>
                             </div>
                         </a>
@@ -133,7 +133,7 @@
                     <li>
                         <a class="text-center" href="#">
                             <strong>See All Alerts</strong>
-                            <span class="fa fa-angle-right"></span>
+                            <svg class="svg-arrow-right"><use xlink:href="#arrow-right"></use></svg>
                         </a>
                     </li>
                 </ul>
@@ -143,7 +143,7 @@
             <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
                     <svg class="svg-user"><use xlink:href="#svg-user"></use></svg>
-                    <svg class="svg-arrow-down5"><use xlink:href="#svg-arrow-down5"></use></svg>
+                    <svg class="svg-triangle-down"><use xlink:href="#svg-triangle-down"></use></svg>
                 </a>
                 <ul class="dropdown-menu dropdown-user">
                     <li><a href="#"><span class="fa fa-user fa-fw"></span> User Profile</a></li>
@@ -161,22 +161,30 @@
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
-                <li><a class="active-menu" href="{{ route('admin') }}"><span class="fa fa-dashboard"></span> Dashboard</a></li>
+                <li><a href="{{ route('admin') }}"><svg class="svg svg-meter"><use xlink:href="#svg-meter"></use></svg> Dashboard</a></li>
                 <li><a href="{{ route('admin.svg') }}"><svg class="svg svg-svg"><use xlink:href="#svg-svg"></use></svg> SVG Icons</a></li>
-                <li><a href="#!"><span class="fa fa-bar-chart-o"></span> Charts</a></li>
-                <li><a href="#!"><span class="fa fa-qrcode"></span> Tabs & Panels</a></li>
-                <li><a href="#!"><span class="fa fa-table"></span> Responsive Tables</a></li>
-                <li><a href="#!"><span class="fa fa-edit"></span> Forms </a></li>
+                <li><a href="{{ route('admin.users') }}"><svg class="svg svg-users"><use xlink:href="#svg-users"></use></svg> Users</a></li>
                 <li>
-                    <a href="#"><span class="fa fa-sitemap"></span> Charts
-                        <svg class="svg-arrow-down2 pull-right"><use xlink:href="#svg-arrow-down2"></use></svg></a>
+                    <a href="#">
+                        <svg class="svg svg-bar-graph"><use xlink:href="#svg-bar-graph"></use></svg> Charts
+                        <svg class="svg-arrow-down2 pull-right"><use xlink:href="#svg-arrow-down2"></use></svg>
+                    </a>
                     <ul class="nav nav-second-level">
                         <li><a href="#">Chart.js</a></li>
                         <li><a href="{{ route('admin.easypie') }}">Easy-Pie-Chart</a></li>
                         <li><a href="{{ route('admin.morris') }}">Morris</a></li>
                     </ul>
                 </li>
-                <li><a href="#!"><span class="fa fa-fw fa-file"></span> Empty Page</a></li>
+                <li>
+                    <a href="#">
+                        <svg class="svg svg-lifebuoy"><use xlink:href="#svg-lifebuoy"></use></svg> Development Guides
+                        <svg class="svg-arrow-down2 pull-right"><use xlink:href="#svg-arrow-down2"></use></svg>
+                    </a>
+                    <ul class="nav nav-second-level">
+                        <li><a href="{{ route('admin.guide.frontend') }}">Front-end</a></li>
+                        <li><a href="{{ route('admin.guide.backend') }}">Back-end</a></li>
+                    </ul>
+                </li>
             </ul>
         </div>
     </nav>

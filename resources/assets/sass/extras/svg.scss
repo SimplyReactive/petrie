@@ -4,24 +4,29 @@
  *
  */
 [class^="svg-"], [class*=" svg-"] {
-	display : inline-block;
-	width   : 1em;
-	height  : 1em;
-	fill    : currentColor;
+	display        : inline-block;
+	width          : 1em;
+	height         : 1em;
+	fill           : currentColor;
+	vertical-align : middle;
 }
 
-.svg-bubbles2 {
-	width : 1.125em;
+.svg-bubbles {
+	width: 1.125em;
 }
 
-.svg-bubbles10 {
-	width : 1.125em;
+.svg-bubbles3 {
+	width: 1.125em;
 }
 
 .svg-users {
-	width : 1.125em;
+	width: 1.125em;
 }
 
-.svg-users2 {
-	width : 1.125em;
+.svg-user-clone {
+	width: 1.125em;
+}
+
+.svg-bubbles4 {
+	width: 1.125em;
 }

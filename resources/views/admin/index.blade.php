@@ -13,7 +13,7 @@
         <div class="col-md-3 col-sm-12 col-xs-12">
             <div class="panel panel-primary text-center no-boder bg-color-green">
                 <div class="panel-left pull-left green">
-                    <svg class="svg-stats-bars2"><use xlink:href="#svg-stats-bars2"></use></svg>
+                    <svg class="svg-bar-graph"><use xlink:href="#svg-bar-graph"></use></svg>
                 </div>
                 <div class="panel-right pull-right">
                     <h3>8,457</h3>
@@ -35,7 +35,7 @@
         <div class="col-md-3 col-sm-12 col-xs-12">
             <div class="panel panel-primary text-center no-boder bg-color-red">
                 <div class="panel-left pull-left red">
-                    <svg class="svg-bubbles10"><use xlink:href="#svg-bubbles10"></use></svg>
+                    <svg class="svg-bubbles"><use xlink:href="#svg-bubbles"></use></svg>
                 </div>
                 <div class="panel-right pull-right">
                     <h3>15,823 </h3>
