@@ -1,6 +1,6 @@
-<?php namespace Petri\Http\Controllers\Auth;
+<?php namespace Petrie\Http\Controllers\Auth;
 
-use Petri\Http\Controllers\Controller;
+use Petrie\Http\Controllers\Controller;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\Registrar;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;

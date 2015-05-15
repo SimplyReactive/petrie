@@ -1,6 +1,6 @@
-<?php namespace Petri\Services;
+<?php namespace Petrie\Services;
 
-use Petri\User;
+use Petrie\User;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 

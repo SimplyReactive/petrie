@@ -1,4 +1,4 @@
-<?php namespace Petri\Providers;
+<?php namespace Petrie\Providers;
 
 use Illuminate\Routing\Router;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -12,7 +12,7 @@ class RouteServiceProvider extends ServiceProvider {
 	 *
 	 * @var string
 	 */
-	protected $namespace = 'Petri\Http\Controllers';
+	protected $namespace = 'Petrie\Http\Controllers';
 
 	/**
 	 * Define your route model bindings, pattern filters, etc.

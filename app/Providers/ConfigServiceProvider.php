@@ -1,4 +1,4 @@
-<?php namespace Petri\Providers;
+<?php namespace Petrie\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -406,5 +406,13 @@
 	<title>grid6</title>
 	<path class="path1" d="M0 0h448v448h-448zM576 0h448v448h-448zM0 576h448v448h-448zM576 576h448v448h-448z"></path>
 </symbol>
+<symbol id="svg-play3" viewBox="0 0 1024 1024">
+	<title>play3</title>
+	<path class="path1" d="M512 0c-282.77 0-512 229.23-512 512s229.23 512 512 512 512-229.23 512-512-229.23-512-512-512zM512 928c-229.75 0-416-186.25-416-416s186.25-416 416-416 416 186.25 416 416-186.25 416-416 416zM384 288l384 224-384 224z"></path>
+</symbol>
+<symbol id="svg-play4" viewBox="0 0 1024 1024">
+	<title>play4</title>
+	<path class="path1" d="M192 128l640 384-640 384z"></path>
+</symbol>
 </defs>
 </svg>

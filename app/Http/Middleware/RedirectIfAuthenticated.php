@@ -1,4 +1,4 @@
-<?php namespace Petri\Http\Middleware;
+<?php namespace Petrie\Http\Middleware;
 
 use Closure;
 use Illuminate\Contracts\Auth\Guard;

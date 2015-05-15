@@ -60,13 +60,13 @@ elixir.extend('say', function (message) {
 	gulp.task('say', function (e) {
 		var time = '[' + chalk.grey(dateformat(new Date(), 'HH:MM:ss')) + ']';
 		console.error(time +
-		chalk.dim.bold.blue(' [' + chalk.cyan.underline('Petri') + '] ') +
+		chalk.dim.bold.blue(' [' + chalk.cyan.underline('Petrie') + '] ') +
 		chalk.green(message) + chalk.white(''));
 	});
 	return this.queueTask('say');
 });
 
-elixir.extend('petriSass', function (mix) {
+elixir.extend('petrieSass', function (mix) {
 	var Notification = require(nodeDir + 'laravel-elixir/ingredients/commands/Notification.js');
 	var notify = new Notification();
 
@@ -78,7 +78,7 @@ elixir.extend('petriSass', function (mix) {
 		})
 			.on('error', function (err) {
 				console.error('Error', err.message);
-				notify.forFailedTests(err, 'petriSass');
+				notify.forFailedTests(err, 'petrieSass');
 				this.emit('end');
 			})
 			.pipe(sourcemaps.write('./', {
@@ -86,7 +86,7 @@ elixir.extend('petriSass', function (mix) {
 				sourceRoot    : config.debug ? paths.sass : paths.css
 			}))
 			.pipe(gulp.dest(paths.css))
-			.pipe(notify.forPassedTests('petriSass'));
+			.pipe(notify.forPassedTests('petrieSass'));
 	});
 	gulp.task('admin', function () {
 		return sass(assetsDir + '/sass/admin.scss', {
@@ -96,17 +96,17 @@ elixir.extend('petriSass', function (mix) {
 		})
 			.on('error', function (err) {
 				console.error('Error', err.message);
-				notify.forFailedTests(err, 'petriSass');
+				notify.forFailedTests(err, 'petrieSass');
 			})
 			.pipe(sourcemaps.write('./', {
 				includeContent: true,
 				sourceRoot    : config.debug ? paths.sass : paths.css
 			}))
 			.pipe(gulp.dest(paths.css))
-			.pipe(notify.forPassedTests('petriSass'));
+			.pipe(notify.forPassedTests('petrieSass'));
 	});
-	gulp.task('petriSass', ['admin', 'style']);
-	return this.queueTask('petriSass');
+	gulp.task('petrieSass', ['admin', 'style']);
+	return this.queueTask('petrieSass');
 });
 
 elixir(function (mix) {

@@ -1,4 +1,4 @@
-<?php namespace Petri\Console\Commands;
+<?php namespace Petrie\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

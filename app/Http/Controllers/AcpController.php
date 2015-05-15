@@ -1,4 +1,4 @@
-<?php namespace Petri\Http\Controllers;
+<?php namespace Petrie\Http\Controllers;
 
 class AcpController extends Controller {
 
@@ -55,7 +55,7 @@ class AcpController extends Controller {
 
 
 	/*
-	 * Temporary pages that should be removed for any site other than Petri
+	 * Temporary pages that should be removed for any site other than Petrie
 	 */
 
 	// SVG Icon Glossary

@@ -19,7 +19,7 @@
 			"database"
 		],
 		"psr-4": {
-			"Petri\\": "app/"
+			"Petrie\\": "app/"
 		}
 	},
 	"autoload-dev": {

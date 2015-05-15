@@ -1,4 +1,4 @@
-<?php namespace Petri;
+<?php namespace Petrie;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Database\Eloquent\Model;

@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="Simply Reactive">
 
-    <title>Petri Administration</title>
+    <title>Petrie Administration</title>
 
     <link href="{{ elixir('css/admin.css') }}" rel="stylesheet">
     @yield('style')
@@ -23,7 +23,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ route('admin') }}">Petri Administration</a>
+            <a class="navbar-brand" href="{{ route('admin') }}">Petrie Administration</a>
         </div>
 
         <ul class="nav navbar-top-links navbar-right">

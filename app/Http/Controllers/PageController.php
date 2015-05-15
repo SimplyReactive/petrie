@@ -1,4 +1,4 @@
-<?php namespace Petri\Http\Controllers;
+<?php namespace Petrie\Http\Controllers;
 
 class PageController extends Controller {
 

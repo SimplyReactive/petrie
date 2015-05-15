@@ -1,4 +1,4 @@
-<?php namespace Petri\Providers;
+<?php namespace Petrie\Providers;
 
 use Illuminate\Bus\Dispatcher;
 use Illuminate\Support\ServiceProvider;
@@ -16,7 +16,7 @@ class BusServiceProvider extends ServiceProvider {
 		$dispatcher->mapUsing(function($command)
 		{
 			return Dispatcher::simpleMapping(
-				$command, 'Petri\Commands', 'Petri\Handlers\Commands'
+				$command, 'Petrie\Commands', 'Petrie\Handlers\Commands'
 			);
 		});
 	}

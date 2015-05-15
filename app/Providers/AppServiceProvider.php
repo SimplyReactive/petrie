@@ -1,4 +1,4 @@
-<?php namespace Petri\Providers;
+<?php namespace Petrie\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider {
 	{
 		$this->app->bind(
 			'Illuminate\Contracts\Auth\Registrar',
-			'Petri\Services\Registrar'
+			'Petrie\Services\Registrar'
 		);
 	}
 

@@ -1,4 +1,4 @@
-<?php namespace Petri\Exceptions;
+<?php namespace Petrie\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

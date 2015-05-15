@@ -1,4 +1,4 @@
-<?php namespace Petri\Events;
+<?php namespace Petrie\Events;
 
 abstract class Event {
 

@@ -1,13 +1,13 @@
-# Petri
+# Petrie
 
-Petri is a purposely designed framework by [@_nathanburgess] to enable developers to quickly iterate simple or complex websites.
+Petrie is a purposely designed framework by [@_nathanburgess] to enable developers to quickly iterate simple or complex websites.
 
 ### Version
 0.1.3-alpha
 
 ### Tech
 
-Petri uses a number of open source projects to work properly:
+Petrie uses a number of open source projects to work properly:
 
 * [Laravel] - The PHP Framework For Web Artisans
 * [Twitter Bootstrap] - Front-end UI
@@ -30,10 +30,10 @@ Gulp:
 $ npm i -g gulp --save
 ```
 
-Now that we have the prerequisites, we can install Petri
+Now that we have the prerequisites, we can install Petrie
 ```sh
-$ git clone https://bitbucket.org/simplyreactive/petri petri
-$ cd petri
+$ git clone https://bitbucket.org/simplyreactive/petrie petrie
+$ cd petrie
 $ cp .env.example .env
 $ php artisan key:generate
 $ npm install
@@ -45,7 +45,7 @@ The final step is to edit the .env file and adjust the database settings to your
 
 ### Development
 
-Want to make Petri even better? Awesome!  
+Want to make Petrie even better? Awesome!  
 It's simple enough; just fork the repo and make your change.  
 When you're done, submit a pull request.
 
