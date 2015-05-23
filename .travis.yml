@@ -15,11 +15,11 @@ sudo: false
 
 before_script:
   - npm install -g bower
+  - bower install
 
 install:
   - composer install
   - npm install
-  - bower install
   - gulp
 
 script: vendor/bin/phpunit
