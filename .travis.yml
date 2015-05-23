@@ -4,21 +4,21 @@ php:
   - 5.4
   - 5.5
   - 5.6
-  - 7.0
+  - nightly
   - hhvm
 
 matrix:
     allow_failures:
-        - php: 7.0
+        - php: nightly
 
 sudo: false
 
 before_script:
-  - npm install -g bower
   - npm install
+  - npm install -g bower
   - bower install
 
 install:
-  - travis_retry composer install --no-interaction --prefer-source
+  - composer install
 
 script: vendor/bin/phpunit
