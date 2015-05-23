@@ -1,9 +1,10 @@
-<?php namespace Petrie\Http\Requests;
+<?php
+
+namespace Petrie\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-abstract class Request extends FormRequest {
-
-	//
-
+abstract class Request extends FormRequest
+{
+    //
 }

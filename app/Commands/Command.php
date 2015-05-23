@@ -1,7 +1,8 @@
-<?php namespace Petrie\Commands;
+<?php
 
-abstract class Command {
+namespace Petrie\Commands;
 
-	//
-
+abstract class Command
+{
+    //
 }

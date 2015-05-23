@@ -1,0 +1,4043 @@
+diff --git a/app/Commands/Command.php b/app/Commands/Command.php
+index e002bbc406ec8e46495704eeca7f85857d13f573..4c68992126d971db7d632707b7bbcb9cec28eefe 100644
+--- a/app/Commands/Command.php
++++ b/app/Commands/Command.php
+@@ -1,7 +1,8 @@
+-<?php namespace Petrie\Commands;
++<?php
+ 
+-abstract class Command {
+-
+-	//
++namespace Petrie\Commands;
+ 
++abstract class Command
++{
++    //
+ }
+diff --git a/app/Console/Commands/Inspire.php b/app/Console/Commands/Inspire.php
+index 3c95e4ca62796daf9b43f532696ee4bba5fe047a..bd17cf16a991892450f36299c8b2b8491e4f014f 100644
+--- a/app/Console/Commands/Inspire.php
++++ b/app/Console/Commands/Inspire.php
+@@ -1,32 +1,33 @@
+-<?php namespace Petrie\Console\Commands;
++<?php
++
++namespace Petrie\Console\Commands;
+ 
+ use Illuminate\Console\Command;
+ use Illuminate\Foundation\Inspiring;
+ 
+-class Inspire extends Command {
+-
+-	/**
+-	 * The console command name.
+-	 *
+-	 * @var string
+-	 */
+-	protected $name = 'inspire';
+-
+-	/**
+-	 * The console command description.
+-	 *
+-	 * @var string
+-	 */
+-	protected $description = 'Display an inspiring quote';
++class Inspire extends Command
++{
++    /**
++     * The console command name.
++     *
++     * @var string
++     */
++    protected $name = 'inspire';
+ 
+-	/**
+-	 * Execute the console command.
+-	 *
+-	 * @return mixed
+-	 */
+-	public function handle()
+-	{
+-		$this->comment(PHP_EOL.Inspiring::quote().PHP_EOL);
+-	}
++    /**
++     * The console command description.
++     *
++     * @var string
++     */
++    protected $description = 'Display an inspiring quote';
+ 
++    /**
++     * Execute the console command.
++     *
++     * @return mixed
++     */
++    public function handle()
++    {
++        $this->comment(PHP_EOL.Inspiring::quote().PHP_EOL);
++    }
+ }
+diff --git a/app/Console/Kernel.php b/app/Console/Kernel.php
+index 48b5a69f4f6f0f48ba6571f29da2c82f8af0aa85..5c7a220d9bcd2f8ae11c48564697b77bcc3e8c50 100644
+--- a/app/Console/Kernel.php
++++ b/app/Console/Kernel.php
+@@ -1,29 +1,31 @@
+-<?php namespace Petrie\Console;
++<?php
++
++namespace Petrie\Console;
+ 
+ use Illuminate\Console\Scheduling\Schedule;
+ use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+ 
+-class Kernel extends ConsoleKernel {
+-
+-	/**
+-	 * The Artisan commands provided by your application.
+-	 *
+-	 * @var array
+-	 */
+-	protected $commands = [
+-		'Petrie\Console\Commands\Inspire',
+-	];
+-
+-	/**
+-	 * Define the application's command schedule.
+-	 *
+-	 * @param  \Illuminate\Console\Scheduling\Schedule  $schedule
+-	 * @return void
+-	 */
+-	protected function schedule(Schedule $schedule)
+-	{
+-		$schedule->command('inspire')
+-				 ->hourly();
+-	}
++class Kernel extends ConsoleKernel
++{
++    /**
++     * The Artisan commands provided by your application.
++     *
++     * @var array
++     */
++    protected $commands = [
++        'Petrie\Console\Commands\Inspire',
++    ];
+ 
++    /**
++     * Define the application's command schedule.
++     *
++     * @param \Illuminate\Console\Scheduling\Schedule $schedule
++     *
++     * @return void
++     */
++    protected function schedule(Schedule $schedule)
++    {
++        $schedule->command('inspire')
++                 ->hourly();
++    }
+ }
+diff --git a/app/Events/Event.php b/app/Events/Event.php
+index 8b552f4f43ef81292335055e25a68ad0900e84d2..3887d32884fe85aef0189fc9d789c26522ae4bd7 100644
+--- a/app/Events/Event.php
++++ b/app/Events/Event.php
+@@ -1,7 +1,8 @@
+-<?php namespace Petrie\Events;
++<?php
+ 
+-abstract class Event {
+-
+-	//
++namespace Petrie\Events;
+ 
++abstract class Event
++{
++    //
+ }
+diff --git a/app/Exceptions/Handler.php b/app/Exceptions/Handler.php
+index 271624aa7af090a97a8a290663fe9610207047f9..2debe605c057efbb4c775c77a945e0720b3d97aa 100644
+--- a/app/Exceptions/Handler.php
++++ b/app/Exceptions/Handler.php
+@@ -1,42 +1,45 @@
+-<?php namespace Petrie\Exceptions;
++<?php
++
++namespace Petrie\Exceptions;
+ 
+ use Exception;
+ use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+ 
+-class Handler extends ExceptionHandler {
+-
+-	/**
+-	 * A list of the exception types that should not be reported.
+-	 *
+-	 * @var array
+-	 */
+-	protected $dontReport = [
+-		'Symfony\Component\HttpKernel\Exception\HttpException'
+-	];
+-
+-	/**
+-	 * Report or log an exception.
+-	 *
+-	 * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
+-	 *
+-	 * @param  \Exception  $e
+-	 * @return void
+-	 */
+-	public function report(Exception $e)
+-	{
+-		return parent::report($e);
+-	}
++class Handler extends ExceptionHandler
++{
++    /**
++     * A list of the exception types that should not be reported.
++     *
++     * @var array
++     */
++    protected $dontReport = [
++        'Symfony\Component\HttpKernel\Exception\HttpException',
++    ];
+ 
+-	/**
+-	 * Render an exception into an HTTP response.
+-	 *
+-	 * @param  \Illuminate\Http\Request  $request
+-	 * @param  \Exception  $e
+-	 * @return \Illuminate\Http\Response
+-	 */
+-	public function render($request, Exception $e)
+-	{
+-		return parent::render($request, $e);
+-	}
++    /**
++     * Report or log an exception.
++     *
++     * This is a great spot to send exceptions to Sentry, Bugsnag, etc.
++     *
++     * @param \Exception $e
++     *
++     * @return void
++     */
++    public function report(Exception $e)
++    {
++        return parent::report($e);
++    }
+ 
++    /**
++     * Render an exception into an HTTP response.
++     *
++     * @param \Illuminate\Http\Request $request
++     * @param \Exception               $e
++     *
++     * @return \Illuminate\Http\Response
++     */
++    public function render($request, Exception $e)
++    {
++        return parent::render($request, $e);
++    }
+ }
+diff --git a/app/Http/Controllers/AcpController.php b/app/Http/Controllers/AcpController.php
+index 55f13d8463dc656a215efdfda261a2b0b73bdee4..092bc2a36ff230694b7ebc10fa021cba6e6e2023 100644
+--- a/app/Http/Controllers/AcpController.php
++++ b/app/Http/Controllers/AcpController.php
+@@ -1,78 +1,79 @@
+-<?php namespace Petrie\Http\Controllers;
++<?php
+ 
+-class AcpController extends Controller {
++namespace Petrie\Http\Controllers;
+ 
+-	/**
+-	 * Create a new controller instance.
+-	 *
+-	 * @return void
+-	 */
+-	public function __construct()
+-	{
++class AcpController extends Controller
++{
++    /**
++     * Create a new controller instance.
++     *
++     * @return void
++     */
++    public function __construct()
++    {
+         // Uncomment to force this controller to require auth
+-		// $this->middleware('auth');
+-	}
++        // $this->middleware('auth');
++    }
+ 
+-	/**
+-	 * Display the administration dashboard
+-	 *
+-	 * @return Response
+-	 */
+-	public function index()
+-	{
+-		return view('admin.index');
+-	}
++    /**
++     * Display the administration dashboard.
++     *
++     * @return Response
++     */
++    public function index()
++    {
++        return view('admin.index');
++    }
+ 
+-	/**
+-	 * Display the user administration page
+-	 *
+-	 * @return Response
+-	 */
+-	public function users()
+-	{
+-		return view('admin.users');
+-	}
++    /**
++     * Display the user administration page.
++     *
++     * @return Response
++     */
++    public function users()
++    {
++        return view('admin.users');
++    }
+ 
+-	/**
+-	 * Display the back-end style guide
+-	 *
+-	 * @return Response
+-	 */
+-	public function backend()
+-	{
+-		return view('admin.guide-back');
+-	}
++    /**
++     * Display the back-end style guide.
++     *
++     * @return Response
++     */
++    public function backend()
++    {
++        return view('admin.guide-back');
++    }
+ 
+-	/**
+-	 * Display the front-end style guide
+-	 *
+-	 * @return Response
+-	 */
+-	public function frontend()
+-	{
+-		return view('admin.guide-front');
+-	}
++    /**
++     * Display the front-end style guide.
++     *
++     * @return Response
++     */
++    public function frontend()
++    {
++        return view('admin.guide-front');
++    }
+ 
++    /*
++     * Temporary pages that should be removed for any site other than Petrie
++     */
+ 
+-	/*
+-	 * Temporary pages that should be removed for any site other than Petrie
+-	 */
++    // SVG Icon Glossary
++    public function svg()
++    {
++        return view('admin.svg');
++    }
+ 
+-	// SVG Icon Glossary
+-	public function svg()
+-	{
+-		return view('admin.svg');
+-	}
++    // Morris Chart Examples
++    public function morris()
++    {
++        return view('admin.morris');
++    }
+ 
+-	// Morris Chart Examples
+-	public function morris()
+-	{
+-		return view('admin.morris');
+-	}
+-
+-	// Easy-Pie-Chart Examples
+-	public function easypie()
+-	{
+-		return view('admin.easypie');
+-	}
+-}
+\ No newline at end of file
++    // Easy-Pie-Chart Examples
++    public function easypie()
++    {
++        return view('admin.easypie');
++    }
++}
+diff --git a/app/Http/Controllers/Auth/AuthController.php b/app/Http/Controllers/Auth/AuthController.php
+index d1927466b4ae86b4ac2c74e96a40969f89850a8b..7a646e1c7cf8a25cc0ad6fb78d6a415ee0f30a0e 100644
+--- a/app/Http/Controllers/Auth/AuthController.php
++++ b/app/Http/Controllers/Auth/AuthController.php
+@@ -1,38 +1,40 @@
+-<?php namespace Petrie\Http\Controllers\Auth;
++<?php
++
++namespace Petrie\Http\Controllers\Auth;
+ 
+-use Petrie\Http\Controllers\Controller;
+ use Illuminate\Contracts\Auth\Guard;
+ use Illuminate\Contracts\Auth\Registrar;
+ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
++use Petrie\Http\Controllers\Controller;
+ 
+-class AuthController extends Controller {
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Registration & Login Controller
+-	|--------------------------------------------------------------------------
+-	|
+-	| This controller handles the registration of new users, as well as the
+-	| authentication of existing users. By default, this controller uses
+-	| a simple trait to add these behaviors. Why don't you explore it?
+-	|
+-	*/
+-
+-	use AuthenticatesAndRegistersUsers;
++class AuthController extends Controller
++{
++    /*
++    |--------------------------------------------------------------------------
++    | Registration & Login Controller
++    |--------------------------------------------------------------------------
++    |
++    | This controller handles the registration of new users, as well as the
++    | authentication of existing users. By default, this controller uses
++    | a simple trait to add these behaviors. Why don't you explore it?
++    |
++    */
+ 
+-	/**
+-	 * Create a new authentication controller instance.
+-	 *
+-	 * @param  \Illuminate\Contracts\Auth\Guard  $auth
+-	 * @param  \Illuminate\Contracts\Auth\Registrar  $registrar
+-	 * @return void
+-	 */
+-	public function __construct(Guard $auth, Registrar $registrar)
+-	{
+-		$this->auth = $auth;
+-		$this->registrar = $registrar;
++    use AuthenticatesAndRegistersUsers;
+ 
+-		$this->middleware('guest', ['except' => 'getLogout']);
+-	}
++    /**
++     * Create a new authentication controller instance.
++     *
++     * @param \Illuminate\Contracts\Auth\Guard     $auth
++     * @param \Illuminate\Contracts\Auth\Registrar $registrar
++     *
++     * @return void
++     */
++    public function __construct(Guard $auth, Registrar $registrar)
++    {
++        $this->auth = $auth;
++        $this->registrar = $registrar;
+ 
++        $this->middleware('guest', ['except' => 'getLogout']);
++    }
+ }
+diff --git a/app/Http/Controllers/Auth/PasswordController.php b/app/Http/Controllers/Auth/PasswordController.php
+index efafab0f35ef87a1f602e994cda4524d6c3c3f1d..63b4a0a5cea15be11c28ace203678a72c031b6f2 100644
+--- a/app/Http/Controllers/Auth/PasswordController.php
++++ b/app/Http/Controllers/Auth/PasswordController.php
+@@ -1,38 +1,40 @@
+-<?php namespace Petrie\Http\Controllers\Auth;
++<?php
++
++namespace Petrie\Http\Controllers\Auth;
+ 
+-use Petrie\Http\Controllers\Controller;
+ use Illuminate\Contracts\Auth\Guard;
+ use Illuminate\Contracts\Auth\PasswordBroker;
+ use Illuminate\Foundation\Auth\ResetsPasswords;
++use Petrie\Http\Controllers\Controller;
+ 
+-class PasswordController extends Controller {
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Password Reset Controller
+-	|--------------------------------------------------------------------------
+-	|
+-	| This controller is responsible for handling password reset requests
+-	| and uses a simple trait to include this behavior. You're free to
+-	| explore this trait and override any methods you wish to tweak.
+-	|
+-	*/
+-
+-	use ResetsPasswords;
++class PasswordController extends Controller
++{
++    /*
++    |--------------------------------------------------------------------------
++    | Password Reset Controller
++    |--------------------------------------------------------------------------
++    |
++    | This controller is responsible for handling password reset requests
++    | and uses a simple trait to include this behavior. You're free to
++    | explore this trait and override any methods you wish to tweak.
++    |
++    */
+ 
+-	/**
+-	 * Create a new password controller instance.
+-	 *
+-	 * @param  \Illuminate\Contracts\Auth\Guard  $auth
+-	 * @param  \Illuminate\Contracts\Auth\PasswordBroker  $passwords
+-	 * @return void
+-	 */
+-	public function __construct(Guard $auth, PasswordBroker $passwords)
+-	{
+-		$this->auth = $auth;
+-		$this->passwords = $passwords;
++    use ResetsPasswords;
+ 
+-		$this->middleware('guest');
+-	}
++    /**
++     * Create a new password controller instance.
++     *
++     * @param \Illuminate\Contracts\Auth\Guard          $auth
++     * @param \Illuminate\Contracts\Auth\PasswordBroker $passwords
++     *
++     * @return void
++     */
++    public function __construct(Guard $auth, PasswordBroker $passwords)
++    {
++        $this->auth = $auth;
++        $this->passwords = $passwords;
+ 
++        $this->middleware('guest');
++    }
+ }
+diff --git a/app/Http/Controllers/Controller.php b/app/Http/Controllers/Controller.php
+index 300100a1bf075a9a3aa1316ff1f471ab9c346700..eccc296c864f8d5c9c3db131f9e3055465286a5d 100644
+--- a/app/Http/Controllers/Controller.php
++++ b/app/Http/Controllers/Controller.php
+@@ -1,11 +1,12 @@
+-<?php namespace Petrie\Http\Controllers;
++<?php
++
++namespace Petrie\Http\Controllers;
+ 
+ use Illuminate\Foundation\Bus\DispatchesCommands;
+-use Illuminate\Routing\Controller as BaseController;
+ use Illuminate\Foundation\Validation\ValidatesRequests;
++use Illuminate\Routing\Controller as BaseController;
+ 
+-abstract class Controller extends BaseController {
+-
+-	use DispatchesCommands, ValidatesRequests;
+-
++abstract class Controller extends BaseController
++{
++    use DispatchesCommands, ValidatesRequests;
+ }
+diff --git a/app/Http/Controllers/PageController.php b/app/Http/Controllers/PageController.php
+index c4e7afaee3cfc844f8ed377e4dbfec091b7cac6c..95dfc61f2635c530583ee5cea5af607dca883d10 100644
+--- a/app/Http/Controllers/PageController.php
++++ b/app/Http/Controllers/PageController.php
+@@ -1,20 +1,22 @@
+-<?php namespace Petrie\Http\Controllers;
++<?php
+ 
+-class PageController extends Controller {
++namespace Petrie\Http\Controllers;
+ 
+-	/**
+-	 * Create a new controller instance.
+-	 *
+-	 * @return void
+-	 */
+-	public function __construct()
+-	{
++class PageController extends Controller
++{
++    /**
++     * Create a new controller instance.
++     *
++     * @return void
++     */
++    public function __construct()
++    {
+         // Uncomment to force this controller to require auth
+-		// $this->middleware('auth');
+-	}
++        // $this->middleware('auth');
++    }
+ 
+     /**
+-     * Display the index
++     * Display the index.
+      *
+      * @return Response
+      */
+@@ -24,7 +26,7 @@ class PageController extends Controller {
+     }
+ 
+     /**
+-     * Display the about page
++     * Display the about page.
+      *
+      * @return Response
+      */
+@@ -33,13 +35,13 @@ class PageController extends Controller {
+         return view('about');
+     }
+ 
+-	/**
+-	 * Display the theme page
+-	 *
+-	 * @return Response
+-	 */
+-	public function examples()
+-	{
+-		return view('examples');
+-	}
+-}
+\ No newline at end of file
++    /**
++     * Display the theme page.
++     *
++     * @return Response
++     */
++    public function examples()
++    {
++        return view('examples');
++    }
++}
+diff --git a/app/Http/Kernel.php b/app/Http/Kernel.php
+index 2b4711e17ae7781fa100d08fc569dab6db403064..415746dc49621c657d31bb332a460732a4c70980 100644
+--- a/app/Http/Kernel.php
++++ b/app/Http/Kernel.php
+@@ -1,32 +1,33 @@
+-<?php namespace Petrie\Http;
++<?php
+ 
+-use Illuminate\Foundation\Http\Kernel as HttpKernel;
+-
+-class Kernel extends HttpKernel {
++namespace Petrie\Http;
+ 
+-	/**
+-	 * The application's global HTTP middleware stack.
+-	 *
+-	 * @var array
+-	 */
+-	protected $middleware = [
+-		'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
+-		'Illuminate\Cookie\Middleware\EncryptCookies',
+-		'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
+-		'Illuminate\Session\Middleware\StartSession',
+-		'Illuminate\View\Middleware\ShareErrorsFromSession',
+-		'Petrie\Http\Middleware\VerifyCsrfToken',
+-	];
++use Illuminate\Foundation\Http\Kernel as HttpKernel;
+ 
+-	/**
+-	 * The application's route middleware.
+-	 *
+-	 * @var array
+-	 */
+-	protected $routeMiddleware = [
+-		'auth' => 'Petrie\Http\Middleware\Authenticate',
+-		'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
+-		'guest' => 'Petrie\Http\Middleware\RedirectIfAuthenticated',
+-	];
++class Kernel extends HttpKernel
++{
++    /**
++     * The application's global HTTP middleware stack.
++     *
++     * @var array
++     */
++    protected $middleware = [
++        'Illuminate\Foundation\Http\Middleware\CheckForMaintenanceMode',
++        'Illuminate\Cookie\Middleware\EncryptCookies',
++        'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
++        'Illuminate\Session\Middleware\StartSession',
++        'Illuminate\View\Middleware\ShareErrorsFromSession',
++        'Petrie\Http\Middleware\VerifyCsrfToken',
++    ];
+ 
++    /**
++     * The application's route middleware.
++     *
++     * @var array
++     */
++    protected $routeMiddleware = [
++        'auth'       => 'Petrie\Http\Middleware\Authenticate',
++        'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
++        'guest'      => 'Petrie\Http\Middleware\RedirectIfAuthenticated',
++    ];
+ }
+diff --git a/app/Http/Middleware/Authenticate.php b/app/Http/Middleware/Authenticate.php
+index 3c972169fc9fb7aa59146b1de2a680c8b5e6474a..a2e3e5dd2ebe386f89d8a97d42a0a8defe5958a9 100644
+--- a/app/Http/Middleware/Authenticate.php
++++ b/app/Http/Middleware/Authenticate.php
+@@ -1,49 +1,47 @@
+-<?php namespace Petrie\Http\Middleware;
++<?php
++
++namespace Petrie\Http\Middleware;
+ 
+ use Closure;
+ use Illuminate\Contracts\Auth\Guard;
+ 
+-class Authenticate {
+-
+-	/**
+-	 * The Guard implementation.
+-	 *
+-	 * @var Guard
+-	 */
+-	protected $auth;
+-
+-	/**
+-	 * Create a new filter instance.
+-	 *
+-	 * @param  Guard  $auth
+-	 */
+-	public function __construct(Guard $auth)
+-	{
+-		$this->auth = $auth;
+-	}
++class Authenticate
++{
++    /**
++     * The Guard implementation.
++     *
++     * @var Guard
++     */
++    protected $auth;
+ 
+-	/**
+-	 * Handle an incoming request.
+-	 *
+-	 * @param  \Illuminate\Http\Request  $request
+-	 * @param  \Closure  $next
+-	 * @return mixed
+-	 */
+-	public function handle($request, Closure $next)
+-	{
+-		if ($this->auth->guest())
+-		{
+-			if ($request->ajax())
+-			{
+-				return response('Unauthorized.', 401);
+-			}
+-			else
+-			{
+-				return redirect()->guest('auth/login');
+-			}
+-		}
++    /**
++     * Create a new filter instance.
++     *
++     * @param Guard $auth
++     */
++    public function __construct(Guard $auth)
++    {
++        $this->auth = $auth;
++    }
+ 
+-		return $next($request);
+-	}
++    /**
++     * Handle an incoming request.
++     *
++     * @param \Illuminate\Http\Request $request
++     * @param \Closure                 $next
++     *
++     * @return mixed
++     */
++    public function handle($request, Closure $next)
++    {
++        if ($this->auth->guest()) {
++            if ($request->ajax()) {
++                return response('Unauthorized.', 401);
++            } else {
++                return redirect()->guest('auth/login');
++            }
++        }
+ 
++        return $next($request);
++    }
+ }
+diff --git a/app/Http/Middleware/RedirectIfAuthenticated.php b/app/Http/Middleware/RedirectIfAuthenticated.php
+index 783f1ca57cc1429744749b5b764c8bff8a7c193a..4cdf3f618402509dfb069dc8b4ffd92a4e0d6847 100644
+--- a/app/Http/Middleware/RedirectIfAuthenticated.php
++++ b/app/Http/Middleware/RedirectIfAuthenticated.php
+@@ -1,4 +1,6 @@
+-<?php namespace Petrie\Http\Middleware;
++<?php
++
++namespace Petrie\Http\Middleware;
+ 
+ use Closure;
+ use Illuminate\Contracts\Auth\Guard;
+@@ -6,7 +8,6 @@ use Illuminate\Http\RedirectResponse;
+ 
+ class RedirectIfAuthenticated
+ {
+-
+     /**
+      * The Guard implementation.
+      *
+@@ -17,7 +18,7 @@ class RedirectIfAuthenticated
+     /**
+      * Create a new filter instance.
+      *
+-     * @param  Guard $auth
++     * @param Guard $auth
+      */
+     public function __construct(Guard $auth)
+     {
+@@ -27,18 +28,17 @@ class RedirectIfAuthenticated
+     /**
+      * Handle an incoming request.
+      *
+-     * @param  \Illuminate\Http\Request $request
+-     * @param  \Closure $next
++     * @param \Illuminate\Http\Request $request
++     * @param \Closure                 $next
++     *
+      * @return mixed
+      */
+     public function handle($request, Closure $next)
+     {
+-        if ($this->auth->check())
+-        {
++        if ($this->auth->check()) {
+             return new RedirectResponse(url('/'));
+         }
+ 
+         return $next($request);
+     }
+-
+ }
+diff --git a/app/Http/Middleware/VerifyCsrfToken.php b/app/Http/Middleware/VerifyCsrfToken.php
+index 6b71f464df1e83405cc153a5083c288b23a5fed0..68190b9cb5c61afbd17e2528381d1bf376bbce76 100644
+--- a/app/Http/Middleware/VerifyCsrfToken.php
++++ b/app/Http/Middleware/VerifyCsrfToken.php
+@@ -1,20 +1,22 @@
+-<?php namespace Petrie\Http\Middleware;
++<?php
++
++namespace Petrie\Http\Middleware;
+ 
+ use Closure;
+ use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;
+ 
+-class VerifyCsrfToken extends BaseVerifier {
+-
+-	/**
+-	 * Handle an incoming request.
+-	 *
+-	 * @param  \Illuminate\Http\Request  $request
+-	 * @param  \Closure  $next
+-	 * @return mixed
+-	 */
+-	public function handle($request, Closure $next)
+-	{
+-		return parent::handle($request, $next);
+-	}
+-
++class VerifyCsrfToken extends BaseVerifier
++{
++    /**
++     * Handle an incoming request.
++     *
++     * @param \Illuminate\Http\Request $request
++     * @param \Closure                 $next
++     *
++     * @return mixed
++     */
++    public function handle($request, Closure $next)
++    {
++        return parent::handle($request, $next);
++    }
+ }
+diff --git a/app/Http/Requests/Request.php b/app/Http/Requests/Request.php
+index 6eaed13172d5ca6ed978470302232d270d6847f3..91bf0a9303f129e02d37db60ba11708cd4286a73 100644
+--- a/app/Http/Requests/Request.php
++++ b/app/Http/Requests/Request.php
+@@ -1,9 +1,10 @@
+-<?php namespace Petrie\Http\Requests;
++<?php
+ 
+-use Illuminate\Foundation\Http\FormRequest;
+-
+-abstract class Request extends FormRequest {
++namespace Petrie\Http\Requests;
+ 
+-	//
++use Illuminate\Foundation\Http\FormRequest;
+ 
++abstract class Request extends FormRequest
++{
++    //
+ }
+diff --git a/app/Http/routes.php b/app/Http/routes.php
+index f15bd1c584a847dd00db969e318340370a261a40..a02ef3aa34e6f05f5f1186b78c4fa9b402d98fd9 100644
+--- a/app/Http/routes.php
++++ b/app/Http/routes.php
+@@ -14,6 +14,6 @@ Route::get('/admin/morris',         ['as' => 'admin.morris',            'uses' =
+ Route::get('/admin/easypie',        ['as' => 'admin.easypie',           'uses' => 'AcpController@easypie']);
+ 
+ Route::controllers([
+-	'auth' => 'Auth\AuthController',
+-	'password' => 'Auth\PasswordController',
++    'auth'     => 'Auth\AuthController',
++    'password' => 'Auth\PasswordController',
+ ]);
+diff --git a/app/Providers/AppServiceProvider.php b/app/Providers/AppServiceProvider.php
+index 6c87e0592a519ca0981cd667a3506864726d44e6..8fa4629c303592bcb1b51aaa4ac02757dcdf5b09 100644
+--- a/app/Providers/AppServiceProvider.php
++++ b/app/Providers/AppServiceProvider.php
+@@ -1,34 +1,35 @@
+-<?php namespace Petrie\Providers;
++<?php
+ 
+-use Illuminate\Support\ServiceProvider;
+-
+-class AppServiceProvider extends ServiceProvider {
++namespace Petrie\Providers;
+ 
+-	/**
+-	 * Bootstrap any application services.
+-	 *
+-	 * @return void
+-	 */
+-	public function boot()
+-	{
+-		//
+-	}
++use Illuminate\Support\ServiceProvider;
+ 
+-	/**
+-	 * Register any application services.
+-	 *
+-	 * This service provider is a great spot to register your various container
+-	 * bindings with the application. As you can see, we are registering our
+-	 * "Registrar" implementation here. You can add your own bindings too!
+-	 *
+-	 * @return void
+-	 */
+-	public function register()
+-	{
+-		$this->app->bind(
+-			'Illuminate\Contracts\Auth\Registrar',
+-			'Petrie\Services\Registrar'
+-		);
+-	}
++class AppServiceProvider extends ServiceProvider
++{
++    /**
++     * Bootstrap any application services.
++     *
++     * @return void
++     */
++    public function boot()
++    {
++        //
++    }
+ 
++    /**
++     * Register any application services.
++     *
++     * This service provider is a great spot to register your various container
++     * bindings with the application. As you can see, we are registering our
++     * "Registrar" implementation here. You can add your own bindings too!
++     *
++     * @return void
++     */
++    public function register()
++    {
++        $this->app->bind(
++            'Illuminate\Contracts\Auth\Registrar',
++            'Petrie\Services\Registrar'
++        );
++    }
+ }
+diff --git a/app/Providers/BusServiceProvider.php b/app/Providers/BusServiceProvider.php
+index 08639378c033e8dfeee4d11a719d5823978b9ddc..bdd18cfaa9a7f42335d3b7124d29bb2a825cd488 100644
+--- a/app/Providers/BusServiceProvider.php
++++ b/app/Providers/BusServiceProvider.php
+@@ -1,34 +1,35 @@
+-<?php namespace Petrie\Providers;
++<?php
++
++namespace Petrie\Providers;
+ 
+ use Illuminate\Bus\Dispatcher;
+ use Illuminate\Support\ServiceProvider;
+ 
+-class BusServiceProvider extends ServiceProvider {
+-
+-	/**
+-	 * Bootstrap any application services.
+-	 *
+-	 * @param  \Illuminate\Bus\Dispatcher  $dispatcher
+-	 * @return void
+-	 */
+-	public function boot(Dispatcher $dispatcher)
+-	{
+-		$dispatcher->mapUsing(function($command)
+-		{
+-			return Dispatcher::simpleMapping(
+-				$command, 'Petrie\Commands', 'Petrie\Handlers\Commands'
+-			);
+-		});
+-	}
+-
+-	/**
+-	 * Register any application services.
+-	 *
+-	 * @return void
+-	 */
+-	public function register()
+-	{
+-		//
+-	}
++class BusServiceProvider extends ServiceProvider
++{
++    /**
++     * Bootstrap any application services.
++     *
++     * @param \Illuminate\Bus\Dispatcher $dispatcher
++     *
++     * @return void
++     */
++    public function boot(Dispatcher $dispatcher)
++    {
++        $dispatcher->mapUsing(function ($command) {
++            return Dispatcher::simpleMapping(
++                $command, 'Petrie\Commands', 'Petrie\Handlers\Commands'
++            );
++        });
++    }
+ 
++    /**
++     * Register any application services.
++     *
++     * @return void
++     */
++    public function register()
++    {
++        //
++    }
+ }
+diff --git a/app/Providers/ConfigServiceProvider.php b/app/Providers/ConfigServiceProvider.php
+index 54aecde0367a183195305f0df6f50298e280c117..39ea830f545bd5ed98f11b475f8572e8e097f779 100644
+--- a/app/Providers/ConfigServiceProvider.php
++++ b/app/Providers/ConfigServiceProvider.php
+@@ -1,23 +1,24 @@
+-<?php namespace Petrie\Providers;
++<?php
+ 
+-use Illuminate\Support\ServiceProvider;
+-
+-class ConfigServiceProvider extends ServiceProvider {
++namespace Petrie\Providers;
+ 
+-	/**
+-	 * Overwrite any vendor / package configuration.
+-	 *
+-	 * This service provider is intended to provide a convenient location for you
+-	 * to overwrite any "vendor" or package configuration that you may want to
+-	 * modify before the application handles the incoming request / command.
+-	 *
+-	 * @return void
+-	 */
+-	public function register()
+-	{
+-		config([
+-			//
+-		]);
+-	}
++use Illuminate\Support\ServiceProvider;
+ 
++class ConfigServiceProvider extends ServiceProvider
++{
++    /**
++     * Overwrite any vendor / package configuration.
++     *
++     * This service provider is intended to provide a convenient location for you
++     * to overwrite any "vendor" or package configuration that you may want to
++     * modify before the application handles the incoming request / command.
++     *
++     * @return void
++     */
++    public function register()
++    {
++        config([
++            //
++        ]);
++    }
+ }
+diff --git a/app/Providers/EventServiceProvider.php b/app/Providers/EventServiceProvider.php
+index 453d1b496f6d2f2d08e6144d22928e63923c4c2c..11e9c58ef47aefafec249787426693cacebc0c4e 100644
+--- a/app/Providers/EventServiceProvider.php
++++ b/app/Providers/EventServiceProvider.php
+@@ -1,32 +1,34 @@
+-<?php namespace Petrie\Providers;
++<?php
++
++namespace Petrie\Providers;
+ 
+ use Illuminate\Contracts\Events\Dispatcher as DispatcherContract;
+ use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
+ 
+-class EventServiceProvider extends ServiceProvider {
+-
+-	/**
+-	 * The event handler mappings for the application.
+-	 *
+-	 * @var array
+-	 */
+-	protected $listen = [
+-		'event.name' => [
+-			'EventListener',
+-		],
+-	];
+-
+-	/**
+-	 * Register any other events for your application.
+-	 *
+-	 * @param  \Illuminate\Contracts\Events\Dispatcher  $events
+-	 * @return void
+-	 */
+-	public function boot(DispatcherContract $events)
+-	{
+-		parent::boot($events);
++class EventServiceProvider extends ServiceProvider
++{
++    /**
++     * The event handler mappings for the application.
++     *
++     * @var array
++     */
++    protected $listen = [
++        'event.name' => [
++            'EventListener',
++        ],
++    ];
+ 
+-		//
+-	}
++    /**
++     * Register any other events for your application.
++     *
++     * @param \Illuminate\Contracts\Events\Dispatcher $events
++     *
++     * @return void
++     */
++    public function boot(DispatcherContract $events)
++    {
++        parent::boot($events);
+ 
++        //
++    }
+ }
+diff --git a/app/Providers/RouteServiceProvider.php b/app/Providers/RouteServiceProvider.php
+index 26a1597796c623a5ed6cc5b5b999691bb1f983db..96f62157957da0fb567102f7c5da9e880b0f4976 100644
+--- a/app/Providers/RouteServiceProvider.php
++++ b/app/Providers/RouteServiceProvider.php
+@@ -1,44 +1,46 @@
+-<?php namespace Petrie\Providers;
++<?php
+ 
+-use Illuminate\Routing\Router;
+-use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+-
+-class RouteServiceProvider extends ServiceProvider {
++namespace Petrie\Providers;
+ 
+-	/**
+-	 * This namespace is applied to the controller routes in your routes file.
+-	 *
+-	 * In addition, it is set as the URL generator's root namespace.
+-	 *
+-	 * @var string
+-	 */
+-	protected $namespace = 'Petrie\Http\Controllers';
++use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
++use Illuminate\Routing\Router;
+ 
+-	/**
+-	 * Define your route model bindings, pattern filters, etc.
+-	 *
+-	 * @param  \Illuminate\Routing\Router  $router
+-	 * @return void
+-	 */
+-	public function boot(Router $router)
+-	{
+-		parent::boot($router);
++class RouteServiceProvider extends ServiceProvider
++{
++    /**
++     * This namespace is applied to the controller routes in your routes file.
++     *
++     * In addition, it is set as the URL generator's root namespace.
++     *
++     * @var string
++     */
++    protected $namespace = 'Petrie\Http\Controllers';
+ 
+-		//
+-	}
++    /**
++     * Define your route model bindings, pattern filters, etc.
++     *
++     * @param \Illuminate\Routing\Router $router
++     *
++     * @return void
++     */
++    public function boot(Router $router)
++    {
++        parent::boot($router);
+ 
+-	/**
+-	 * Define the routes for the application.
+-	 *
+-	 * @param  \Illuminate\Routing\Router  $router
+-	 * @return void
+-	 */
+-	public function map(Router $router)
+-	{
+-		$router->group(['namespace' => $this->namespace], function($router)
+-		{
+-			require app_path('Http/routes.php');
+-		});
+-	}
++        //
++    }
+ 
++    /**
++     * Define the routes for the application.
++     *
++     * @param \Illuminate\Routing\Router $router
++     *
++     * @return void
++     */
++    public function map(Router $router)
++    {
++        $router->group(['namespace' => $this->namespace], function ($router) {
++            require app_path('Http/routes.php');
++        });
++    }
+ }
+diff --git a/app/Services/Registrar.php b/app/Services/Registrar.php
+index 6a33346c4195a0137ca6e6f36fa724bab58374be..0aa5bca1c16709ad688800ef4f90aaf2d91dddad 100644
+--- a/app/Services/Registrar.php
++++ b/app/Services/Registrar.php
+@@ -1,39 +1,42 @@
+-<?php namespace Petrie\Services;
++<?php
+ 
++namespace Petrie\Services;
++
++use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
+ use Petrie\User;
+ use Validator;
+-use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
+-
+-class Registrar implements RegistrarContract {
+-
+-	/**
+-	 * Get a validator for an incoming registration request.
+-	 *
+-	 * @param  array  $data
+-	 * @return \Illuminate\Contracts\Validation\Validator
+-	 */
+-	public function validator(array $data)
+-	{
+-		return Validator::make($data, [
+-			'name' => 'required|max:255',
+-			'email' => 'required|email|max:255|unique:users',
+-			'password' => 'required|confirmed|min:6',
+-		]);
+-	}
+ 
+-	/**
+-	 * Create a new user instance after a valid registration.
+-	 *
+-	 * @param  array  $data
+-	 * @return User
+-	 */
+-	public function create(array $data)
+-	{
+-		return User::create([
+-			'name' => $data['name'],
+-			'email' => $data['email'],
+-			'password' => bcrypt($data['password']),
+-		]);
+-	}
++class Registrar implements RegistrarContract
++{
++    /**
++     * Get a validator for an incoming registration request.
++     *
++     * @param array $data
++     *
++     * @return \Illuminate\Contracts\Validation\Validator
++     */
++    public function validator(array $data)
++    {
++        return Validator::make($data, [
++            'name'     => 'required|max:255',
++            'email'    => 'required|email|max:255|unique:users',
++            'password' => 'required|confirmed|min:6',
++        ]);
++    }
+ 
++    /**
++     * Create a new user instance after a valid registration.
++     *
++     * @param array $data
++     *
++     * @return User
++     */
++    public function create(array $data)
++    {
++        return User::create([
++            'name'     => $data['name'],
++            'email'    => $data['email'],
++            'password' => bcrypt($data['password']),
++        ]);
++    }
+ }
+diff --git a/app/User.php b/app/User.php
+index 54fa88eae776e620e952534c4333702c6cc47499..9e5d39a90ef5545c8ac12cb66c1ca364e45fb80d 100644
+--- a/app/User.php
++++ b/app/User.php
+@@ -1,34 +1,35 @@
+-<?php namespace Petrie;
++<?php
++
++namespace Petrie;
+ 
+ use Illuminate\Auth\Authenticatable;
+-use Illuminate\Database\Eloquent\Model;
+ use Illuminate\Auth\Passwords\CanResetPassword;
+ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
++use Illuminate\Database\Eloquent\Model;
+ 
+-class User extends Model implements AuthenticatableContract, CanResetPasswordContract {
+-
+-	use Authenticatable, CanResetPassword;
+-
+-	/**
+-	 * The database table used by the model.
+-	 *
+-	 * @var string
+-	 */
+-	protected $table = 'users';
++class User extends Model implements AuthenticatableContract, CanResetPasswordContract
++{
++    use Authenticatable, CanResetPassword;
+ 
+-	/**
+-	 * The attributes that are mass assignable.
+-	 *
+-	 * @var array
+-	 */
+-	protected $fillable = ['username', 'email', 'password'];
++    /**
++     * The database table used by the model.
++     *
++     * @var string
++     */
++    protected $table = 'users';
+ 
+-	/**
+-	 * The attributes excluded from the model's JSON form.
+-	 *
+-	 * @var array
+-	 */
+-	protected $hidden = ['password', 'remember_token'];
++    /**
++     * The attributes that are mass assignable.
++     *
++     * @var array
++     */
++    protected $fillable = ['username', 'email', 'password'];
+ 
++    /**
++     * The attributes excluded from the model's JSON form.
++     *
++     * @var array
++     */
++    protected $hidden = ['password', 'remember_token'];
+ }
+diff --git a/bootstrap/app.php b/bootstrap/app.php
+index b7b7efb4ca4747c147c9250f487f99a3b2c89d95..0bd640aac681b209b25f87a5ca5e4594ab56dbbf 100644
+--- a/bootstrap/app.php
++++ b/bootstrap/app.php
+@@ -12,7 +12,7 @@
+ */
+ 
+ $app = new Illuminate\Foundation\Application(
+-	realpath(__DIR__.'/../')
++    realpath(__DIR__.'/../')
+ );
+ 
+ /*
+@@ -27,18 +27,18 @@ $app = new Illuminate\Foundation\Application(
+ */
+ 
+ $app->singleton(
+-	'Illuminate\Contracts\Http\Kernel',
+-	'Petrie\Http\Kernel'
++    'Illuminate\Contracts\Http\Kernel',
++    'Petrie\Http\Kernel'
+ );
+ 
+ $app->singleton(
+-	'Illuminate\Contracts\Console\Kernel',
+-	'Petrie\Console\Kernel'
++    'Illuminate\Contracts\Console\Kernel',
++    'Petrie\Console\Kernel'
+ );
+ 
+ $app->singleton(
+-	'Illuminate\Contracts\Debug\ExceptionHandler',
+-	'Petrie\Exceptions\Handler'
++    'Illuminate\Contracts\Debug\ExceptionHandler',
++    'Petrie\Exceptions\Handler'
+ );
+ 
+ /*
+diff --git a/bootstrap/autoload.php b/bootstrap/autoload.php
+index bc04666cb912480106880e56281e293245ff3675..c27026d5974276cffbc1df84731f02dafcc84497 100644
+--- a/bootstrap/autoload.php
++++ b/bootstrap/autoload.php
+@@ -29,7 +29,6 @@ require __DIR__.'/../vendor/autoload.php';
+ 
+ $compiledPath = __DIR__.'/../vendor/compiled.php';
+ 
+-if (file_exists($compiledPath))
+-{
+-	require $compiledPath;
++if (file_exists($compiledPath)) {
++    require $compiledPath;
+ }
+diff --git a/config/app.php b/config/app.php
+index 7390869a2a5e981d8c94245635ccb3a440bbc819..050c50ed046fc7c0e156bd69d46b758095bf75ed 100644
+--- a/config/app.php
++++ b/config/app.php
+@@ -2,148 +2,148 @@
+ 
+ return [
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Application Debug Mode
+-	|--------------------------------------------------------------------------
+-	|
+-	| When your application is in debug mode, detailed error messages with
+-	| stack traces will be shown on every error that occurs within your
+-	| application. If disabled, a simple generic error page is shown.
+-	|
+-	*/
+-
+-	'debug' => env('APP_DEBUG'),
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Application URL
+-	|--------------------------------------------------------------------------
+-	|
+-	| This URL is used by the console to properly generate URLs when using
+-	| the Artisan command line tool. You should set this to the root of
+-	| your application so that it is used when running Artisan tasks.
+-	|
+-	*/
+-
+-	'url' => 'http://localhost',
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Application Timezone
+-	|--------------------------------------------------------------------------
+-	|
+-	| Here you may specify the default timezone for your application, which
+-	| will be used by the PHP date and date-time functions. We have gone
+-	| ahead and set this to a sensible default for you out of the box.
+-	|
+-	*/
+-
+-	'timezone' => 'UTC',
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Application Locale Configuration
+-	|--------------------------------------------------------------------------
+-	|
+-	| The application locale determines the default locale that will be used
+-	| by the translation service provider. You are free to set this value
+-	| to any of the locales which will be supported by the application.
+-	|
+-	*/
+-
+-	'locale' => 'en',
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Application Fallback Locale
+-	|--------------------------------------------------------------------------
+-	|
+-	| The fallback locale determines the locale to use when the current one
+-	| is not available. You may change the value to correspond to any of
+-	| the language folders that are provided through your application.
+-	|
+-	*/
+-
+-	'fallback_locale' => 'en',
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Encryption Key
+-	|--------------------------------------------------------------------------
+-	|
+-	| This key is used by the Illuminate encrypter service and should be set
+-	| to a random, 32 character string, otherwise these encrypted strings
+-	| will not be safe. Please do this before deploying an application!
+-	|
+-	*/
+-
+-	'key' => env('APP_KEY', 'SomeRandomString'),
+-
+-	'cipher' => MCRYPT_RIJNDAEL_128,
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Logging Configuration
+-	|--------------------------------------------------------------------------
+-	|
+-	| Here you may configure the log settings for your application. Out of
+-	| the box, Laravel uses the Monolog PHP logging library. This gives
+-	| you a variety of powerful log handlers / formatters to utilize.
+-	|
+-	| Available Settings: "single", "daily", "syslog", "errorlog"
+-	|
+-	*/
+-
+-	'log' => 'daily',
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Autoloaded Service Providers
+-	|--------------------------------------------------------------------------
+-	|
+-	| The service providers listed here will be automatically loaded on the
+-	| request to your application. Feel free to add your own services to
+-	| this array to grant expanded functionality to your applications.
+-	|
+-	*/
+-
+-	'providers' => [
+-
+-		/*
+-		 * Laravel Framework Service Providers...
+-		 */
+-		'Illuminate\Foundation\Providers\ArtisanServiceProvider',
+-		'Illuminate\Auth\AuthServiceProvider',
+-		'Illuminate\Bus\BusServiceProvider',
+-		'Illuminate\Cache\CacheServiceProvider',
+-		'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
+-		'Illuminate\Routing\ControllerServiceProvider',
+-		'Illuminate\Cookie\CookieServiceProvider',
+-		'Illuminate\Database\DatabaseServiceProvider',
+-		'Illuminate\Encryption\EncryptionServiceProvider',
+-		'Illuminate\Filesystem\FilesystemServiceProvider',
+-		'Illuminate\Foundation\Providers\FoundationServiceProvider',
+-		'Illuminate\Hashing\HashServiceProvider',
+-		'Illuminate\Mail\MailServiceProvider',
+-		'Illuminate\Pagination\PaginationServiceProvider',
+-		'Illuminate\Pipeline\PipelineServiceProvider',
+-		'Illuminate\Queue\QueueServiceProvider',
+-		'Illuminate\Redis\RedisServiceProvider',
+-		'Illuminate\Auth\Passwords\PasswordResetServiceProvider',
+-		'Illuminate\Session\SessionServiceProvider',
+-		'Illuminate\Translation\TranslationServiceProvider',
+-		'Illuminate\Validation\ValidationServiceProvider',
+-		'Illuminate\View\ViewServiceProvider',
+-
+-		/*
+-		 * Application Service Providers...
+-		 */
+-		'Petrie\Providers\AppServiceProvider',
+-		'Petrie\Providers\BusServiceProvider',
+-		'Petrie\Providers\ConfigServiceProvider',
+-		'Petrie\Providers\EventServiceProvider',
+-		'Petrie\Providers\RouteServiceProvider',
++    /*
++    |--------------------------------------------------------------------------
++    | Application Debug Mode
++    |--------------------------------------------------------------------------
++    |
++    | When your application is in debug mode, detailed error messages with
++    | stack traces will be shown on every error that occurs within your
++    | application. If disabled, a simple generic error page is shown.
++    |
++    */
++
++    'debug' => env('APP_DEBUG'),
++
++    /*
++    |--------------------------------------------------------------------------
++    | Application URL
++    |--------------------------------------------------------------------------
++    |
++    | This URL is used by the console to properly generate URLs when using
++    | the Artisan command line tool. You should set this to the root of
++    | your application so that it is used when running Artisan tasks.
++    |
++    */
++
++    'url' => 'http://localhost',
++
++    /*
++    |--------------------------------------------------------------------------
++    | Application Timezone
++    |--------------------------------------------------------------------------
++    |
++    | Here you may specify the default timezone for your application, which
++    | will be used by the PHP date and date-time functions. We have gone
++    | ahead and set this to a sensible default for you out of the box.
++    |
++    */
++
++    'timezone' => 'UTC',
++
++    /*
++    |--------------------------------------------------------------------------
++    | Application Locale Configuration
++    |--------------------------------------------------------------------------
++    |
++    | The application locale determines the default locale that will be used
++    | by the translation service provider. You are free to set this value
++    | to any of the locales which will be supported by the application.
++    |
++    */
++
++    'locale' => 'en',
++
++    /*
++    |--------------------------------------------------------------------------
++    | Application Fallback Locale
++    |--------------------------------------------------------------------------
++    |
++    | The fallback locale determines the locale to use when the current one
++    | is not available. You may change the value to correspond to any of
++    | the language folders that are provided through your application.
++    |
++    */
++
++    'fallback_locale' => 'en',
++
++    /*
++    |--------------------------------------------------------------------------
++    | Encryption Key
++    |--------------------------------------------------------------------------
++    |
++    | This key is used by the Illuminate encrypter service and should be set
++    | to a random, 32 character string, otherwise these encrypted strings
++    | will not be safe. Please do this before deploying an application!
++    |
++    */
++
++    'key' => env('APP_KEY', 'SomeRandomString'),
++
++    'cipher' => MCRYPT_RIJNDAEL_128,
++
++    /*
++    |--------------------------------------------------------------------------
++    | Logging Configuration
++    |--------------------------------------------------------------------------
++    |
++    | Here you may configure the log settings for your application. Out of
++    | the box, Laravel uses the Monolog PHP logging library. This gives
++    | you a variety of powerful log handlers / formatters to utilize.
++    |
++    | Available Settings: "single", "daily", "syslog", "errorlog"
++    |
++    */
++
++    'log' => 'daily',
++
++    /*
++    |--------------------------------------------------------------------------
++    | Autoloaded Service Providers
++    |--------------------------------------------------------------------------
++    |
++    | The service providers listed here will be automatically loaded on the
++    | request to your application. Feel free to add your own services to
++    | this array to grant expanded functionality to your applications.
++    |
++    */
++
++    'providers' => [
++
++        /*
++         * Laravel Framework Service Providers...
++         */
++        'Illuminate\Foundation\Providers\ArtisanServiceProvider',
++        'Illuminate\Auth\AuthServiceProvider',
++        'Illuminate\Bus\BusServiceProvider',
++        'Illuminate\Cache\CacheServiceProvider',
++        'Illuminate\Foundation\Providers\ConsoleSupportServiceProvider',
++        'Illuminate\Routing\ControllerServiceProvider',
++        'Illuminate\Cookie\CookieServiceProvider',
++        'Illuminate\Database\DatabaseServiceProvider',
++        'Illuminate\Encryption\EncryptionServiceProvider',
++        'Illuminate\Filesystem\FilesystemServiceProvider',
++        'Illuminate\Foundation\Providers\FoundationServiceProvider',
++        'Illuminate\Hashing\HashServiceProvider',
++        'Illuminate\Mail\MailServiceProvider',
++        'Illuminate\Pagination\PaginationServiceProvider',
++        'Illuminate\Pipeline\PipelineServiceProvider',
++        'Illuminate\Queue\QueueServiceProvider',
++        'Illuminate\Redis\RedisServiceProvider',
++        'Illuminate\Auth\Passwords\PasswordResetServiceProvider',
++        'Illuminate\Session\SessionServiceProvider',
++        'Illuminate\Translation\TranslationServiceProvider',
++        'Illuminate\Validation\ValidationServiceProvider',
++        'Illuminate\View\ViewServiceProvider',
++
++        /*
++         * Application Service Providers...
++         */
++        'Petrie\Providers\AppServiceProvider',
++        'Petrie\Providers\BusServiceProvider',
++        'Petrie\Providers\ConfigServiceProvider',
++        'Petrie\Providers\EventServiceProvider',
++        'Petrie\Providers\RouteServiceProvider',
+ 
+         /*
+          * Custom Service Providers...
+@@ -151,56 +151,56 @@ return [
+         'Zizaco\Entrust\EntrustServiceProvider',
+         'Illuminate\Html\HtmlServiceProvider',
+ 
+-	],
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Class Aliases
+-	|--------------------------------------------------------------------------
+-	|
+-	| This array of class aliases will be registered when this application
+-	| is started. However, feel free to register as many as you wish as
+-	| the aliases are "lazy" loaded so they don't hinder performance.
+-	|
+-	*/
+-
+-	'aliases' => [
+-
+-		'App'           => 'Illuminate\Support\Facades\App',
+-		'Artisan'       => 'Illuminate\Support\Facades\Artisan',
+-		'Auth'          => 'Illuminate\Support\Facades\Auth',
+-		'Blade'         => 'Illuminate\Support\Facades\Blade',
+-		'Bus'           => 'Illuminate\Support\Facades\Bus',
+-		'Cache'         => 'Illuminate\Support\Facades\Cache',
+-		'Config'        => 'Illuminate\Support\Facades\Config',
+-		'Cookie'        => 'Illuminate\Support\Facades\Cookie',
+-		'Crypt'         => 'Illuminate\Support\Facades\Crypt',
+-		'DB'            => 'Illuminate\Support\Facades\DB',
+-		'Eloquent'      => 'Illuminate\Database\Eloquent\Model',
+-		'Event'         => 'Illuminate\Support\Facades\Event',
+-		'File'          => 'Illuminate\Support\Facades\File',
+-		'Hash'          => 'Illuminate\Support\Facades\Hash',
+-		'Input'         => 'Illuminate\Support\Facades\Input',
+-		'Inspiring'     => 'Illuminate\Foundation\Inspiring',
+-		'Lang'          => 'Illuminate\Support\Facades\Lang',
+-		'Log'           => 'Illuminate\Support\Facades\Log',
+-		'Mail'          => 'Illuminate\Support\Facades\Mail',
+-		'Password'      => 'Illuminate\Support\Facades\Password',
+-		'Queue'         => 'Illuminate\Support\Facades\Queue',
+-		'Redirect'      => 'Illuminate\Support\Facades\Redirect',
+-		'Redis'         => 'Illuminate\Support\Facades\Redis',
+-		'Request'       => 'Illuminate\Support\Facades\Request',
+-		'Response'      => 'Illuminate\Support\Facades\Response',
+-		'Route'         => 'Illuminate\Support\Facades\Route',
+-		'Schema'        => 'Illuminate\Support\Facades\Schema',
+-		'Session'       => 'Illuminate\Support\Facades\Session',
+-		'Storage'       => 'Illuminate\Support\Facades\Storage',
+-		'URL'           => 'Illuminate\Support\Facades\URL',
+-		'Validator'     => 'Illuminate\Support\Facades\Validator',
+-		'View'          => 'Illuminate\Support\Facades\View',
++    ],
++
++    /*
++    |--------------------------------------------------------------------------
++    | Class Aliases
++    |--------------------------------------------------------------------------
++    |
++    | This array of class aliases will be registered when this application
++    | is started. However, feel free to register as many as you wish as
++    | the aliases are "lazy" loaded so they don't hinder performance.
++    |
++    */
++
++    'aliases' => [
++
++        'App'           => 'Illuminate\Support\Facades\App',
++        'Artisan'       => 'Illuminate\Support\Facades\Artisan',
++        'Auth'          => 'Illuminate\Support\Facades\Auth',
++        'Blade'         => 'Illuminate\Support\Facades\Blade',
++        'Bus'           => 'Illuminate\Support\Facades\Bus',
++        'Cache'         => 'Illuminate\Support\Facades\Cache',
++        'Config'        => 'Illuminate\Support\Facades\Config',
++        'Cookie'        => 'Illuminate\Support\Facades\Cookie',
++        'Crypt'         => 'Illuminate\Support\Facades\Crypt',
++        'DB'            => 'Illuminate\Support\Facades\DB',
++        'Eloquent'      => 'Illuminate\Database\Eloquent\Model',
++        'Event'         => 'Illuminate\Support\Facades\Event',
++        'File'          => 'Illuminate\Support\Facades\File',
++        'Hash'          => 'Illuminate\Support\Facades\Hash',
++        'Input'         => 'Illuminate\Support\Facades\Input',
++        'Inspiring'     => 'Illuminate\Foundation\Inspiring',
++        'Lang'          => 'Illuminate\Support\Facades\Lang',
++        'Log'           => 'Illuminate\Support\Facades\Log',
++        'Mail'          => 'Illuminate\Support\Facades\Mail',
++        'Password'      => 'Illuminate\Support\Facades\Password',
++        'Queue'         => 'Illuminate\Support\Facades\Queue',
++        'Redirect'      => 'Illuminate\Support\Facades\Redirect',
++        'Redis'         => 'Illuminate\Support\Facades\Redis',
++        'Request'       => 'Illuminate\Support\Facades\Request',
++        'Response'      => 'Illuminate\Support\Facades\Response',
++        'Route'         => 'Illuminate\Support\Facades\Route',
++        'Schema'        => 'Illuminate\Support\Facades\Schema',
++        'Session'       => 'Illuminate\Support\Facades\Session',
++        'Storage'       => 'Illuminate\Support\Facades\Storage',
++        'URL'           => 'Illuminate\Support\Facades\URL',
++        'Validator'     => 'Illuminate\Support\Facades\Validator',
++        'View'          => 'Illuminate\Support\Facades\View',
+ 
+         'Entrust'       => 'Zizaco\Entrust\EntrustFacade',
+         'Form'          => 'Illuminate\Html\FormFacade',
+         'HTML'          => 'Illuminate\Html\HtmlFacade',
+-	],
++    ],
+ ];
+diff --git a/config/auth.php b/config/auth.php
+index c90197a7f42efa92cf03bd4ea3ea2830e364d626..476f8afafa3002d7707d180ac6c05362c3a098f2 100644
+--- a/config/auth.php
++++ b/config/auth.php
+@@ -2,66 +2,66 @@
+ 
+ return [
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Default Authentication Driver
+-	|--------------------------------------------------------------------------
+-	|
+-	| This option controls the authentication driver that will be utilized.
+-	| This driver manages the retrieval and authentication of the users
+-	| attempting to get access to protected areas of your application.
+-	|
+-	| Supported: "database", "eloquent"
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Default Authentication Driver
++    |--------------------------------------------------------------------------
++    |
++    | This option controls the authentication driver that will be utilized.
++    | This driver manages the retrieval and authentication of the users
++    | attempting to get access to protected areas of your application.
++    |
++    | Supported: "database", "eloquent"
++    |
++    */
+ 
+-	'driver' => 'eloquent',
++    'driver' => 'eloquent',
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Authentication Model
+-	|--------------------------------------------------------------------------
+-	|
+-	| When using the "Eloquent" authentication driver, we need to know which
+-	| Eloquent model should be used to retrieve your users. Of course, it
+-	| is often just the "User" model but you may use whatever you like.
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Authentication Model
++    |--------------------------------------------------------------------------
++    |
++    | When using the "Eloquent" authentication driver, we need to know which
++    | Eloquent model should be used to retrieve your users. Of course, it
++    | is often just the "User" model but you may use whatever you like.
++    |
++    */
+ 
+-	'model' => 'Petrie\User',
++    'model' => 'Petrie\User',
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Authentication Table
+-	|--------------------------------------------------------------------------
+-	|
+-	| When using the "Database" authentication driver, we need to know which
+-	| table should be used to retrieve your users. We have chosen a basic
+-	| default value but you may easily change it to any table you like.
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Authentication Table
++    |--------------------------------------------------------------------------
++    |
++    | When using the "Database" authentication driver, we need to know which
++    | table should be used to retrieve your users. We have chosen a basic
++    | default value but you may easily change it to any table you like.
++    |
++    */
+ 
+-	'table' => 'users',
++    'table' => 'users',
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Password Reset Settings
+-	|--------------------------------------------------------------------------
+-	|
+-	| Here you may set the options for resetting passwords including the view
+-	| that is your password reset e-mail. You can also set the name of the
+-	| table that maintains all of the reset tokens for your application.
+-	|
+-	| The expire time is the number of minutes that the reset token should be
+-	| considered valid. This security feature keeps tokens short-lived so
+-	| they have less time to be guessed. You may change this as needed.
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Password Reset Settings
++    |--------------------------------------------------------------------------
++    |
++    | Here you may set the options for resetting passwords including the view
++    | that is your password reset e-mail. You can also set the name of the
++    | table that maintains all of the reset tokens for your application.
++    |
++    | The expire time is the number of minutes that the reset token should be
++    | considered valid. This security feature keeps tokens short-lived so
++    | they have less time to be guessed. You may change this as needed.
++    |
++    */
+ 
+-	'password' => [
+-		'email' => 'emails.password',
+-		'table' => 'password_resets',
+-		'expire' => 60,
+-	],
++    'password' => [
++        'email'  => 'emails.password',
++        'table'  => 'password_resets',
++        'expire' => 60,
++    ],
+ 
+ ];
+diff --git a/config/cache.php b/config/cache.php
+index 9ddd5f331ca9418028f39118966fa1193f7b1104..103100ace09ce9304fb4ec2da3f390cc88483352 100644
+--- a/config/cache.php
++++ b/config/cache.php
+@@ -2,78 +2,78 @@
+ 
+ return [
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Default Cache Store
+-	|--------------------------------------------------------------------------
+-	|
+-	| This option controls the default cache connection that gets used while
+-	| using this caching library. This connection is used when another is
+-	| not explicitly specified when executing a given caching function.
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Default Cache Store
++    |--------------------------------------------------------------------------
++    |
++    | This option controls the default cache connection that gets used while
++    | using this caching library. This connection is used when another is
++    | not explicitly specified when executing a given caching function.
++    |
++    */
+ 
+-	'default' => env('CACHE_DRIVER', 'file'),
++    'default' => env('CACHE_DRIVER', 'file'),
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Cache Stores
+-	|--------------------------------------------------------------------------
+-	|
+-	| Here you may define all of the cache "stores" for your application as
+-	| well as their drivers. You may even define multiple stores for the
+-	| same cache driver to group types of items stored in your caches.
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Cache Stores
++    |--------------------------------------------------------------------------
++    |
++    | Here you may define all of the cache "stores" for your application as
++    | well as their drivers. You may even define multiple stores for the
++    | same cache driver to group types of items stored in your caches.
++    |
++    */
+ 
+-	'stores' => [
++    'stores' => [
+ 
+-		'apc' => [
+-			'driver' => 'apc'
+-		],
++        'apc' => [
++            'driver' => 'apc',
++        ],
+ 
+-		'array' => [
+-			'driver' => 'array'
+-		],
++        'array' => [
++            'driver' => 'array',
++        ],
+ 
+-		'database' => [
+-			'driver' => 'database',
+-			'table'  => 'cache',
+-			'connection' => null,
+-		],
++        'database' => [
++            'driver'     => 'database',
++            'table'      => 'cache',
++            'connection' => null,
++        ],
+ 
+-		'file' => [
+-			'driver' => 'file',
+-			'path'   => storage_path().'/framework/cache',
+-		],
++        'file' => [
++            'driver' => 'file',
++            'path'   => storage_path().'/framework/cache',
++        ],
+ 
+-		'memcached' => [
+-			'driver'  => 'memcached',
+-			'servers' => [
+-				[
+-					'host' => '127.0.0.1', 'port' => 11211, 'weight' => 100
+-				],
+-			],
+-		],
++        'memcached' => [
++            'driver'  => 'memcached',
++            'servers' => [
++                [
++                    'host' => '127.0.0.1', 'port' => 11211, 'weight' => 100,
++                ],
++            ],
++        ],
+ 
+-		'redis' => [
+-			'driver' => 'redis',
+-			'connection' => 'default',
+-		],
++        'redis' => [
++            'driver'     => 'redis',
++            'connection' => 'default',
++        ],
+ 
+-	],
++    ],
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Cache Key Prefix
+-	|--------------------------------------------------------------------------
+-	|
+-	| When utilizing a RAM based store such as APC or Memcached, there might
+-	| be other applications utilizing the same cache. So, we'll specify a
+-	| value to get prefixed to all our keys so we can avoid collisions.
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Cache Key Prefix
++    |--------------------------------------------------------------------------
++    |
++    | When utilizing a RAM based store such as APC or Memcached, there might
++    | be other applications utilizing the same cache. So, we'll specify a
++    | value to get prefixed to all our keys so we can avoid collisions.
++    |
++    */
+ 
+-	'prefix' => 'laravel',
++    'prefix' => 'laravel',
+ 
+ ];
+diff --git a/config/compile.php b/config/compile.php
+index 3a002fcaaac8d7711ac389d1e3f026fa5a36d28c..2f00654ec7918de37a81aba5d8256e7b7402ab30 100644
+--- a/config/compile.php
++++ b/config/compile.php
+@@ -2,40 +2,40 @@
+ 
+ return [
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Additional Compiled Classes
+-	|--------------------------------------------------------------------------
+-	|
+-	| Here you may specify additional classes to include in the compiled file
+-	| generated by the `artisan optimize` command. These should be classes
+-	| that are included on basically every request into the application.
+-	|
+-	*/
+-
+-	'files' => [
+-
+-		realpath(__DIR__.'/../app/Providers/AppServiceProvider.php'),
+-		realpath(__DIR__.'/../app/Providers/BusServiceProvider.php'),
+-		realpath(__DIR__.'/../app/Providers/ConfigServiceProvider.php'),
+-		realpath(__DIR__.'/../app/Providers/EventServiceProvider.php'),
+-		realpath(__DIR__.'/../app/Providers/RouteServiceProvider.php'),
+-
+-	],
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Compiled File Providers
+-	|--------------------------------------------------------------------------
+-	|
+-	| Here you may list service providers which define a "compiles" function
+-	| that returns additional files that should be compiled, providing an
+-	| easy way to get common files from any packages you are utilizing.
+-	|
+-	*/
+-
+-	'providers' => [
+-		//
+-	],
++    /*
++    |--------------------------------------------------------------------------
++    | Additional Compiled Classes
++    |--------------------------------------------------------------------------
++    |
++    | Here you may specify additional classes to include in the compiled file
++    | generated by the `artisan optimize` command. These should be classes
++    | that are included on basically every request into the application.
++    |
++    */
++
++    'files' => [
++
++        realpath(__DIR__.'/../app/Providers/AppServiceProvider.php'),
++        realpath(__DIR__.'/../app/Providers/BusServiceProvider.php'),
++        realpath(__DIR__.'/../app/Providers/ConfigServiceProvider.php'),
++        realpath(__DIR__.'/../app/Providers/EventServiceProvider.php'),
++        realpath(__DIR__.'/../app/Providers/RouteServiceProvider.php'),
++
++    ],
++
++    /*
++    |--------------------------------------------------------------------------
++    | Compiled File Providers
++    |--------------------------------------------------------------------------
++    |
++    | Here you may list service providers which define a "compiles" function
++    | that returns additional files that should be compiled, providing an
++    | easy way to get common files from any packages you are utilizing.
++    |
++    */
++
++    'providers' => [
++        //
++    ],
+ 
+ ];
+diff --git a/config/database.php b/config/database.php
+index 54c6db0fccd1afc51baa2deeb83dfab0bf098c95..846e426cb8df23543e79ca1a61d528934af621d4 100644
+--- a/config/database.php
++++ b/config/database.php
+@@ -2,124 +2,124 @@
+ 
+ return [
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| PDO Fetch Style
+-	|--------------------------------------------------------------------------
+-	|
+-	| By default, database results will be returned as instances of the PHP
+-	| stdClass object; however, you may desire to retrieve records in an
+-	| array format for simplicity. Here you can tweak the fetch style.
+-	|
+-	*/
+-
+-	'fetch' => PDO::FETCH_CLASS,
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Default Database Connection Name
+-	|--------------------------------------------------------------------------
+-	|
+-	| Here you may specify which of the database connections below you wish
+-	| to use as your default connection for all database work. Of course
+-	| you may use many connections at once using the Database library.
+-	|
+-	*/
+-
+-	'default' => 'mysql',
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Database Connections
+-	|--------------------------------------------------------------------------
+-	|
+-	| Here are each of the database connections setup for your application.
+-	| Of course, examples of configuring each database platform that is
+-	| supported by Laravel is shown below to make development simple.
+-	|
+-	|
+-	| All database work in Laravel is done through the PHP PDO facilities
+-	| so make sure you have the driver for your particular database of
+-	| choice installed on your machine before you begin development.
+-	|
+-	*/
+-
+-	'connections' => [
+-
+-		'sqlite' => [
+-			'driver'   => 'sqlite',
+-			'database' => storage_path().'/database.sqlite',
+-			'prefix'   => '',
+-		],
+-
+-		'mysql' => [
+-			'driver'    => 'mysql',
+-			'host'      => env('DB_HOST', 'localhost'),
+-			'database'  => env('DB_DATABASE', 'forge'),
+-			'username'  => env('DB_USERNAME', 'forge'),
+-			'password'  => env('DB_PASSWORD', ''),
+-			'charset'   => 'utf8',
+-			'collation' => 'utf8_unicode_ci',
+-			'prefix'    => '',
+-			'strict'    => false,
+-		],
+-
+-		'pgsql' => [
+-			'driver'   => 'pgsql',
+-			'host'     => env('DB_HOST', 'localhost'),
+-			'database' => env('DB_DATABASE', 'forge'),
+-			'username' => env('DB_USERNAME', 'forge'),
+-			'password' => env('DB_PASSWORD', ''),
+-			'charset'  => 'utf8',
+-			'prefix'   => '',
+-			'schema'   => 'public',
+-		],
+-
+-		'sqlsrv' => [
+-			'driver'   => 'sqlsrv',
+-			'host'     => env('DB_HOST', 'localhost'),
+-			'database' => env('DB_DATABASE', 'forge'),
+-			'username' => env('DB_USERNAME', 'forge'),
+-			'password' => env('DB_PASSWORD', ''),
+-			'prefix'   => '',
+-		],
+-
+-	],
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Migration Repository Table
+-	|--------------------------------------------------------------------------
+-	|
+-	| This table keeps track of all the migrations that have already run for
+-	| your application. Using this information, we can determine which of
+-	| the migrations on disk haven't actually been run in the database.
+-	|
+-	*/
+-
+-	'migrations' => 'migrations',
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Redis Databases
+-	|--------------------------------------------------------------------------
+-	|
+-	| Redis is an open source, fast, and advanced key-value store that also
+-	| provides a richer set of commands than a typical key-value systems
+-	| such as APC or Memcached. Laravel makes it easy to dig right in.
+-	|
+-	*/
+-
+-	'redis' => [
+-
+-		'cluster' => false,
+-
+-		'default' => [
+-			'host'     => '127.0.0.1',
+-			'port'     => 6379,
+-			'database' => 0,
+-		],
+-
+-	],
++    /*
++    |--------------------------------------------------------------------------
++    | PDO Fetch Style
++    |--------------------------------------------------------------------------
++    |
++    | By default, database results will be returned as instances of the PHP
++    | stdClass object; however, you may desire to retrieve records in an
++    | array format for simplicity. Here you can tweak the fetch style.
++    |
++    */
++
++    'fetch' => PDO::FETCH_CLASS,
++
++    /*
++    |--------------------------------------------------------------------------
++    | Default Database Connection Name
++    |--------------------------------------------------------------------------
++    |
++    | Here you may specify which of the database connections below you wish
++    | to use as your default connection for all database work. Of course
++    | you may use many connections at once using the Database library.
++    |
++    */
++
++    'default' => 'mysql',
++
++    /*
++    |--------------------------------------------------------------------------
++    | Database Connections
++    |--------------------------------------------------------------------------
++    |
++    | Here are each of the database connections setup for your application.
++    | Of course, examples of configuring each database platform that is
++    | supported by Laravel is shown below to make development simple.
++    |
++    |
++    | All database work in Laravel is done through the PHP PDO facilities
++    | so make sure you have the driver for your particular database of
++    | choice installed on your machine before you begin development.
++    |
++    */
++
++    'connections' => [
++
++        'sqlite' => [
++            'driver'   => 'sqlite',
++            'database' => storage_path().'/database.sqlite',
++            'prefix'   => '',
++        ],
++
++        'mysql' => [
++            'driver'    => 'mysql',
++            'host'      => env('DB_HOST', 'localhost'),
++            'database'  => env('DB_DATABASE', 'forge'),
++            'username'  => env('DB_USERNAME', 'forge'),
++            'password'  => env('DB_PASSWORD', ''),
++            'charset'   => 'utf8',
++            'collation' => 'utf8_unicode_ci',
++            'prefix'    => '',
++            'strict'    => false,
++        ],
++
++        'pgsql' => [
++            'driver'   => 'pgsql',
++            'host'     => env('DB_HOST', 'localhost'),
++            'database' => env('DB_DATABASE', 'forge'),
++            'username' => env('DB_USERNAME', 'forge'),
++            'password' => env('DB_PASSWORD', ''),
++            'charset'  => 'utf8',
++            'prefix'   => '',
++            'schema'   => 'public',
++        ],
++
++        'sqlsrv' => [
++            'driver'   => 'sqlsrv',
++            'host'     => env('DB_HOST', 'localhost'),
++            'database' => env('DB_DATABASE', 'forge'),
++            'username' => env('DB_USERNAME', 'forge'),
++            'password' => env('DB_PASSWORD', ''),
++            'prefix'   => '',
++        ],
++
++    ],
++
++    /*
++    |--------------------------------------------------------------------------
++    | Migration Repository Table
++    |--------------------------------------------------------------------------
++    |
++    | This table keeps track of all the migrations that have already run for
++    | your application. Using this information, we can determine which of
++    | the migrations on disk haven't actually been run in the database.
++    |
++    */
++
++    'migrations' => 'migrations',
++
++    /*
++    |--------------------------------------------------------------------------
++    | Redis Databases
++    |--------------------------------------------------------------------------
++    |
++    | Redis is an open source, fast, and advanced key-value store that also
++    | provides a richer set of commands than a typical key-value systems
++    | such as APC or Memcached. Laravel makes it easy to dig right in.
++    |
++    */
++
++    'redis' => [
++
++        'cluster' => false,
++
++        'default' => [
++            'host'     => '127.0.0.1',
++            'port'     => 6379,
++            'database' => 0,
++        ],
++
++    ],
+ 
+ ];
+diff --git a/config/filesystems.php b/config/filesystems.php
+index 0221fa70dbe164fa82ee5570e4d97a971f17d85a..1d845fe9139101add9e8bb59e04dacce937f8d12 100644
+--- a/config/filesystems.php
++++ b/config/filesystems.php
+@@ -2,70 +2,70 @@
+ 
+ return [
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Default Filesystem Disk
+-	|--------------------------------------------------------------------------
+-	|
+-	| Here you may specify the default filesystem disk that should be used
+-	| by the framework. A "local" driver, as well as a variety of cloud
+-	| based drivers are available for your choosing. Just store away!
+-	|
+-	| Supported: "local", "s3", "rackspace"
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Default Filesystem Disk
++    |--------------------------------------------------------------------------
++    |
++    | Here you may specify the default filesystem disk that should be used
++    | by the framework. A "local" driver, as well as a variety of cloud
++    | based drivers are available for your choosing. Just store away!
++    |
++    | Supported: "local", "s3", "rackspace"
++    |
++    */
+ 
+-	'default' => 'local',
++    'default' => 'local',
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Default Cloud Filesystem Disk
+-	|--------------------------------------------------------------------------
+-	|
+-	| Many applications store files both locally and in the cloud. For this
+-	| reason, you may specify a default "cloud" driver here. This driver
+-	| will be bound as the Cloud disk implementation in the container.
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Default Cloud Filesystem Disk
++    |--------------------------------------------------------------------------
++    |
++    | Many applications store files both locally and in the cloud. For this
++    | reason, you may specify a default "cloud" driver here. This driver
++    | will be bound as the Cloud disk implementation in the container.
++    |
++    */
+ 
+-	'cloud' => 's3',
++    'cloud' => 's3',
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Filesystem Disks
+-	|--------------------------------------------------------------------------
+-	|
+-	| Here you may configure as many filesystem "disks" as you wish, and you
+-	| may even configure multiple disks of the same driver. Defaults have
+-	| been setup for each driver as an example of the required options.
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Filesystem Disks
++    |--------------------------------------------------------------------------
++    |
++    | Here you may configure as many filesystem "disks" as you wish, and you
++    | may even configure multiple disks of the same driver. Defaults have
++    | been setup for each driver as an example of the required options.
++    |
++    */
+ 
+-	'disks' => [
++    'disks' => [
+ 
+-		'local' => [
+-			'driver' => 'local',
+-			'root'   => storage_path().'/app',
+-		],
++        'local' => [
++            'driver' => 'local',
++            'root'   => storage_path().'/app',
++        ],
+ 
+-		's3' => [
+-			'driver' => 's3',
+-			'key'    => 'your-key',
+-			'secret' => 'your-secret',
+-			'region' => 'your-region',
+-			'bucket' => 'your-bucket',
+-		],
++        's3' => [
++            'driver' => 's3',
++            'key'    => 'your-key',
++            'secret' => 'your-secret',
++            'region' => 'your-region',
++            'bucket' => 'your-bucket',
++        ],
+ 
+-		'rackspace' => [
+-			'driver'    => 'rackspace',
+-			'username'  => 'your-username',
+-			'key'       => 'your-key',
+-			'container' => 'your-container',
+-			'endpoint'  => 'https://identity.api.rackspacecloud.com/v2.0/',
+-			'region'    => 'IAD',
+-			'url_type'  => 'publicURL'
+-		],
++        'rackspace' => [
++            'driver'    => 'rackspace',
++            'username'  => 'your-username',
++            'key'       => 'your-key',
++            'container' => 'your-container',
++            'endpoint'  => 'https://identity.api.rackspacecloud.com/v2.0/',
++            'region'    => 'IAD',
++            'url_type'  => 'publicURL',
++        ],
+ 
+-	],
++    ],
+ 
+ ];
+diff --git a/config/mail.php b/config/mail.php
+index fc45943614a89f82abae47c435bdebbb7668f4a6..c449dfde0af5990eaad9044b60aa8581bacbe726 100644
+--- a/config/mail.php
++++ b/config/mail.php
+@@ -2,123 +2,123 @@
+ 
+ return [
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Mail Driver
+-	|--------------------------------------------------------------------------
+-	|
+-	| Laravel supports both SMTP and PHP's "mail" function as drivers for the
+-	| sending of e-mail. You may specify which one you're using throughout
+-	| your application here. By default, Laravel is setup for SMTP mail.
+-	|
+-	| Supported: "smtp", "mail", "sendmail", "mailgun", "mandrill", "log"
+-	|
+-	*/
+-
+-	'driver' => env('MAIL_DRIVER', 'smtp'),
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| SMTP Host Address
+-	|--------------------------------------------------------------------------
+-	|
+-	| Here you may provide the host address of the SMTP server used by your
+-	| applications. A default option is provided that is compatible with
+-	| the Mailgun mail service which will provide reliable deliveries.
+-	|
+-	*/
+-
+-	'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| SMTP Host Port
+-	|--------------------------------------------------------------------------
+-	|
+-	| This is the SMTP port used by your application to deliver e-mails to
+-	| users of the application. Like the host we have set this value to
+-	| stay compatible with the Mailgun e-mail application by default.
+-	|
+-	*/
+-
+-	'port' => env('MAIL_PORT', 587),
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Global "From" Address
+-	|--------------------------------------------------------------------------
+-	|
+-	| You may wish for all e-mails sent by your application to be sent from
+-	| the same address. Here, you may specify a name and address that is
+-	| used globally for all e-mails that are sent by your application.
+-	|
+-	*/
+-
+-	'from' => ['address' => null, 'name' => null],
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| E-Mail Encryption Protocol
+-	|--------------------------------------------------------------------------
+-	|
+-	| Here you may specify the encryption protocol that should be used when
+-	| the application send e-mail messages. A sensible default using the
+-	| transport layer security protocol should provide great security.
+-	|
+-	*/
+-
+-	'encryption' => 'tls',
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| SMTP Server Username
+-	|--------------------------------------------------------------------------
+-	|
+-	| If your SMTP server requires a username for authentication, you should
+-	| set it here. This will get used to authenticate with your server on
+-	| connection. You may also set the "password" value below this one.
+-	|
+-	*/
+-
+-	'username' => env('MAIL_USERNAME'),
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| SMTP Server Password
+-	|--------------------------------------------------------------------------
+-	|
+-	| Here you may set the password required by your SMTP server to send out
+-	| messages from your application. This will be given to the server on
+-	| connection so that the application will be able to send messages.
+-	|
+-	*/
+-
+-	'password' => env('MAIL_PASSWORD'),
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Sendmail System Path
+-	|--------------------------------------------------------------------------
+-	|
+-	| When using the "sendmail" driver to send e-mails, we will need to know
+-	| the path to where Sendmail lives on this server. A default path has
+-	| been provided here, which will work well on most of your systems.
+-	|
+-	*/
+-
+-	'sendmail' => '/usr/sbin/sendmail -bs',
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Mail "Pretend"
+-	|--------------------------------------------------------------------------
+-	|
+-	| When this option is enabled, e-mail will not actually be sent over the
+-	| web and will instead be written to your application's logs files so
+-	| you may inspect the message. This is great for local development.
+-	|
+-	*/
+-
+-	'pretend' => false,
++    /*
++    |--------------------------------------------------------------------------
++    | Mail Driver
++    |--------------------------------------------------------------------------
++    |
++    | Laravel supports both SMTP and PHP's "mail" function as drivers for the
++    | sending of e-mail. You may specify which one you're using throughout
++    | your application here. By default, Laravel is setup for SMTP mail.
++    |
++    | Supported: "smtp", "mail", "sendmail", "mailgun", "mandrill", "log"
++    |
++    */
++
++    'driver' => env('MAIL_DRIVER', 'smtp'),
++
++    /*
++    |--------------------------------------------------------------------------
++    | SMTP Host Address
++    |--------------------------------------------------------------------------
++    |
++    | Here you may provide the host address of the SMTP server used by your
++    | applications. A default option is provided that is compatible with
++    | the Mailgun mail service which will provide reliable deliveries.
++    |
++    */
++
++    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
++
++    /*
++    |--------------------------------------------------------------------------
++    | SMTP Host Port
++    |--------------------------------------------------------------------------
++    |
++    | This is the SMTP port used by your application to deliver e-mails to
++    | users of the application. Like the host we have set this value to
++    | stay compatible with the Mailgun e-mail application by default.
++    |
++    */
++
++    'port' => env('MAIL_PORT', 587),
++
++    /*
++    |--------------------------------------------------------------------------
++    | Global "From" Address
++    |--------------------------------------------------------------------------
++    |
++    | You may wish for all e-mails sent by your application to be sent from
++    | the same address. Here, you may specify a name and address that is
++    | used globally for all e-mails that are sent by your application.
++    |
++    */
++
++    'from' => ['address' => null, 'name' => null],
++
++    /*
++    |--------------------------------------------------------------------------
++    | E-Mail Encryption Protocol
++    |--------------------------------------------------------------------------
++    |
++    | Here you may specify the encryption protocol that should be used when
++    | the application send e-mail messages. A sensible default using the
++    | transport layer security protocol should provide great security.
++    |
++    */
++
++    'encryption' => 'tls',
++
++    /*
++    |--------------------------------------------------------------------------
++    | SMTP Server Username
++    |--------------------------------------------------------------------------
++    |
++    | If your SMTP server requires a username for authentication, you should
++    | set it here. This will get used to authenticate with your server on
++    | connection. You may also set the "password" value below this one.
++    |
++    */
++
++    'username' => env('MAIL_USERNAME'),
++
++    /*
++    |--------------------------------------------------------------------------
++    | SMTP Server Password
++    |--------------------------------------------------------------------------
++    |
++    | Here you may set the password required by your SMTP server to send out
++    | messages from your application. This will be given to the server on
++    | connection so that the application will be able to send messages.
++    |
++    */
++
++    'password' => env('MAIL_PASSWORD'),
++
++    /*
++    |--------------------------------------------------------------------------
++    | Sendmail System Path
++    |--------------------------------------------------------------------------
++    |
++    | When using the "sendmail" driver to send e-mails, we will need to know
++    | the path to where Sendmail lives on this server. A default path has
++    | been provided here, which will work well on most of your systems.
++    |
++    */
++
++    'sendmail' => '/usr/sbin/sendmail -bs',
++
++    /*
++    |--------------------------------------------------------------------------
++    | Mail "Pretend"
++    |--------------------------------------------------------------------------
++    |
++    | When this option is enabled, e-mail will not actually be sent over the
++    | web and will instead be written to your application's logs files so
++    | you may inspect the message. This is great for local development.
++    |
++    */
++
++    'pretend' => false,
+ 
+ ];
+diff --git a/config/queue.php b/config/queue.php
+index 9c39a13644a175d7a4b36537bc9225c5754449ce..44caa9d656088eb8ecffc65f2d6d2fa3325ae0bf 100644
+--- a/config/queue.php
++++ b/config/queue.php
+@@ -2,91 +2,91 @@
+ 
+ return [
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Default Queue Driver
+-	|--------------------------------------------------------------------------
+-	|
+-	| The Laravel queue API supports a variety of back-ends via an unified
+-	| API, giving you convenient access to each back-end using the same
+-	| syntax for each one. Here you may set the default queue driver.
+-	|
+-	| Supported: "null", "sync", "database", "beanstalkd",
+-	|            "sqs", "iron", "redis"
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Default Queue Driver
++    |--------------------------------------------------------------------------
++    |
++    | The Laravel queue API supports a variety of back-ends via an unified
++    | API, giving you convenient access to each back-end using the same
++    | syntax for each one. Here you may set the default queue driver.
++    |
++    | Supported: "null", "sync", "database", "beanstalkd",
++    |            "sqs", "iron", "redis"
++    |
++    */
+ 
+-	'default' => env('QUEUE_DRIVER', 'sync'),
++    'default' => env('QUEUE_DRIVER', 'sync'),
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Queue Connections
+-	|--------------------------------------------------------------------------
+-	|
+-	| Here you may configure the connection information for each server that
+-	| is used by your application. A default configuration has been added
+-	| for each back-end shipped with Laravel. You are free to add more.
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Queue Connections
++    |--------------------------------------------------------------------------
++    |
++    | Here you may configure the connection information for each server that
++    | is used by your application. A default configuration has been added
++    | for each back-end shipped with Laravel. You are free to add more.
++    |
++    */
+ 
+-	'connections' => [
++    'connections' => [
+ 
+-		'sync' => [
+-			'driver' => 'sync',
+-		],
++        'sync' => [
++            'driver' => 'sync',
++        ],
+ 
+-		'database' => [
+-			'driver' => 'database',
+-			'table' => 'jobs',
+-			'queue' => 'default',
+-			'expire' => 60,
+-		],
++        'database' => [
++            'driver' => 'database',
++            'table'  => 'jobs',
++            'queue'  => 'default',
++            'expire' => 60,
++        ],
+ 
+-		'beanstalkd' => [
+-			'driver' => 'beanstalkd',
+-			'host'   => 'localhost',
+-			'queue'  => 'default',
+-			'ttr'    => 60,
+-		],
++        'beanstalkd' => [
++            'driver' => 'beanstalkd',
++            'host'   => 'localhost',
++            'queue'  => 'default',
++            'ttr'    => 60,
++        ],
+ 
+-		'sqs' => [
+-			'driver' => 'sqs',
+-			'key'    => 'your-public-key',
+-			'secret' => 'your-secret-key',
+-			'queue'  => 'your-queue-url',
+-			'region' => 'us-east-1',
+-		],
++        'sqs' => [
++            'driver' => 'sqs',
++            'key'    => 'your-public-key',
++            'secret' => 'your-secret-key',
++            'queue'  => 'your-queue-url',
++            'region' => 'us-east-1',
++        ],
+ 
+-		'iron' => [
+-			'driver'  => 'iron',
+-			'host'    => 'mq-aws-us-east-1.iron.io',
+-			'token'   => 'your-token',
+-			'project' => 'your-project-id',
+-			'queue'   => 'your-queue-name',
+-			'encrypt' => true,
+-		],
++        'iron' => [
++            'driver'  => 'iron',
++            'host'    => 'mq-aws-us-east-1.iron.io',
++            'token'   => 'your-token',
++            'project' => 'your-project-id',
++            'queue'   => 'your-queue-name',
++            'encrypt' => true,
++        ],
+ 
+-		'redis' => [
+-			'driver' => 'redis',
+-			'queue'  => 'default',
+-			'expire' => 60,
+-		],
++        'redis' => [
++            'driver' => 'redis',
++            'queue'  => 'default',
++            'expire' => 60,
++        ],
+ 
+-	],
++    ],
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Failed Queue Jobs
+-	|--------------------------------------------------------------------------
+-	|
+-	| These options configure the behavior of failed queue job logging so you
+-	| can control which database and table are used to store the jobs that
+-	| have failed. You may change them to any database / table you wish.
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Failed Queue Jobs
++    |--------------------------------------------------------------------------
++    |
++    | These options configure the behavior of failed queue job logging so you
++    | can control which database and table are used to store the jobs that
++    | have failed. You may change them to any database / table you wish.
++    |
++    */
+ 
+-	'failed' => [
+-		'database' => 'mysql', 'table' => 'failed_jobs',
+-	],
++    'failed' => [
++        'database' => 'mysql', 'table' => 'failed_jobs',
++    ],
+ 
+ ];
+diff --git a/config/services.php b/config/services.php
+index dddc9866010fe317bbae54bbe15a291a9bd57a26..e606dbe0e06c2de3fb303a01b1a14e2012358bec 100644
+--- a/config/services.php
++++ b/config/services.php
+@@ -2,36 +2,36 @@
+ 
+ return [
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Third Party Services
+-	|--------------------------------------------------------------------------
+-	|
+-	| This file is for storing the credentials for third party services such
+-	| as Stripe, Mailgun, Mandrill, and others. This file provides a sane
+-	| default location for this type of information, allowing packages
+-	| to have a conventional place to find your various credentials.
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Third Party Services
++    |--------------------------------------------------------------------------
++    |
++    | This file is for storing the credentials for third party services such
++    | as Stripe, Mailgun, Mandrill, and others. This file provides a sane
++    | default location for this type of information, allowing packages
++    | to have a conventional place to find your various credentials.
++    |
++    */
+ 
+-	'mailgun' => [
+-		'domain' => '',
+-		'secret' => '',
+-	],
++    'mailgun' => [
++        'domain' => '',
++        'secret' => '',
++    ],
+ 
+-	'mandrill' => [
+-		'secret' => '',
+-	],
++    'mandrill' => [
++        'secret' => '',
++    ],
+ 
+-	'ses' => [
+-		'key' => '',
+-		'secret' => '',
+-		'region' => 'us-east-1',
+-	],
++    'ses' => [
++        'key'    => '',
++        'secret' => '',
++        'region' => 'us-east-1',
++    ],
+ 
+-	'stripe' => [
+-		'model'  => 'User',
+-		'secret' => '',
+-	],
++    'stripe' => [
++        'model'  => 'User',
++        'secret' => '',
++    ],
+ 
+ ];
+diff --git a/config/session.php b/config/session.php
+index 47470fabc72e8777eaf940c9a4cb95b854052f3b..2514731dbbe36510bde2948fe504662f7c6c3353 100644
+--- a/config/session.php
++++ b/config/session.php
+@@ -2,152 +2,152 @@
+ 
+ return [
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Default Session Driver
+-	|--------------------------------------------------------------------------
+-	|
+-	| This option controls the default session "driver" that will be used on
+-	| requests. By default, we will use the lightweight native driver but
+-	| you may specify any of the other wonderful drivers provided here.
+-	|
+-	| Supported: "file", "cookie", "database", "apc",
+-	|            "memcached", "redis", "array"
+-	|
+-	*/
+-
+-	'driver' => env('SESSION_DRIVER', 'file'),
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Session Lifetime
+-	|--------------------------------------------------------------------------
+-	|
+-	| Here you may specify the number of minutes that you wish the session
+-	| to be allowed to remain idle before it expires. If you want them
+-	| to immediately expire on the browser closing, set that option.
+-	|
+-	*/
+-
+-	'lifetime' => 120,
+-
+-	'expire_on_close' => false,
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Session Encryption
+-	|--------------------------------------------------------------------------
+-	|
+-	| This option allows you to easily specify that all of your session data
+-	| should be encrypted before it is stored. All encryption will be run
+-	| automatically by Laravel and you can use the Session like normal.
+-	|
+-	*/
+-
+-	'encrypt' => false,
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Session File Location
+-	|--------------------------------------------------------------------------
+-	|
+-	| When using the native session driver, we need a location where session
+-	| files may be stored. A default has been set for you but a different
+-	| location may be specified. This is only needed for file sessions.
+-	|
+-	*/
+-
+-	'files' => storage_path().'/framework/sessions',
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Session Database Connection
+-	|--------------------------------------------------------------------------
+-	|
+-	| When using the "database" or "redis" session drivers, you may specify a
+-	| connection that should be used to manage these sessions. This should
+-	| correspond to a connection in your database configuration options.
+-	|
+-	*/
+-
+-	'connection' => null,
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Session Database Table
+-	|--------------------------------------------------------------------------
+-	|
+-	| When using the "database" session driver, you may specify the table we
+-	| should use to manage the sessions. Of course, a sensible default is
+-	| provided for you; however, you are free to change this as needed.
+-	|
+-	*/
+-
+-	'table' => 'sessions',
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Session Sweeping Lottery
+-	|--------------------------------------------------------------------------
+-	|
+-	| Some session drivers must manually sweep their storage location to get
+-	| rid of old sessions from storage. Here are the chances that it will
+-	| happen on a given request. By default, the odds are 2 out of 100.
+-	|
+-	*/
+-
+-	'lottery' => [2, 100],
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Session Cookie Name
+-	|--------------------------------------------------------------------------
+-	|
+-	| Here you may change the name of the cookie used to identify a session
+-	| instance by ID. The name specified here will get used every time a
+-	| new session cookie is created by the framework for every driver.
+-	|
+-	*/
+-
+-	'cookie' => 'laravel_session',
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Session Cookie Path
+-	|--------------------------------------------------------------------------
+-	|
+-	| The session cookie path determines the path for which the cookie will
+-	| be regarded as available. Typically, this will be the root path of
+-	| your application but you are free to change this when necessary.
+-	|
+-	*/
+-
+-	'path' => '/',
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Session Cookie Domain
+-	|--------------------------------------------------------------------------
+-	|
+-	| Here you may change the domain of the cookie used to identify a session
+-	| in your application. This will determine which domains the cookie is
+-	| available to in your application. A sensible default has been set.
+-	|
+-	*/
+-
+-	'domain' => null,
+-
+-	/*
+-	|--------------------------------------------------------------------------
+-	| HTTPS Only Cookies
+-	|--------------------------------------------------------------------------
+-	|
+-	| By setting this option to true, session cookies will only be sent back
+-	| to the server if the browser has a HTTPS connection. This will keep
+-	| the cookie from being sent to you if it can not be done securely.
+-	|
+-	*/
+-
+-	'secure' => false,
++    /*
++    |--------------------------------------------------------------------------
++    | Default Session Driver
++    |--------------------------------------------------------------------------
++    |
++    | This option controls the default session "driver" that will be used on
++    | requests. By default, we will use the lightweight native driver but
++    | you may specify any of the other wonderful drivers provided here.
++    |
++    | Supported: "file", "cookie", "database", "apc",
++    |            "memcached", "redis", "array"
++    |
++    */
++
++    'driver' => env('SESSION_DRIVER', 'file'),
++
++    /*
++    |--------------------------------------------------------------------------
++    | Session Lifetime
++    |--------------------------------------------------------------------------
++    |
++    | Here you may specify the number of minutes that you wish the session
++    | to be allowed to remain idle before it expires. If you want them
++    | to immediately expire on the browser closing, set that option.
++    |
++    */
++
++    'lifetime' => 120,
++
++    'expire_on_close' => false,
++
++    /*
++    |--------------------------------------------------------------------------
++    | Session Encryption
++    |--------------------------------------------------------------------------
++    |
++    | This option allows you to easily specify that all of your session data
++    | should be encrypted before it is stored. All encryption will be run
++    | automatically by Laravel and you can use the Session like normal.
++    |
++    */
++
++    'encrypt' => false,
++
++    /*
++    |--------------------------------------------------------------------------
++    | Session File Location
++    |--------------------------------------------------------------------------
++    |
++    | When using the native session driver, we need a location where session
++    | files may be stored. A default has been set for you but a different
++    | location may be specified. This is only needed for file sessions.
++    |
++    */
++
++    'files' => storage_path().'/framework/sessions',
++
++    /*
++    |--------------------------------------------------------------------------
++    | Session Database Connection
++    |--------------------------------------------------------------------------
++    |
++    | When using the "database" or "redis" session drivers, you may specify a
++    | connection that should be used to manage these sessions. This should
++    | correspond to a connection in your database configuration options.
++    |
++    */
++
++    'connection' => null,
++
++    /*
++    |--------------------------------------------------------------------------
++    | Session Database Table
++    |--------------------------------------------------------------------------
++    |
++    | When using the "database" session driver, you may specify the table we
++    | should use to manage the sessions. Of course, a sensible default is
++    | provided for you; however, you are free to change this as needed.
++    |
++    */
++
++    'table' => 'sessions',
++
++    /*
++    |--------------------------------------------------------------------------
++    | Session Sweeping Lottery
++    |--------------------------------------------------------------------------
++    |
++    | Some session drivers must manually sweep their storage location to get
++    | rid of old sessions from storage. Here are the chances that it will
++    | happen on a given request. By default, the odds are 2 out of 100.
++    |
++    */
++
++    'lottery' => [2, 100],
++
++    /*
++    |--------------------------------------------------------------------------
++    | Session Cookie Name
++    |--------------------------------------------------------------------------
++    |
++    | Here you may change the name of the cookie used to identify a session
++    | instance by ID. The name specified here will get used every time a
++    | new session cookie is created by the framework for every driver.
++    |
++    */
++
++    'cookie' => 'laravel_session',
++
++    /*
++    |--------------------------------------------------------------------------
++    | Session Cookie Path
++    |--------------------------------------------------------------------------
++    |
++    | The session cookie path determines the path for which the cookie will
++    | be regarded as available. Typically, this will be the root path of
++    | your application but you are free to change this when necessary.
++    |
++    */
++
++    'path' => '/',
++
++    /*
++    |--------------------------------------------------------------------------
++    | Session Cookie Domain
++    |--------------------------------------------------------------------------
++    |
++    | Here you may change the domain of the cookie used to identify a session
++    | in your application. This will determine which domains the cookie is
++    | available to in your application. A sensible default has been set.
++    |
++    */
++
++    'domain' => null,
++
++    /*
++    |--------------------------------------------------------------------------
++    | HTTPS Only Cookies
++    |--------------------------------------------------------------------------
++    |
++    | By setting this option to true, session cookies will only be sent back
++    | to the server if the browser has a HTTPS connection. This will keep
++    | the cookie from being sent to you if it can not be done securely.
++    |
++    */
++
++    'secure' => false,
+ 
+ ];
+diff --git a/config/view.php b/config/view.php
+index 88fc534aebe64beac0691363ea636241864896f9..13ef5e9ff74acbbe087f9d3e7220c3be22e1c766 100644
+--- a/config/view.php
++++ b/config/view.php
+@@ -2,32 +2,32 @@
+ 
+ return [
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| View Storage Paths
+-	|--------------------------------------------------------------------------
+-	|
+-	| Most templating systems load templates from disk. Here you may specify
+-	| an array of paths that should be checked for your views. Of course
+-	| the usual Laravel view path has already been registered for you.
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | View Storage Paths
++    |--------------------------------------------------------------------------
++    |
++    | Most templating systems load templates from disk. Here you may specify
++    | an array of paths that should be checked for your views. Of course
++    | the usual Laravel view path has already been registered for you.
++    |
++    */
+ 
+-	'paths' => [
+-		realpath(base_path('resources/views'))
+-	],
++    'paths' => [
++        realpath(base_path('resources/views')),
++    ],
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Compiled View Path
+-	|--------------------------------------------------------------------------
+-	|
+-	| This option determines where all the compiled Blade templates will be
+-	| stored for your application. Typically, this is within the storage
+-	| directory. However, as usual, you are free to change this value.
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Compiled View Path
++    |--------------------------------------------------------------------------
++    |
++    | This option determines where all the compiled Blade templates will be
++    | stored for your application. Typically, this is within the storage
++    | directory. However, as usual, you are free to change this value.
++    |
++    */
+ 
+-	'compiled' => realpath(storage_path().'/framework/views'),
++    'compiled' => realpath(storage_path().'/framework/views'),
+ 
+ ];
+diff --git a/database/migrations/2014_10_12_000000_create_users_table.php b/database/migrations/2014_10_12_000000_create_users_table.php
+index 5a60cd95112476fa2dfddacdbbbf0f1021330692..d411ea18bd3ac58ef0db4c282487852d6aa66079 100644
+--- a/database/migrations/2014_10_12_000000_create_users_table.php
++++ b/database/migrations/2014_10_12_000000_create_users_table.php
+@@ -1,36 +1,34 @@
+ <?php
+ 
+-use Illuminate\Database\Schema\Blueprint;
+ use Illuminate\Database\Migrations\Migration;
++use Illuminate\Database\Schema\Blueprint;
+ 
+-class CreateUsersTable extends Migration {
+-
+-	/**
+-	 * Run the migrations.
+-	 *
+-	 * @return void
+-	 */
+-	public function up()
+-	{
+-		Schema::create('users', function(Blueprint $table)
+-		{
+-			$table->increments('id');
+-			$table->string('username');
+-			$table->string('email')->unique();
+-			$table->string('password', 60);
+-			$table->rememberToken();
+-			$table->timestamps();
+-		});
+-	}
+-
+-	/**
+-	 * Reverse the migrations.
+-	 *
+-	 * @return void
+-	 */
+-	public function down()
+-	{
+-		Schema::drop('users');
+-	}
++class CreateUsersTable extends Migration
++{
++    /**
++     * Run the migrations.
++     *
++     * @return void
++     */
++    public function up()
++    {
++        Schema::create('users', function (Blueprint $table) {
++            $table->increments('id');
++            $table->string('username');
++            $table->string('email')->unique();
++            $table->string('password', 60);
++            $table->rememberToken();
++            $table->timestamps();
++        });
++    }
+ 
++    /**
++     * Reverse the migrations.
++     *
++     * @return void
++     */
++    public function down()
++    {
++        Schema::drop('users');
++    }
+ }
+diff --git a/database/migrations/2014_10_12_100000_create_password_resets_table.php b/database/migrations/2014_10_12_100000_create_password_resets_table.php
+index 679df38f8838fa89842f29d540c04189cfdd89eb..c647b562d4a4c067b0ed9037cac12cb91675df2b 100644
+--- a/database/migrations/2014_10_12_100000_create_password_resets_table.php
++++ b/database/migrations/2014_10_12_100000_create_password_resets_table.php
+@@ -1,33 +1,31 @@
+ <?php
+ 
+-use Illuminate\Database\Schema\Blueprint;
+ use Illuminate\Database\Migrations\Migration;
++use Illuminate\Database\Schema\Blueprint;
+ 
+-class CreatePasswordResetsTable extends Migration {
+-
+-	/**
+-	 * Run the migrations.
+-	 *
+-	 * @return void
+-	 */
+-	public function up()
+-	{
+-		Schema::create('password_resets', function(Blueprint $table)
+-		{
+-			$table->string('email')->index();
+-			$table->string('token')->index();
+-			$table->timestamp('created_at');
+-		});
+-	}
+-
+-	/**
+-	 * Reverse the migrations.
+-	 *
+-	 * @return void
+-	 */
+-	public function down()
+-	{
+-		Schema::drop('password_resets');
+-	}
++class CreatePasswordResetsTable extends Migration
++{
++    /**
++     * Run the migrations.
++     *
++     * @return void
++     */
++    public function up()
++    {
++        Schema::create('password_resets', function (Blueprint $table) {
++            $table->string('email')->index();
++            $table->string('token')->index();
++            $table->timestamp('created_at');
++        });
++    }
+ 
++    /**
++     * Reverse the migrations.
++     *
++     * @return void
++     */
++    public function down()
++    {
++        Schema::drop('password_resets');
++    }
+ }
+diff --git a/database/migrations/2015_03_27_165919_setup_permissions_tables.php b/database/migrations/2015_03_27_165919_setup_permissions_tables.php
+index c88fb54f7d8cb6e0f2be16fc45dc359a9023f697..8879c1e296fa576d46ec34af7a42f3f44a2ceb81 100644
+--- a/database/migrations/2015_03_27_165919_setup_permissions_tables.php
++++ b/database/migrations/2015_03_27_165919_setup_permissions_tables.php
+@@ -1,4 +1,5 @@
+ <?php
++
+ use Illuminate\Database\Migrations\Migration;
+ use Illuminate\Database\Schema\Blueprint;
+ 
+@@ -7,7 +8,7 @@ class SetupPermissionsTables extends Migration
+     /**
+      * Run the migrations.
+      *
+-     * @return  void
++     * @return void
+      */
+     public function up()
+     {
+@@ -58,7 +59,7 @@ class SetupPermissionsTables extends Migration
+     /**
+      * Reverse the migrations.
+      *
+-     * @return  void
++     * @return void
+      */
+     public function down()
+     {
+diff --git a/database/seeds/DatabaseSeeder.php b/database/seeds/DatabaseSeeder.php
+index 773469b8cca78cac57f00645f5e578f7cd53a2ab..0d50f19510161a09a2a346421f7d6dadf1cdbed3 100644
+--- a/database/seeds/DatabaseSeeder.php
++++ b/database/seeds/DatabaseSeeder.php
+@@ -1,24 +1,26 @@
+ <?php
+ 
+ use App\User;
+-use Illuminate\Database\Seeder;
+ use Illuminate\Database\Eloquent\Model;
++use Illuminate\Database\Seeder;
+ 
+-class DatabaseSeeder extends Seeder {
+-	public function run()
+-	{
+-		Model::unguard();
+-		$this->call('UserTableSeeder');
+-	}
++class DatabaseSeeder extends Seeder
++{
++    public function run()
++    {
++        Model::unguard();
++        $this->call('UserTableSeeder');
++    }
+ }
+ 
+-class UserTableSeeder extends Seeder {
++class UserTableSeeder extends Seeder
++{
+     public function run()
+     {
+         DB::table('users')->delete();
+-        $admin = new User;
+-        $admin->username = "Admin";
+-        $admin->email = "admin@test.com";
++        $admin = new User();
++        $admin->username = 'Admin';
++        $admin->email = 'admin@test.com';
+         $admin->password = Hash::make('cg4dmin!');
+         $admin->save();
+     }
+diff --git a/public/index.php b/public/index.php
+index 37f19c23ab2fdf2cc7fa595755ed1b0c7e6b93af..5c2fb420ce35df2158b96e59a8436301d4376db9 100644
+--- a/public/index.php
++++ b/public/index.php
+@@ -1,8 +1,8 @@
+ <?php
++
+ /**
+- * Laravel - A PHP Framework For Web Artisans
++ * Laravel - A PHP Framework For Web Artisans.
+  *
+- * @package  Laravel
+  * @author   Taylor Otwell <taylorotwell@gmail.com>
+  */
+ 
+@@ -49,7 +49,7 @@ $app = require_once __DIR__.'/../bootstrap/app.php';
+ $kernel = $app->make('Illuminate\Contracts\Http\Kernel');
+ 
+ $response = $kernel->handle(
+-	$request = Illuminate\Http\Request::capture()
++    $request = Illuminate\Http\Request::capture()
+ );
+ 
+ $response->send();
+diff --git a/resources/lang/en/pagination.php b/resources/lang/en/pagination.php
+index 13b4dcb3c0f4a6d8561708cfe56e46e10fc5ce56..fcab34b253172b61762a9cb6a343299977cb564e 100644
+--- a/resources/lang/en/pagination.php
++++ b/resources/lang/en/pagination.php
+@@ -2,18 +2,18 @@
+ 
+ return [
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Pagination Language Lines
+-	|--------------------------------------------------------------------------
+-	|
+-	| The following language lines are used by the paginator library to build
+-	| the simple pagination links. You are free to change them to anything
+-	| you want to customize your views to better match your application.
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Pagination Language Lines
++    |--------------------------------------------------------------------------
++    |
++    | The following language lines are used by the paginator library to build
++    | the simple pagination links. You are free to change them to anything
++    | you want to customize your views to better match your application.
++    |
++    */
+ 
+-	'previous' => '&laquo; Previous',
+-	'next'     => 'Next &raquo;',
++    'previous' => '&laquo; Previous',
++    'next'     => 'Next &raquo;',
+ 
+ ];
+diff --git a/resources/lang/en/passwords.php b/resources/lang/en/passwords.php
+index 1fc0e1ef1795d6fc64b34031b7bbca8691eb7c7f..195340ae47d3f2a8b325b73bcc2daed818cff551 100644
+--- a/resources/lang/en/passwords.php
++++ b/resources/lang/en/passwords.php
+@@ -2,21 +2,21 @@
+ 
+ return [
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Password Reminder Language Lines
+-	|--------------------------------------------------------------------------
+-	|
+-	| The following language lines are the default lines which match reasons
+-	| that are given by the password broker for a password update attempt
+-	| has failed, such as for an invalid token or invalid new password.
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Password Reminder Language Lines
++    |--------------------------------------------------------------------------
++    |
++    | The following language lines are the default lines which match reasons
++    | that are given by the password broker for a password update attempt
++    | has failed, such as for an invalid token or invalid new password.
++    |
++    */
+ 
+-	"password" => "Passwords must be at least six characters and match the confirmation.",
+-	"user" => "We can't find a user with that e-mail address.",
+-	"token" => "This password reset token is invalid.",
+-	"sent" => "We have e-mailed your password reset link!",
+-	"reset" => "Your password has been reset!",
++    'password' => 'Passwords must be at least six characters and match the confirmation.',
++    'user'     => "We can't find a user with that e-mail address.",
++    'token'    => 'This password reset token is invalid.',
++    'sent'     => 'We have e-mailed your password reset link!',
++    'reset'    => 'Your password has been reset!',
+ 
+ ];
+diff --git a/resources/lang/en/validation.php b/resources/lang/en/validation.php
+index 764f05636d271a290411213a997c7e8d04e56f3f..ff1c087755dc14aa1292ac1bd5134a199ee6b0b8 100644
+--- a/resources/lang/en/validation.php
++++ b/resources/lang/en/validation.php
+@@ -2,106 +2,106 @@
+ 
+ return [
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Validation Language Lines
+-	|--------------------------------------------------------------------------
+-	|
+-	| The following language lines contain the default error messages used by
+-	| the validator class. Some of these rules have multiple versions such
+-	| as the size rules. Feel free to tweak each of these messages here.
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Validation Language Lines
++    |--------------------------------------------------------------------------
++    |
++    | The following language lines contain the default error messages used by
++    | the validator class. Some of these rules have multiple versions such
++    | as the size rules. Feel free to tweak each of these messages here.
++    |
++    */
+ 
+-	"accepted"             => "The :attribute must be accepted.",
+-	"active_url"           => "The :attribute is not a valid URL.",
+-	"after"                => "The :attribute must be a date after :date.",
+-	"alpha"                => "The :attribute may only contain letters.",
+-	"alpha_dash"           => "The :attribute may only contain letters, numbers, and dashes.",
+-	"alpha_num"            => "The :attribute may only contain letters and numbers.",
+-	"array"                => "The :attribute must be an array.",
+-	"before"               => "The :attribute must be a date before :date.",
+-	"between"              => [
+-		"numeric" => "The :attribute must be between :min and :max.",
+-		"file"    => "The :attribute must be between :min and :max kilobytes.",
+-		"string"  => "The :attribute must be between :min and :max characters.",
+-		"array"   => "The :attribute must have between :min and :max items.",
+-	],
+-	"boolean"              => "The :attribute field must be true or false.",
+-	"confirmed"            => "The :attribute confirmation does not match.",
+-	"date"                 => "The :attribute is not a valid date.",
+-	"date_format"          => "The :attribute does not match the format :format.",
+-	"different"            => "The :attribute and :other must be different.",
+-	"digits"               => "The :attribute must be :digits digits.",
+-	"digits_between"       => "The :attribute must be between :min and :max digits.",
+-	"email"                => "The :attribute must be a valid email address.",
+-	"filled"               => "The :attribute field is required.",
+-	"exists"               => "The selected :attribute is invalid.",
+-	"image"                => "The :attribute must be an image.",
+-	"in"                   => "The selected :attribute is invalid.",
+-	"integer"              => "The :attribute must be an integer.",
+-	"ip"                   => "The :attribute must be a valid IP address.",
+-	"max"                  => [
+-		"numeric" => "The :attribute may not be greater than :max.",
+-		"file"    => "The :attribute may not be greater than :max kilobytes.",
+-		"string"  => "The :attribute may not be greater than :max characters.",
+-		"array"   => "The :attribute may not have more than :max items.",
+-	],
+-	"mimes"                => "The :attribute must be a file of type: :values.",
+-	"min"                  => [
+-		"numeric" => "The :attribute must be at least :min.",
+-		"file"    => "The :attribute must be at least :min kilobytes.",
+-		"string"  => "The :attribute must be at least :min characters.",
+-		"array"   => "The :attribute must have at least :min items.",
+-	],
+-	"not_in"               => "The selected :attribute is invalid.",
+-	"numeric"              => "The :attribute must be a number.",
+-	"regex"                => "The :attribute format is invalid.",
+-	"required"             => "The :attribute field is required.",
+-	"required_if"          => "The :attribute field is required when :other is :value.",
+-	"required_with"        => "The :attribute field is required when :values is present.",
+-	"required_with_all"    => "The :attribute field is required when :values is present.",
+-	"required_without"     => "The :attribute field is required when :values is not present.",
+-	"required_without_all" => "The :attribute field is required when none of :values are present.",
+-	"same"                 => "The :attribute and :other must match.",
+-	"size"                 => [
+-		"numeric" => "The :attribute must be :size.",
+-		"file"    => "The :attribute must be :size kilobytes.",
+-		"string"  => "The :attribute must be :size characters.",
+-		"array"   => "The :attribute must contain :size items.",
+-	],
+-	"unique"               => "The :attribute has already been taken.",
+-	"url"                  => "The :attribute format is invalid.",
+-	"timezone"             => "The :attribute must be a valid zone.",
++    'accepted'             => 'The :attribute must be accepted.',
++    'active_url'           => 'The :attribute is not a valid URL.',
++    'after'                => 'The :attribute must be a date after :date.',
++    'alpha'                => 'The :attribute may only contain letters.',
++    'alpha_dash'           => 'The :attribute may only contain letters, numbers, and dashes.',
++    'alpha_num'            => 'The :attribute may only contain letters and numbers.',
++    'array'                => 'The :attribute must be an array.',
++    'before'               => 'The :attribute must be a date before :date.',
++    'between'              => [
++        'numeric' => 'The :attribute must be between :min and :max.',
++        'file'    => 'The :attribute must be between :min and :max kilobytes.',
++        'string'  => 'The :attribute must be between :min and :max characters.',
++        'array'   => 'The :attribute must have between :min and :max items.',
++    ],
++    'boolean'              => 'The :attribute field must be true or false.',
++    'confirmed'            => 'The :attribute confirmation does not match.',
++    'date'                 => 'The :attribute is not a valid date.',
++    'date_format'          => 'The :attribute does not match the format :format.',
++    'different'            => 'The :attribute and :other must be different.',
++    'digits'               => 'The :attribute must be :digits digits.',
++    'digits_between'       => 'The :attribute must be between :min and :max digits.',
++    'email'                => 'The :attribute must be a valid email address.',
++    'filled'               => 'The :attribute field is required.',
++    'exists'               => 'The selected :attribute is invalid.',
++    'image'                => 'The :attribute must be an image.',
++    'in'                   => 'The selected :attribute is invalid.',
++    'integer'              => 'The :attribute must be an integer.',
++    'ip'                   => 'The :attribute must be a valid IP address.',
++    'max'                  => [
++        'numeric' => 'The :attribute may not be greater than :max.',
++        'file'    => 'The :attribute may not be greater than :max kilobytes.',
++        'string'  => 'The :attribute may not be greater than :max characters.',
++        'array'   => 'The :attribute may not have more than :max items.',
++    ],
++    'mimes'                => 'The :attribute must be a file of type: :values.',
++    'min'                  => [
++        'numeric' => 'The :attribute must be at least :min.',
++        'file'    => 'The :attribute must be at least :min kilobytes.',
++        'string'  => 'The :attribute must be at least :min characters.',
++        'array'   => 'The :attribute must have at least :min items.',
++    ],
++    'not_in'               => 'The selected :attribute is invalid.',
++    'numeric'              => 'The :attribute must be a number.',
++    'regex'                => 'The :attribute format is invalid.',
++    'required'             => 'The :attribute field is required.',
++    'required_if'          => 'The :attribute field is required when :other is :value.',
++    'required_with'        => 'The :attribute field is required when :values is present.',
++    'required_with_all'    => 'The :attribute field is required when :values is present.',
++    'required_without'     => 'The :attribute field is required when :values is not present.',
++    'required_without_all' => 'The :attribute field is required when none of :values are present.',
++    'same'                 => 'The :attribute and :other must match.',
++    'size'                 => [
++        'numeric' => 'The :attribute must be :size.',
++        'file'    => 'The :attribute must be :size kilobytes.',
++        'string'  => 'The :attribute must be :size characters.',
++        'array'   => 'The :attribute must contain :size items.',
++    ],
++    'unique'               => 'The :attribute has already been taken.',
++    'url'                  => 'The :attribute format is invalid.',
++    'timezone'             => 'The :attribute must be a valid zone.',
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Custom Validation Language Lines
+-	|--------------------------------------------------------------------------
+-	|
+-	| Here you may specify custom validation messages for attributes using the
+-	| convention "attribute.rule" to name the lines. This makes it quick to
+-	| specify a specific custom language line for a given attribute rule.
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Custom Validation Language Lines
++    |--------------------------------------------------------------------------
++    |
++    | Here you may specify custom validation messages for attributes using the
++    | convention "attribute.rule" to name the lines. This makes it quick to
++    | specify a specific custom language line for a given attribute rule.
++    |
++    */
+ 
+-	'custom' => [
+-		'attribute-name' => [
+-			'rule-name' => 'custom-message',
+-		],
+-	],
++    'custom' => [
++        'attribute-name' => [
++            'rule-name' => 'custom-message',
++        ],
++    ],
+ 
+-	/*
+-	|--------------------------------------------------------------------------
+-	| Custom Validation Attributes
+-	|--------------------------------------------------------------------------
+-	|
+-	| The following language lines are used to swap attribute place-holders
+-	| with something more reader friendly such as E-Mail Address instead
+-	| of "email". This simply helps us make messages a little cleaner.
+-	|
+-	*/
++    /*
++    |--------------------------------------------------------------------------
++    | Custom Validation Attributes
++    |--------------------------------------------------------------------------
++    |
++    | The following language lines are used to swap attribute place-holders
++    | with something more reader friendly such as E-Mail Address instead
++    | of "email". This simply helps us make messages a little cleaner.
++    |
++    */
+ 
+-	'attributes' => [],
++    'attributes' => [],
+ 
+ ];
+diff --git a/server.php b/server.php
+index c7e378dff4aa108dfa3f258da4c3e8c100848099..1b4655ba42c82fe7afb5784fd69f216778f99194 100644
+--- a/server.php
++++ b/server.php
+@@ -1,21 +1,19 @@
+ <?php
++
+ /**
+- * Laravel - A PHP Framework For Web Artisans
++ * Laravel - A PHP Framework For Web Artisans.
+  *
+- * @package  Laravel
+  * @author   Taylor Otwell <taylorotwell@gmail.com>
+  */
+-
+ $uri = urldecode(
+-	parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
++    parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
+ );
+ 
+ // This file allows us to emulate Apache's "mod_rewrite" functionality from the
+ // built-in PHP web server. This provides a convenient way to test a Laravel
+ // application without having installed a "real" web server software here.
+-if ($uri !== '/' && file_exists(__DIR__.'/public'.$uri))
+-{
+-	return false;
++if ($uri !== '/' && file_exists(__DIR__.'/public'.$uri)) {
++    return false;
+ }
+ 
+ require_once __DIR__.'/public/index.php';
+diff --git a/tests/AccessTest.php b/tests/AccessTest.php
+index 4d316d83026bd60f957f54aa5e14e94cb2c43419..51dde13d768a42d4f11756ef47b173057181c4a7 100644
+--- a/tests/AccessTest.php
++++ b/tests/AccessTest.php
+@@ -1,17 +1,16 @@
+ <?php
+ 
+-class AccessTest extends TestCase {
+-
+-	/**
+-	 * Make sure the site index is accessible
+-	 *
+-	 * @return void
+-	 */
+-	public function testAccess()
+-	{
+-		$response = $this->call('GET', '/');
+-
+-		$this->assertEquals(200, $response->getStatusCode());
+-	}
++class AccessTest extends TestCase
++{
++    /**
++     * Make sure the site index is accessible.
++     *
++     * @return void
++     */
++    public function testAccess()
++    {
++        $response = $this->call('GET', '/');
+ 
++        $this->assertEquals(200, $response->getStatusCode());
++    }
+ }
+diff --git a/tests/TestCase.php b/tests/TestCase.php
+index 69726c3b3d870c56d74a7b9aa32c7f816f9eed03..069f0b84b8393a9ca1034299ec924068aaa32b44 100644
+--- a/tests/TestCase.php
++++ b/tests/TestCase.php
+@@ -1,19 +1,18 @@
+ <?php
+ 
+-class TestCase extends Illuminate\Foundation\Testing\TestCase {
++class TestCase extends Illuminate\Foundation\Testing\TestCase
++{
++    /**
++     * Creates the application.
++     *
++     * @return \Illuminate\Foundation\Application
++     */
++    public function createApplication()
++    {
++        $app = require __DIR__.'/../bootstrap/app.php';
+ 
+-	/**
+-	 * Creates the application.
+-	 *
+-	 * @return \Illuminate\Foundation\Application
+-	 */
+-	public function createApplication()
+-	{
+-		$app = require __DIR__.'/../bootstrap/app.php';
+-
+-		$app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
+-
+-		return $app;
+-	}
++        $app->make('Illuminate\Contracts\Console\Kernel')->bootstrap();
+ 
++        return $app;
++    }
+ }

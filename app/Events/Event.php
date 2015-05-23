@@ -1,7 +1,8 @@
-<?php namespace Petrie\Events;
+<?php
 
-abstract class Event {
+namespace Petrie\Events;
 
-	//
-
+abstract class Event
+{
+    //
 }

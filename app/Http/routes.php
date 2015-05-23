@@ -14,6 +14,6 @@ Route::get('/admin/morris',         ['as' => 'admin.morris',            'uses' =
 Route::get('/admin/easypie',        ['as' => 'admin.easypie',           'uses' => 'AcpController@easypie']);
 
 Route::controllers([
-	'auth' => 'Auth\AuthController',
-	'password' => 'Auth\PasswordController',
+    'auth'     => 'Auth\AuthController',
+    'password' => 'Auth\PasswordController',
 ]);

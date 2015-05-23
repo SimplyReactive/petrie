@@ -1,20 +1,22 @@
-<?php namespace Petrie\Http\Controllers;
+<?php
 
-class PageController extends Controller {
+namespace Petrie\Http\Controllers;
 
-	/**
-	 * Create a new controller instance.
-	 *
-	 * @return void
-	 */
-	public function __construct()
-	{
+class PageController extends Controller
+{
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
         // Uncomment to force this controller to require auth
-		// $this->middleware('auth');
-	}
+        // $this->middleware('auth');
+    }
 
     /**
-     * Display the index
+     * Display the index.
      *
      * @return Response
      */
@@ -24,7 +26,7 @@ class PageController extends Controller {
     }
 
     /**
-     * Display the about page
+     * Display the about page.
      *
      * @return Response
      */
@@ -33,13 +35,13 @@ class PageController extends Controller {
         return view('about');
     }
 
-	/**
-	 * Display the theme page
-	 *
-	 * @return Response
-	 */
-	public function examples()
-	{
-		return view('examples');
-	}
+    /**
+     * Display the theme page.
+     *
+     * @return Response
+     */
+    public function examples()
+    {
+        return view('examples');
+    }
 }
