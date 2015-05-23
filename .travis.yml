@@ -8,8 +8,8 @@ php:
   - hhvm
 
 matrix:
-    allow_failures:
-        - php: nightly
+  allow_failures:
+    - php: nightly
 
 sudo: false
 
@@ -21,4 +21,15 @@ before_script:
 
 install: composer install
 
-script: vendor/bin/phpunit
+script:
+  - vendor/bin/phpunit
+  - phpunit --coverage-clover=coverage.clover
+
+notifications:
+  hipchat:
+    rooms:
+      secure: lgRzD2zz6fzK32lLdEAaQBW2Fxj4xcrqsafL2fXCppX1fpAhBm8PECS9wRRj3CoE1VLURkvyfyYO+4gnEqcFCYmOBpubaJr3ek94qEp50Lxrtb5A5e51/m6RlZ9sj+q/U17rdM7GoznsoluX90ZRYG6qOtpZ4fNDpGFE4/Kyqf7Vxx3Hd4U25diLvmXh9lt3p8Wr0raw1YT8RMzP9CEi6sldGtNz2qTqleOzB5ZE3/EZKVAl4vH0C4fjumtX+xj3cieKf33Z/V1bhfWlbMt7FgpraIqe0Nc7gnVwoRYn0i1P42gyUYsnIcGy8MdDenU1sY0XW7KMndBmgdEP46MHN/yNpOfFph3+dqjsay+lGs7lvpx6ZyfM29DW5G2QACyIvxIzGCirEoOr31bY1XCa6jdvzd81TGJB8fTsWHup5pV8dWsDCAIyZJpYI7laMIUQeTGcYl8hu8OjbGeAKTAVTtnguq7eJpMmgwLjmlYVWEVbGVcPZfzJTIRtoVf9BxK1H+GpL1BegiPhx8HS6THlO6sOFCHatg7GCu+3fMPOOIpoqHRzzpQu1N+eTqyNUVoERGhrF1bKvbk6AJx/+EHULKMpZ0h02ZQ7lbh46tAACXlGToN+wZ7LrbnqEvrGHKQwpKvAo6gKp5PrOzZRs4ZEVtuwyt6tsgEwjXuOuKUPkY8=
+    template:
+      - '%{repository}#%{build_number} (%{branch} - %{commit} : %{author}): %{message}'
+    format: html
+    notify: true

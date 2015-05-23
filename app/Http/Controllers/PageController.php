@@ -5,17 +5,6 @@ namespace Petrie\Http\Controllers;
 class PageController extends Controller
 {
     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        // Uncomment to force this controller to require auth
-        // $this->middleware('auth');
-    }
-
-    /**
      * Display the index.
      *
      * @return Response

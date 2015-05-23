@@ -1,4 +1,9 @@
-# Petrie
+Petrie
+======
+
+[![StyleCI](https://styleci.io/repos/36135933/shield)](https://styleci.io/repos/36135933)
+[![Build Status](https://travis-ci.org/SimplyReactive/petrie.svg?branch=master)](https://travis-ci.org/SimplyReactive/petrie)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/SimplyReactive/petrie/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/SimplyReactive/petrie/?branch=master)
 
 Petrie is a purposely designed framework by [@_nathanburgess] to enable developers to quickly iterate simple or complex websites.
 
