@@ -15,10 +15,10 @@ sudo: false
 
 before_script:
   - npm install -g bower
+  - npm install
+  - bower install
 
 install:
   - travis_retry composer install --no-interaction --prefer-source
-  - bower install
-  - node install
 
 script: vendor/bin/phpunit
