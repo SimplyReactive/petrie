@@ -29,21 +29,27 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="{{ route('examples') }}">Examples</a></li>
-                <li><a href="{{ route('admin') }}">ACP</a></li>
-                <li><a href="{{ route('about') }}">About</a></li>
+                @if (Sentry::check())
                 <li class="dropdown">
-                    <a href="#!" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                    <a href="#!" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">{{ Session::get('email') }} <span class="caret"></span></a>
                     <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Action</a></li>
+                        @if (Sentry::check() && Sentry::getUser()->hasAccess('admin'))
+                            <li class="dropdown-header">Administration</li>
+                            <li><a href="{{ route('admin') }}">Dashboard</a></li>
+                            <li class="divider"></li>
+                        @endif
+                        <li class="dropdown-header">My Account</li>
+                        <li {{ (Request::is('profile') ? 'class="active"' : '') }}><a href="{{ route('profile.show') }}">Profile</a></li>
+                        <li><a href="#">Settings</a></li>
                         <li class="divider"></li>
-                        <li class="dropdown-header">Header</li>
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Action</a></li>
+                        <li><a href="{{ route('logout') }}">Logout</a></li>
                     </ul>
                 </li>
+                @else
+                <li {{ (Request::is('login') ? 'class="active"' : '') }}><a href="{{ route('login') }}">Login</a></li>
+                <li {{ (Request::is('users/create') ? 'class="active"' : '') }}><a href="{{ route('register.form') }}">Register</a></li>
+                @endif
+
             </ul>
         </div><!--/.nav-collapse -->
     </div>

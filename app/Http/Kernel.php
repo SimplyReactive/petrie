@@ -26,8 +26,10 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth'       => 'Petrie\Http\Middleware\Authenticate',
-        'auth.basic' => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
-        'guest'      => 'Petrie\Http\Middleware\RedirectIfAuthenticated',
+        'auth'          => 'Petrie\Http\Middleware\Authenticate',
+        'auth.basic'    => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
+        'guest'         => 'Petrie\Http\Middleware\RedirectIfAuthenticated',
+        'sentry.auth'   => 'Sentinel\Middleware\SentryAuth',
+        'sentry.admin'  => 'Sentinel\Middleware\SentryAdminAccess'
     ];
 }

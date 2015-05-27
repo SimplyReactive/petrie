@@ -66,6 +66,13 @@ h4 {
 	vertical-align: middle;
 }
 
+.navbar-side .nav > li > a > svg.animated {
+	animation-name: flipDown
+}
+.navbar-side .nav > li.active > a > svg.animated {
+	animation-name: flipUp
+}
+
 .top-navbar .nav > li > a {
 	&:hover, &:focus {
 		background-color : #2497BA;

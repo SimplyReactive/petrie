@@ -1,0 +1,61 @@
+@-webkit-keyframes flipUp {
+	0% {
+		-webkit-transform : perspective(400px);
+		transform         : perspective(400px);
+	}
+
+	100% {
+		-webkit-transform : perspective(400px) rotate3d(1, 0, 0, 180deg);
+		transform         : perspective(400px) rotate3d(1, 0, 0, 180deg);
+	}
+}
+
+@keyframes flipUp {
+	0% {
+		-webkit-transform : perspective(400px);
+		transform         : perspective(400px);
+	}
+
+	100% {
+		-webkit-transform : perspective(400px) rotate3d(1, 0, 0, 180deg);
+		transform         : perspective(400px) rotate3d(1, 0, 0, 180deg);
+	}
+}
+
+.flipUp {
+	-webkit-backface-visibility : visible !important;
+	backface-visibility         : visible !important;
+	-webkit-animation-name      : flipUp;
+	animation-name              : flipUp;
+}
+
+@-webkit-keyframes flipDown {
+	0% {
+		-webkit-transform : perspective(400px) rotate3d(1, 0, 0, 180deg);
+		transform         : perspective(400px) rotate3d(1, 0, 0, 180deg);
+	}
+
+	100% {
+		-webkit-transform : perspective(400px) rotate3d(1, 0, 0, 0deg);
+		transform         : perspective(400px) rotate3d(1, 0, 0, 0deg);
+	}
+}
+
+@keyframes flipDown {
+	0% {
+		-webkit-transform : perspective(400px) rotate3d(1, 0, 0, 180deg);
+		transform         : perspective(400px) rotate3d(1, 0, 0, 180deg);
+	}
+
+	100% {
+		-webkit-transform : perspective(400px) rotate3d(1, 0, 0, 0deg);
+		transform         : perspective(400px) rotate3d(1, 0, 0, 0deg);
+	}
+}
+
+.flipDown {
+	-webkit-backface-visibility : visible !important;
+	backface-visibility         : visible !important;
+	-webkit-animation-name      : flipDown;
+	animation-name              : flipDown;
+}

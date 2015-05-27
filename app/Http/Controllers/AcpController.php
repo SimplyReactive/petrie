@@ -2,15 +2,28 @@
 
 namespace Petrie\Http\Controllers;
 
+use Sentinel\FormRequests\UserCreateRequest;
+use Sentinel\FormRequests\UserUpdateRequest;
+use Sentinel\Repositories\Group\SentinelGroupRepositoryInterface;
+use Sentinel\Repositories\User\SentinelUserRepositoryInterface;
+use Vinkla\Hashids\HashidsManager;
+
 class AcpController extends Controller
 {
     /**
      * Create a new controller instance.
      */
-    public function __construct()
+    public function __construct(
+	    SentinelUserRepositoryInterface $userRepository,
+	    SentinelGroupRepositoryInterface $groupRepository,
+	    HashidsManager $hashids)
     {
-        // Uncomment to force this controller to require auth
-        // $this->middleware('auth');
+	    $this->userRepository  = $userRepository;
+	    $this->groupRepository = $groupRepository;
+	    $this->hashids         = $hashids;
+
+	    // You must have admin access to proceed
+	    $this->middleware('sentry.admin');
     }
 
     /**

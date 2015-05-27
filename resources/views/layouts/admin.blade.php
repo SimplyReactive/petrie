@@ -162,27 +162,35 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li><a href="{{ route('admin') }}"><svg class="svg svg-meter"><use xlink:href="#svg-meter"></use></svg> Dashboard</a></li>
-                <li><a href="{{ route('admin.svg') }}"><svg class="svg svg-svg"><use xlink:href="#svg-svg"></use></svg> SVG Icons</a></li>
                 <li><a href="{{ route('admin.users') }}"><svg class="svg svg-users"><use xlink:href="#svg-users"></use></svg> Users</a></li>
                 <li>
                     <a href="#">
-                        <svg class="svg svg-bar-graph"><use xlink:href="#svg-bar-graph"></use></svg> Charts
-                        <svg class="svg-arrow-down2 pull-right"><use xlink:href="#svg-arrow-down2"></use></svg>
+                        <svg class="svg svg-bar-graph"><use xlink:href="#svg-bar-graph"></use></svg> Petrie Features
+                        <svg class="svg-arrow-down2 pull-right animated"><use xlink:href="#svg-arrow-down2"></use></svg>
                     </a>
                     <ul class="nav nav-second-level">
-                        <li><a href="#">Chart.js</a></li>
-                        <li><a href="{{ route('admin.easypie') }}">Easy-Pie-Chart</a></li>
-                        <li><a href="{{ route('admin.morris') }}">Morris</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <svg class="svg svg-lifebuoy"><use xlink:href="#svg-lifebuoy"></use></svg> Development Guides
-                        <svg class="svg-arrow-down2 pull-right"><use xlink:href="#svg-arrow-down2"></use></svg>
-                    </a>
-                    <ul class="nav nav-second-level">
-                        <li><a href="{{ route('admin.guide.frontend') }}">Front-end</a></li>
-                        <li><a href="{{ route('admin.guide.backend') }}">Back-end</a></li>
+                        <li><a href="{{ route('admin.svg') }}"><svg class="svg svg-svg"><use xlink:href="#svg-svg"></use></svg> SVG Icons</a></li>
+                        <li>
+                            <a href="#">
+                                <svg class="svg svg-bar-graph"><use xlink:href="#svg-bar-graph"></use></svg> Charts
+                                <svg class="svg-arrow-down2 pull-right animated"><use xlink:href="#svg-arrow-down2"></use></svg>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="#">Chart.js</a></li>
+                                <li><a href="{{ route('admin.easypie') }}">Easy-Pie-Chart</a></li>
+                                <li><a href="{{ route('admin.morris') }}">Morris</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <svg class="svg svg-lifebuoy"><use xlink:href="#svg-lifebuoy"></use></svg> Development Guides
+                                <svg class="svg-arrow-down2 pull-right animated"><use xlink:href="#svg-arrow-down2"></use></svg>
+                            </a>
+                            <ul class="nav nav-second-level">
+                                <li><a href="{{ route('admin.guide.frontend') }}">Front-end</a></li>
+                                <li><a href="{{ route('admin.guide.backend') }}">Back-end</a></li>
+                            </ul>
+                        </li>
                     </ul>
                 </li>
             </ul>

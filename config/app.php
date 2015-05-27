@@ -148,8 +148,8 @@ return [
         /*
          * Custom Service Providers...
          */
-        'Zizaco\Entrust\EntrustServiceProvider',
         'Illuminate\Html\HtmlServiceProvider',
+	    'Sentinel\SentinelServiceProvider',
 
     ],
 
@@ -199,8 +199,8 @@ return [
         'Validator'     => 'Illuminate\Support\Facades\Validator',
         'View'          => 'Illuminate\Support\Facades\View',
 
-        'Entrust'       => 'Zizaco\Entrust\EntrustFacade',
         'Form'          => 'Illuminate\Html\FormFacade',
         'HTML'          => 'Illuminate\Html\HtmlFacade',
+        'Sentry'        => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
     ],
 ];

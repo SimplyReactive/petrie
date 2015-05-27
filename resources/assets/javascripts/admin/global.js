@@ -4,7 +4,9 @@
 
 $(document).ready(function(){
     // Enable the menu
-    $('#main-menu').metisMenu();
+    $('#main-menu').metisMenu({
+	    toggle: false
+    });
     $(window).bind("load resize", function () {
         if ($(this).width() < 768)
             $('div.sidebar-collapse').addClass('collapse')
