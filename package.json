@@ -14,6 +14,7 @@
     "gulp-util": "*",
     "laravel-elixir": "*",
     "through2": "*",
-    "xtend": "*"
+    "xtend": "*",
+    "sassy-petrie": "*"
   }
 }
