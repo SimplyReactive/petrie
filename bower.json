@@ -21,6 +21,7 @@
     "underscore": "*",
     "jquery.easy-pie-chart": "*",
     "jquery-animatenumber": "*",
+    "raphael": "*",
     "modernizr": "*"
   }
 }

@@ -2,6 +2,7 @@
 
 Route::get('/',                         ['as' => 'index',                   'uses' => 'PageController@index']);
 Route::get('/about',                    ['as' => 'about',                   'uses' => 'PageController@about']);
+Route::get('/examples',                 ['as' => 'examples',                'uses' => 'PageController@examples']);
 
 // Adminstration Example Pages
 Route::get('/admin',                    ['as' => 'admin',                   'uses' => 'AcpController@index']);

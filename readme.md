@@ -10,7 +10,7 @@ Petrie is a purposely designed framework by [@_nathanburgess] to enable develope
 ### Version
 0.1.3-alpha
 
-### Tech
+### Technology
 
 Petrie uses a number of open source projects to work properly:
 

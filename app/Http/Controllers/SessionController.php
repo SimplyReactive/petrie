@@ -69,7 +69,7 @@ class SessionController extends BaseController
             }
             Session::flash('error', $result->getMessage());
 
-            return Redirect::route('sentinel.session.create')
+            return Redirect::route('session.create')
                 ->withInput();
         }
     }

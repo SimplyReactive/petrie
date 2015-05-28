@@ -1,11 +1,13 @@
 var elixir = require('laravel-elixir');
+var elixirconfig = require('laravel-elixir').config;
 var gulp = require('gulp');
-var shell = require('gulp-shell');
 var sass = require('gulp-ruby-sass');
+var shell = require('gulp-shell');
 var foreach = require('gulp-foreach');
 var sourcemaps = require('gulp-sourcemaps');
 var chalk = require('chalk');
-var gutil = require('gulp-util');
+var util = require('gulp-util');
+var sassyPetrie = require('sassy-petrie');
 var dateformat = require('dateformat');
 
 /*
@@ -19,20 +21,40 @@ var dateformat = require('dateformat');
  |
  */
 
+var appRoot = './';
 var bowerDir = './bower_components/';
 var nodeDir = './node_modules/';
 var assetsDir = './resources/assets/';
 var config = {
-	'sass' : {
-		'sourcemap'  : true,
+	'sass': {
+		'sourcemap': true,
 		'lineNumbers': true
 	},
 	'debug': true // Enabling this will expose the SASS in the browser development tools
 };
+
+elixirconfig.production = !! util.env.production;
+elixirconfig.srcDir = 'app';
+elixirconfig.publicDir = 'public';
+elixirconfig.assetsDir = 'resources/assets/';
+elixirconfig.bowerDir = 'bower_components';
+elixirconfig.cssOutput = 'public/css';
+elixirconfig.jsOutput = 'public/js';
+elixirconfig.sourcemaps = ! util.env.production;
+elixirconfig.autoprefix = true;
+elixirconfig.tasks = [];
+elixirconfig.watchers = { default: {} };
+elixirconfig.duplicat = [];
+elixirconfig.concatenate = { css: [], js: [] };
+elixirconfig.compile = {};
+elixirconfig.babel.enabled = false ;
+
 var paths = {
 	'jquery'        : bowerDir + 'jquery/',									// jQuery
 	'jqueryui'      : bowerDir + 'jquery-ui/',								// jQuery UI
 	'bootstrap'     : bowerDir + 'bootstrap-sass-official/assets/',			// Bootstrap SASS
+	'raphael'       : bowerDir + 'raphael/',								// Raphael JS Vector Graphics
+
 	'xeditable'     : bowerDir + 'x-editable/dist/bootstrap3-editable/',    // Inline editing of elements
 	'typeahead'     : bowerDir + 'typeahead.js/',                           // Auto-suggest with look ahead
 	'tokenfield'    : bowerDir + 'bootstrap-tokenfield/',                   // Tagging/Tokenizing
@@ -43,6 +65,8 @@ var paths = {
 	'modernizr'     : bowerDir + 'modernizr/',                              // Modernizr
 	'underscore'    : bowerDir + 'underscore/',                             // Underscore.js
 	'easypiechart'  : bowerDir + 'jquery.easy-pie-chart/',                  // Easy Pie Charts
+	'morrisjs'      : bowerDir + 'morris.js/',                 				// Morris.js Charts
+	'chartjs'       : bowerDir + 'Chart.js/',                 				// Chart.js Charts
 	'animatenumber' : bowerDir + 'jquery-animatenumber/',                   // Number Animation
 	'assets'        : {
 		'sass'      : assetsDir + 'sass/',                                  // SASS directory
@@ -55,6 +79,8 @@ var paths = {
 	'javascripts'   : './public/js/',                                       // Public JS directory
 	'svg'           : './public/svg/'                                       // Public SVG directory
 };
+
+
 
 elixir.extend('say', function (message) {
 	gulp.task('say', function (e) {
@@ -85,7 +111,7 @@ elixir.extend('petrieSass', function (mix) {
 			})
 			.pipe(sourcemaps.write('./', {
 				includeContent: true,
-				sourceRoot    : config.debug ? paths.sass : paths.css
+				sourceRoot    : elixirconfig.production ? paths.sass : paths.css
 			}))
 			.pipe(gulp.dest(paths.css))
 			.pipe(notify.message('Stylesheet \'style.scss\' has been compiled.'));
@@ -102,7 +128,7 @@ elixir.extend('petrieSass', function (mix) {
 			})
 			.pipe(sourcemaps.write('./', {
 				includeContent: true,
-				sourceRoot    : config.debug ? paths.sass : paths.css
+				sourceRoot    : elixirconfig.production ? paths.sass : paths.css
 			}))
 			.pipe(gulp.dest(paths.css))
 			.pipe(notify.message('Stylesheet \'admin.scss\' has been compiled.'));
@@ -112,12 +138,19 @@ elixir.extend('petrieSass', function (mix) {
 });
 
 elixir(function (mix) {
-	mix.petrieSass()
-		.coffee()                                                       // Compile the CoffeeScript
-		.scripts([                                                      // Concatenate the vendor javascript
+	mix.sassyPetrie(['style.scss', 'admin.scss'])
+		.coffee()                                                       // Compile the Coffeescript
+		.scripts([                                                      // Concatenate the admin Javascript
+			paths.assets.adminjs + '*.js'
+		], 'public/js/admin.js', appRoot)
+		.scripts([                                                      // Concatenate the custom Javascript
+			paths.assets.js + '*.js'
+		], 'public/js/custom.js', appRoot)
+		.scripts([                                                      // Concatenate the vendor Javascript
 			paths.jquery + 'dist/jquery.min.js',                        // - jquery
 			paths.jqueryui + 'jquery-ui.min.js',                        // - jqueryui
 			paths.bootstrap + 'javascripts/bootstrap.min.js',           // - bootstrap
+
 			paths.xeditable + 'js/bootstrap-editable.min.js',           // - bootstrap x-editable
 			paths.typeahead + 'dist/typeahead.bundle.min.js',           // - bootstrap typeahead/bloodhound bundle
 			paths.tokenfield + 'dist/bootstrap-tokenfield.min.js',      // - bootstrap tokenfield
@@ -128,13 +161,7 @@ elixir(function (mix) {
 			paths.underscore + 'underscore.js',                         // - underscore
 			paths.easypiechart + 'dist/jquery.easypiechart.min.js',     // - jquery.easy-pie-chart
 			paths.animatenumber + 'jquery.animateNumber.min.js'         // - jquery.animatenumber
-		], 'public/js/vendor.js', bowerDir)
-		.scripts([                                                      // Concatenate the admin javascripts
-			paths.assets.adminjs + '*.js'
-		], 'public/js/admin.js', assetsDir)
-		.scripts([                                                      // Concatenate the custom javascripts
-			paths.assets.js + '*.js'
-		], 'public/js/custom.js', assetsDir)
+		], 'public/js/vendor.js', appRoot)
 		.copy(paths.bootstrap + 'fonts/*', paths.fonts)                 // Copy bootstrap fonts from resources to public
 		.copy(paths.assets.svg + 'svgdefs.svg', paths.svg)              // Copy the SVG assets to public
 		.version([
@@ -143,9 +170,11 @@ elixir(function (mix) {
 			'public/css/admin.css',                                     // Admin CSS Version Control
 			'public/js/admin.js',                                       // Admin JS Version Control
 			'public/js/vendor.js',                                      // Vendor JS Version Control
-			'public/svg/svgdefs.svg'                                    // SVGDefs Version Control
+			'public/svg/svgdefs.svg'                                    // SVG Definitions Version Control
 		])
 		.phpUnit()                                                      // Complete phpUnit testing
 		.phpSpec()                                                      // Run phpSpec
 		.say('All tasks complete, cleaning up...');
 });
+
+

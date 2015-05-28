@@ -33,7 +33,7 @@
 
 @section('script')
 	<script type="text/javascript">
-		$(function() {
+		$(document).ready(function() {
 			$('#easypiechart-blue').easyPieChart({
 				scaleColor: false,
 				trackColor: false,
