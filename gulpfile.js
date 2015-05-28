@@ -69,6 +69,8 @@ elixir.extend('say', function (message) {
 elixir.extend('petrieSass', function (mix) {
 	var Notification = require(nodeDir + 'laravel-elixir/ingredients/commands/Notification.js');
 	var notify = new Notification();
+	notify.title = 'petrieSass';
+	notify.icon = nodeDir + '/../../icons/fail.png';
 
 	gulp.task('style', function () {
 		return sass(assetsDir + '/sass/style.scss', {
@@ -86,7 +88,7 @@ elixir.extend('petrieSass', function (mix) {
 				sourceRoot    : config.debug ? paths.sass : paths.css
 			}))
 			.pipe(gulp.dest(paths.css))
-			.pipe(notify.forPassedTests('petrieSass'));
+			.pipe(notify.message('Stylesheet \'style.scss\' has been compiled.'));
 	});
 	gulp.task('admin', function () {
 		return sass(assetsDir + '/sass/admin.scss', {
@@ -103,14 +105,14 @@ elixir.extend('petrieSass', function (mix) {
 				sourceRoot    : config.debug ? paths.sass : paths.css
 			}))
 			.pipe(gulp.dest(paths.css))
-			.pipe(notify.forPassedTests('petrieSass'));
+			.pipe(notify.message('Stylesheet \'admin.scss\' has been compiled.'));
 	});
-	gulp.task('petrieSass', ['admin', 'style']);
+	gulp.task('petrieSass', ['style', 'admin']);
 	return this.queueTask('petrieSass');
 });
 
 elixir(function (mix) {
-	mix.sass(['style.scss', 'admin.scss'])
+	mix.petrieSass()
 		.coffee()                                                       // Compile the CoffeeScript
 		.scripts([                                                      // Concatenate the vendor javascript
 			paths.jquery + 'dist/jquery.min.js',                        // - jquery
@@ -147,18 +149,3 @@ elixir(function (mix) {
 		.phpSpec()                                                      // Run phpSpec
 		.say('All tasks complete, cleaning up...');
 });
-
-/*
- * Troubleshooting problems with Gulp
- *
- * .--------------------------------------------------------------------------------------------------------
- * | TASK: phpUnit()
- * |--------------------------------------------------------------------------------------------------------
- * | ISSUE: Tests fail due to an unrecognized command.
- * |--------------------------------------------------------------------------------------------------------
- * | SOLUTION: Change the default phpunit command.
- * |   Modify the file: ./node_modules/laravel-elixir/node_modules/gulp-phpunit/index.js
- * |   On line 82, change the command variable to just 'phpunit'
- * |   NOTE: This assumes phpunit is installed globally. If it isn't, run: composer global require "phpunit/phpunit=4.6.*"
- * '--------------------------------------------------------------------------------------------------------
- */
