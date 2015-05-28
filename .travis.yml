@@ -14,6 +14,7 @@ matrix:
 sudo: false
 
 before_script:
+  - gem install sass
   - npm install -g bower
   - bower install
   - npm install
