@@ -39,11 +39,11 @@ Now that we have the prerequisites, we can install Petrie
 ```sh
 $ git clone https://bitbucket.org/simplyreactive/petrie petrie
 $ cd petrie
+$ composer update
 $ cp .env.example .env
 $ php artisan key:generate
 $ npm install
 $ bower install
-$ composer update
 $ php artisan vendor:publish
 $ php artisan migrate
 $ gulp
