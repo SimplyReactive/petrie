@@ -1,15 +1,29 @@
 <?php
 
+/**
+ * GroupController.php
+ *
+ * PHP Version 5.6
+ *
+ * @category Controller
+ * @package  Petrie
+ * @author   Nathan Burgess <nathanburgess@me.com>
+ * @license  http://opensource.org/licenses/MIT MIT License
+ * @link     https://github.com/SimplyReactive/petrie
+ *
+ */
+
 namespace petrie\Http\Controllers;
 
-use Vinkla\Hashids\HashidsManager;
-use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 use Sentinel\FormRequests\GroupCreateRequest;
 use Sentinel\Repositories\Group\SentinelGroupRepositoryInterface;
 use Sentinel\Traits\SentinelRedirectionTrait;
 use Sentinel\Traits\SentinelViewfinderTrait;
-use View, Input, Redirect;
+use Vinkla\Hashids\HashidsManager;
 
 class GroupController extends BaseController
 {
@@ -23,12 +37,11 @@ class GroupController extends BaseController
     /**
      * Constructor
      */
-    public function __construct(
-        SentinelGroupRepositoryInterface $groupRepository,
+    public function __construct(SentinelGroupRepositoryInterface $groupRepository,
         HashidsManager $hashids
     ) {
         $this->groupRepository = $groupRepository;
-        $this->hashids         = $hashids;
+        $this->hashids = $hashids;
 
         // You must have admin access to proceed
         $this->middleware('sentry.admin');
@@ -42,11 +55,11 @@ class GroupController extends BaseController
     public function index()
     {
         // Paginate the existing users
-        $groups      = $this->groupRepository->all();
-        $perPage     = 15;
+        $groups = $this->groupRepository->all();
+        $perPage = 15;
         $currentPage = Input::get('page') - 1;
-        $pagedData   = array_slice($groups, $currentPage * $perPage, $perPage);
-        $groups      = new Paginator($pagedData, $perPage, $currentPage);
+        $pagedData = array_slice($groups, $currentPage * $perPage, $perPage);
+        $groups = new Paginator($pagedData, $perPage, $currentPage);
 
         return $this->viewFinder('Sentinel::groups.index', ['groups' => $groups]);
     }
@@ -107,7 +120,7 @@ class GroupController extends BaseController
         $group = $this->groupRepository->retrieveById($id);
 
         return $this->viewFinder('Sentinel::groups.edit', [
-            'group' => $group,
+            'group'       => $group,
             'permissions' => $group->getPermissions()
         ]);
     }

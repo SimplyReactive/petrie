@@ -76,8 +76,7 @@ return [
 
     'additional_user_fields' => [
         'first_name' => 'alpha_spaces',
-        'last_name'  => 'alpha_spaces',
-        'steam_id'   => 'alpha'
+        'last_name'  => 'alpha_spaces'
     ],
 
     /*

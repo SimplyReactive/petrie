@@ -2,8 +2,13 @@
 
 namespace petrie\Http\Controllers;
 
-use Illuminate\Routing\Controller as BaseController;
+use Cartalyst\Sentry\Facades\Laravel\Sentry;
+use Illuminate\Config;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Session;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 use Sentinel\FormRequests\ChangePasswordRequest;
 use Sentinel\FormRequests\UserCreateRequest;
 use Sentinel\FormRequests\UserUpdateRequest;
@@ -12,11 +17,9 @@ use Sentinel\Repositories\User\SentinelUserRepositoryInterface;
 use Sentinel\Traits\SentinelRedirectionTrait;
 use Sentinel\Traits\SentinelViewfinderTrait;
 use Vinkla\Hashids\HashidsManager;
-use View, Input, Event, Redirect, Session, Config, Sentry;
 
 class UserController extends BaseController
 {
-
     /**
      * Traits
      */

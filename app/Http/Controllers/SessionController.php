@@ -2,13 +2,14 @@
 
 namespace petrie\Http\Controllers;
 
+use Cartalyst\Sentry\Facades\Laravel\Sentry;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Response;
 use Sentinel\FormRequests\LoginRequest;
 use Sentinel\Repositories\Session\SentinelSessionRepositoryInterface;
 use Sentinel\Traits\SentinelRedirectionTrait;
 use Sentinel\Traits\SentinelViewfinderTrait;
-use Sentry, View, Input, Event, Redirect, Session, Config;
 
 class SessionController extends BaseController
 {

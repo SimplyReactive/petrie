@@ -2,17 +2,18 @@
 
 namespace petrie\Http\Controllers;
 
-use Vinkla\Hashids\HashidsManager;
+use Cartalyst\Sentry\Facades\Laravel\Sentry;
+use Illuminate\Config;
 use Illuminate\Routing\Controller as BaseController;
-use Sentinel\FormRequests\RegisterRequest;
+use Illuminate\Support\Facades\Input;
 use Sentinel\FormRequests\EmailRequest;
+use Sentinel\FormRequests\RegisterRequest;
 use Sentinel\FormRequests\ResetPasswordRequest;
 use Sentinel\Repositories\Group\SentinelGroupRepositoryInterface;
 use Sentinel\Repositories\User\SentinelUserRepositoryInterface;
 use Sentinel\Traits\SentinelRedirectionTrait;
 use Sentinel\Traits\SentinelViewfinderTrait;
-use Sentry, View, Input, Event, Redirect, Session, Config;
-
+use Vinkla\Hashids\HashidsManager;
 
 class RegistrationController extends BaseController
 {
@@ -36,7 +37,7 @@ class RegistrationController extends BaseController
         $this->hashids              = $hashids;
 
         //Check CSRF token on POST
-        $this->beforeFilter('Sentinel\csrf', array('on' => array('post', 'put', 'delete')));
+        $this->beforeFilter('Sentinel\csrf', ['on' => ['post', 'put', 'delete']]);
     }
 
     /**

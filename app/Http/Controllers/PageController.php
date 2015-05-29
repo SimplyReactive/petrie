@@ -1,5 +1,18 @@
 <?php
 
+/**
+ * PageController.php
+ *
+ * PHP Version 5.6
+ *
+ * @category Controller
+ * @package  Petrie
+ * @author   Nathan Burgess <nathanburgess@me.com>
+ * @license  http://opensource.org/licenses/MIT MIT License
+ * @link     https://github.com/SimplyReactive/petrie
+ *
+ */
+
 namespace petrie\Http\Controllers;
 
 class PageController extends Controller
