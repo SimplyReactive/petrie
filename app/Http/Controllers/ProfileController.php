@@ -5,7 +5,7 @@ namespace petrie\Http\Controllers;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Session;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Response;
+use Response;
 use Sentinel\FormRequests\ChangePasswordRequest;
 use Sentinel\FormRequests\UserUpdateRequest;
 use Sentinel\Repositories\Group\SentinelGroupRepositoryInterface;
@@ -93,7 +93,7 @@ class ProfileController extends BaseController
     /**
      * Process a password change request
      *
-     * @return Symfony\Component\HttpFoundation\Response
+     * @return Response
      */
     public function changePassword(ChangePasswordRequest $request)
     {
