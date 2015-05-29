@@ -10,3 +10,4 @@
 /public/fonts
 /bower_components
 composer.lock
+.sass-cache

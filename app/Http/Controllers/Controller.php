@@ -1,6 +1,6 @@
 <?php
 
-namespace Petrie\Http\Controllers;
+namespace petrie\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesCommands;
 use Illuminate\Foundation\Validation\ValidatesRequests;

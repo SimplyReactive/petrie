@@ -1,14 +1,15 @@
 <?php
 
-namespace Petrie\Http\Controllers;
+namespace petrie\Http\Controllers;
 
-use Sentinel\FormRequests\UserCreateRequest;
-use Sentinel\FormRequests\UserUpdateRequest;
+use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Pagination\Paginator;
 use Sentinel\Repositories\Group\SentinelGroupRepositoryInterface;
 use Sentinel\Repositories\User\SentinelUserRepositoryInterface;
 use Vinkla\Hashids\HashidsManager;
+use View, Input, Event, Redirect, Session, Config;
 
-class AcpController extends Controller
+class AcpController extends BaseController
 {
     /**
      * Create a new controller instance.
@@ -43,7 +44,14 @@ class AcpController extends Controller
      */
     public function users()
     {
-        return view('admin.users');
+
+        $users       = $this->userRepository->all();
+        $perPage     = 15;
+        $currentPage = Input::get('page') - 1;
+        $pagedData   = array_slice($users, $currentPage * $perPage, $perPage);
+        $users       = new Paginator($pagedData, $perPage, $currentPage);
+
+        return view('admin.users.index')->withUsers($users);
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-namespace Petrie\Http;
+namespace petrie\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
 
@@ -17,7 +17,7 @@ class Kernel extends HttpKernel
         'Illuminate\Cookie\Middleware\AddQueuedCookiesToResponse',
         'Illuminate\Session\Middleware\StartSession',
         'Illuminate\View\Middleware\ShareErrorsFromSession',
-        'Petrie\Http\Middleware\VerifyCsrfToken',
+        'petrie\Http\Middleware\VerifyCsrfToken',
     ];
 
     /**
@@ -26,9 +26,9 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $routeMiddleware = [
-        'auth'          => 'Petrie\Http\Middleware\Authenticate',
+        'auth'          => 'petrie\Http\Middleware\Authenticate',
         'auth.basic'    => 'Illuminate\Auth\Middleware\AuthenticateWithBasicAuth',
-        'guest'         => 'Petrie\Http\Middleware\RedirectIfAuthenticated',
+        'guest'         => 'petrie\Http\Middleware\RedirectIfAuthenticated',
         'sentry.auth'   => 'Sentinel\Middleware\SentryAuth',
         'sentry.admin'  => 'Sentinel\Middleware\SentryAdminAccess'
     ];

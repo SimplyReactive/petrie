@@ -1,6 +1,6 @@
 <?php
 
-namespace Petrie\Commands;
+namespace petrie\Commands;
 
 abstract class Command
 {

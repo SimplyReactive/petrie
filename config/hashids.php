@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => 'petrie',
+    'default' => 'main',
 
     /*
     |--------------------------------------------------------------------------
@@ -27,9 +27,8 @@ return [
     */
 
     'connections' => [
-
-        'petrie' => [
-            'salt' => 'F28F86043514AEB269SF3SE45OLI2H2SFE5HI23R94251201F322199855F1DF1B982E3CF7C92',
+        'main' => [
+            'salt' => 'F28F86043514AEB26943F1A67F21B94251201F322199855F1DF1B982E3CF7C92',
             'length' => 6,
             'alphabet' => 'abcdefghijklmnopqrstuvwxyz1234567890'
         ],

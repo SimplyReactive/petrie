@@ -162,7 +162,7 @@
         <div class="sidebar-collapse">
             <ul class="nav" id="main-menu">
                 <li><a href="{{ route('admin') }}"><svg class="svg svg-meter"><use xlink:href="#svg-meter"></use></svg> Dashboard</a></li>
-                <li><a href="{{ route('admin.users') }}"><svg class="svg svg-users"><use xlink:href="#svg-users"></use></svg> Users</a></li>
+                <li><a href="{{ route('admin.users.index') }}"><svg class="svg svg-users"><use xlink:href="#svg-users"></use></svg> Users</a></li>
                 <li>
                     <a href="#">
                         <svg class="svg svg-bar-graph"><use xlink:href="#svg-bar-graph"></use></svg> Petrie Features
@@ -205,9 +205,9 @@
                         @yield('pageTitle') <small>@yield('pageSummary')</small>
                     </h1>
                     <ol class="breadcrumb">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">Library</a></li>
-                        <li class="active">Data</li>
+                        @section('breadCrumbs')
+                            <li><a href="/admin">Dashboard</a></li>
+                        @show
                     </ol>
                 </div>
             </div>

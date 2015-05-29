@@ -1,6 +1,6 @@
 <?php
 
-namespace Petrie\Http\Requests;
+namespace petrie\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 

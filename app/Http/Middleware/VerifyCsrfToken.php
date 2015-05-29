@@ -1,6 +1,6 @@
 <?php
 
-namespace Petrie\Http\Middleware;
+namespace petrie\Http\Middleware;
 
 use Closure;
 use Illuminate\Foundation\Http\Middleware\VerifyCsrfToken as BaseVerifier;

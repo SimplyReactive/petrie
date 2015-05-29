@@ -139,11 +139,11 @@ return [
         /*
          * Application Service Providers...
          */
-        'Petrie\Providers\AppServiceProvider',
-        'Petrie\Providers\BusServiceProvider',
-        'Petrie\Providers\ConfigServiceProvider',
-        'Petrie\Providers\EventServiceProvider',
-        'Petrie\Providers\RouteServiceProvider',
+        'petrie\Providers\AppServiceProvider',
+        'petrie\Providers\BusServiceProvider',
+        'petrie\Providers\ConfigServiceProvider',
+        'petrie\Providers\EventServiceProvider',
+        'petrie\Providers\RouteServiceProvider',
 
         /*
          * Custom Service Providers...
@@ -201,6 +201,6 @@ return [
 
         'Form'          => 'Illuminate\Html\FormFacade',
         'HTML'          => 'Illuminate\Html\HtmlFacade',
-        'Sentry'        => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
+        //'Sentry'        => 'Cartalyst\Sentry\Facades\Laravel\Sentry',
     ],
 ];

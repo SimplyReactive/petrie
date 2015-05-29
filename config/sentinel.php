@@ -61,7 +61,7 @@ return [
     |
     */
 
-    'default_permissions' => ['admin', 'users'],
+    'default_permissions' => ['users'],
 
     /*
     |--------------------------------------------------------------------------
@@ -76,7 +76,8 @@ return [
 
     'additional_user_fields' => [
         'first_name' => 'alpha_spaces',
-        'last_name'  => 'alpha_spaces'
+        'last_name'  => 'alpha_spaces',
+        'steam_id'   => 'alpha'
     ],
 
     /*
@@ -119,29 +120,29 @@ return [
     */
 
     'routing' => [
-        'session_store'                => ['route' => 'index'],
+        'session_store'                => ['route' => 'home'],
         'session_destroy'              => ['action' => 'SessionController@create'],
-        'registration_complete'        => ['route' => 'index'],
-        'registration_activated'       => ['route' => 'index'],
-        'registration_resend'          => ['route' => 'index'],
-        'registration_reset_triggered' => ['route' => 'index'],
-        'registration_reset_invalid'   => ['route' => 'index'],
-        'registration_reset_complete'  => ['route' => 'index'],
-        'users_invalid'                => ['route' => 'index'],
-        'users_store'                  => ['route' => 'users.index'],
-        'users_update'                 => ['route' => 'users.show', 'parameters' => ['user' => 'hash']],
-        'users_destroy'                => ['route' => 'users.index'],
-        'users_change_password'        => ['route' => 'users.show', 'parameters' => ['user' => 'hash']],
-        'users_change_memberships'     => ['route' => 'users.show', 'parameters' => ['user' => 'hash']],
-        'users_suspend'                => ['route' => 'users.index'],
-        'users_unsuspend'              => ['route' => 'users.index'],
-        'users_ban'                    => ['route' => 'users.index'],
-        'users_unban'                  => ['route' => 'users.index'],
-        'groups_store'                 => ['route' => 'groups.index'],
-        'groups_update'                => ['route' => 'groups.index'],
-        'groups_destroy'               => ['route' => 'groups.index'],
-        'profile_change_password'      => ['route' => 'profile.show'],
-        'profile_update'               => ['route' => 'profile.show'],
+        'registration_complete'        => ['route' => 'home'],
+        'registration_activated'       => ['route' => 'home'],
+        'registration_resend'          => ['route' => 'home'],
+        'registration_reset_triggered' => ['route' => 'home'],
+        'registration_reset_invalid'   => ['route' => 'home'],
+        'registration_reset_complete'  => ['route' => 'home'],
+        'users_invalid'                => ['route' => 'home'],
+        'users_store'                  => ['route' => 'sentinel.users.index'],
+        'users_update'                 => ['route' => 'sentinel.users.show', 'parameters' => ['user' => 'hash']],
+        'users_destroy'                => ['route' => 'sentinel.users.index'],
+        'users_change_password'        => ['route' => 'sentinel.users.show', 'parameters' => ['user' => 'hash']],
+        'users_change_memberships'     => ['route' => 'sentinel.users.show', 'parameters' => ['user' => 'hash']],
+        'users_suspend'                => ['route' => 'admin.users.index'],
+        'users_unsuspend'              => ['route' => 'admin.users.index'],
+        'users_ban'                    => ['route' => 'admin.users.index'],
+        'users_unban'                  => ['route' => 'admin.users.index'],
+        'groups_store'                 => ['route' => 'sentinel.groups.index'],
+        'groups_update'                => ['route' => 'sentinel.groups.index'],
+        'groups_destroy'               => ['route' => 'sentinel.groups.index'],
+        'profile_change_password'      => ['route' => 'sentinel.profile.show'],
+        'profile_update'               => ['route' => 'sentinel.profile.show'],
     ],
 
     /*
@@ -167,6 +168,6 @@ return [
     |
     */
 
-    'layout' => 'Sentinel::layouts.default',
+    'layout' => 'layouts.default',
 
 ];

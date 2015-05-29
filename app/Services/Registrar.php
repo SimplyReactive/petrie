@@ -1,9 +1,9 @@
 <?php
 
-namespace Petrie\Services;
+namespace petrie\Services;
 
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
-use Petrie\User;
+use petrie\User;
 use Validator;
 
 class Registrar implements RegistrarContract

@@ -1,6 +1,6 @@
 <?php
 
-namespace Petrie\Exceptions;
+namespace petrie\Exceptions;
 
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;

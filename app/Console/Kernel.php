@@ -1,6 +1,6 @@
 <?php
 
-namespace Petrie\Console;
+namespace petrie\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
@@ -13,7 +13,7 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        'Petrie\Console\Commands\Inspire',
+        'petrie\Console\Commands\Inspire',
     ];
 
     /**

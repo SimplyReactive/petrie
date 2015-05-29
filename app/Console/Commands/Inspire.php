@@ -1,6 +1,6 @@
 <?php
 
-namespace Petrie\Console\Commands;
+namespace petrie\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Foundation\Inspiring;

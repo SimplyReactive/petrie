@@ -1,4 +1,6 @@
-<?php namespace Petrie\Http\Controllers;
+<?php
+
+namespace petrie\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 use Sentinel\FormRequests\ChangePasswordRequest;
@@ -7,6 +9,7 @@ use Session, Input, Response, Redirect;
 use Sentinel\Repositories\Group\SentinelGroupRepositoryInterface;
 use Sentinel\Repositories\User\SentinelUserRepositoryInterface;
 use Sentinel\Traits\SentinelRedirectionTrait;
+use Sentinel\Traits\SentinelViewfinderTrait;
 
 class ProfileController extends BaseController
 {
@@ -15,6 +18,7 @@ class ProfileController extends BaseController
      * Traits
      */
     use SentinelRedirectionTrait;
+    use SentinelViewfinderTrait;
 
     /**
      * Constructor
@@ -42,7 +46,7 @@ class ProfileController extends BaseController
         // Get the user
         $user = $this->userRepository->retrieveById(Session::get('userId'));
 
-        return view('users.show', ['user' => $user]);
+        return $this->viewFinder('Sentinel::users.show', ['user' => $user]);
     }
 
 
@@ -59,7 +63,7 @@ class ProfileController extends BaseController
         // Get all available groups
         $groups = $this->groupRepository->all();
 
-        return view('users.edit', [
+        return $this->viewFinder('Sentinel::users.edit', [
             'user' => $user,
             'groups' => $groups
         ]);

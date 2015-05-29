@@ -46,7 +46,7 @@ return array(
 	|
 	*/
 
-	'hasher' => 'native',
+	'hasher' => 'bcrypt',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -70,7 +70,7 @@ return array(
 		|
 		*/
 
-		'key' => 'petrie_login',
+		'key' => 'petrie_cookie',
 
  	),
 

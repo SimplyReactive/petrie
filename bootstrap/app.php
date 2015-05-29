@@ -28,17 +28,17 @@ $app = new Illuminate\Foundation\Application(
 
 $app->singleton(
     'Illuminate\Contracts\Http\Kernel',
-    'Petrie\Http\Kernel'
+    'petrie\Http\Kernel'
 );
 
 $app->singleton(
     'Illuminate\Contracts\Console\Kernel',
-    'Petrie\Console\Kernel'
+    'petrie\Console\Kernel'
 );
 
 $app->singleton(
     'Illuminate\Contracts\Debug\ExceptionHandler',
-    'Petrie\Exceptions\Handler'
+    'petrie\Exceptions\Handler'
 );
 
 /*

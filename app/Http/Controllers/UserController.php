@@ -1,4 +1,6 @@
-<?php namespace Petrie\Http\Controllers;
+<?php
+
+namespace petrie\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Pagination\Paginator;
@@ -8,8 +10,9 @@ use Sentinel\FormRequests\UserUpdateRequest;
 use Sentinel\Repositories\Group\SentinelGroupRepositoryInterface;
 use Sentinel\Repositories\User\SentinelUserRepositoryInterface;
 use Sentinel\Traits\SentinelRedirectionTrait;
+use Sentinel\Traits\SentinelViewfinderTrait;
 use Vinkla\Hashids\HashidsManager;
-use View, Input, Event, Redirect, Session, Config;
+use View, Input, Event, Redirect, Session, Config, Sentry;
 
 class UserController extends BaseController
 {
@@ -18,6 +21,7 @@ class UserController extends BaseController
      * Traits
      */
     use SentinelRedirectionTrait;
+    use SentinelViewfinderTrait;
 
     /**
      * Constructor
@@ -49,7 +53,7 @@ class UserController extends BaseController
         $pagedData   = array_slice($users, $currentPage * $perPage, $perPage);
         $users       = new Paginator($pagedData, $perPage, $currentPage);
 
-        return view('users.index', ['users' => $users]);
+        return $this->viewFinder('Sentinel::users.index', ['users' => $users]);
     }
 
 
@@ -60,7 +64,7 @@ class UserController extends BaseController
      */
     public function create()
     {
-        return view('users.create');
+        return $this->viewFinder('Sentinel::users.create');
     }
 
     /**
@@ -74,7 +78,7 @@ class UserController extends BaseController
         $result = $this->userRepository->store(Input::all());
 
         // Determine response message based on whether or not the user was activated
-        $message = ($result->getPayload()['activated'] ? trans('users.addedactive') : trans('users.added'));
+        $message = ($result->getPayload()['activated'] ? trans('Sentinel::users.addedactive') : trans('Sentinel::users.added'));
 
         // Finished!
         return $this->redirectTo('users_store', ['success' => $message]);
@@ -96,7 +100,7 @@ class UserController extends BaseController
         // Get the user
         $user = $this->userRepository->retrieveById($id);
 
-        return view('users.show', ['user' => $user]);
+        return $this->viewFinder('admin.users.show', ['user' => $user]);
     }
 
     /**
@@ -117,9 +121,26 @@ class UserController extends BaseController
         // Get all available groups
         $groups = $this->groupRepository->all();
 
-        return view('users.edit', [
+        // Pull the custom fields from config
+        $isProfileUpdate = ($user->email == Sentry::getUser()->email);
+        $customFields = config('sentinel.additional_user_fields');
+
+        // Determine the form post route
+        if ($isProfileUpdate) {
+            $profileFormAction = route('sentinel.profile.update');
+            $passwordFormAction = route('sentinel.profile.password');
+        } else {
+            $profileFormAction =  route('sentinel.users.update', $user->hash);
+            $passwordFormAction = route('sentinel.password.change', $user->hash);
+        }
+
+        return $this->viewFinder('admin.users.edit', [
             'user' => $user,
-            'groups' => $groups
+            'groups' => $groups,
+            'isProfileUpdate' => $isProfileUpdate,
+            'customFields' => $customFields,
+            'profileFormAction' => $profileFormAction,
+            'passwordFormAction' => $passwordFormAction
         ]);
     }
 

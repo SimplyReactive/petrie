@@ -1,10 +1,13 @@
-<?php namespace Petrie\Http\Controllers;
+<?php
+
+namespace petrie\Http\Controllers;
 
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Support\Facades\Response;
 use Sentinel\FormRequests\LoginRequest;
 use Sentinel\Repositories\Session\SentinelSessionRepositoryInterface;
 use Sentinel\Traits\SentinelRedirectionTrait;
+use Sentinel\Traits\SentinelViewfinderTrait;
 use Sentry, View, Input, Event, Redirect, Session, Config;
 
 class SessionController extends BaseController
@@ -14,6 +17,7 @@ class SessionController extends BaseController
      * Traits
      */
     use SentinelRedirectionTrait;
+    use SentinelViewfinderTrait;
 
     /**
      * Constructor
@@ -34,7 +38,7 @@ class SessionController extends BaseController
         }
 
         // No - they are not signed in.  Show the login form.
-        return view('sessions.login');
+        return $this->viewFinder('Sentinel::sessions.login');
     }
 
     /**
@@ -69,7 +73,7 @@ class SessionController extends BaseController
             }
             Session::flash('error', $result->getMessage());
 
-            return Redirect::route('session.create')
+            return Redirect::route('sentinel.login')
                 ->withInput();
         }
     }

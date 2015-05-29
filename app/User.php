@@ -1,6 +1,6 @@
 <?php
 
-namespace Petrie;
+namespace petrie;
 
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;

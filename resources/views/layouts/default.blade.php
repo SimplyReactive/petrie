@@ -39,15 +39,15 @@
                             <li class="divider"></li>
                         @endif
                         <li class="dropdown-header">My Account</li>
-                        <li {{ (Request::is('profile') ? 'class="active"' : '') }}><a href="{{ route('profile.show') }}">Profile</a></li>
+                        <li {{ (Request::is('profile') ? 'class="active"' : '') }}><a href="{{ route('sentinel.profile.show') }}">Profile</a></li>
                         <li><a href="#">Settings</a></li>
                         <li class="divider"></li>
-                        <li><a href="{{ route('logout') }}">Logout</a></li>
+                        <li><a href="{{ route('sentinel.logout') }}">Logout</a></li>
                     </ul>
                 </li>
                 @else
-                <li {{ (Request::is('login') ? 'class="active"' : '') }}><a href="{{ route('login') }}">Login</a></li>
-                <li {{ (Request::is('users/create') ? 'class="active"' : '') }}><a href="{{ route('register.form') }}">Register</a></li>
+                <li {{ (Request::is('login') ? 'class="active"' : '') }}><a href="{{ route('sentinel.login') }}">Login</a></li>
+                <li {{ (Request::is('users/create') ? 'class="active"' : '') }}><a href="{{ route('sentinel.register.form') }}">Register</a></li>
                 @endif
 
             </ul>

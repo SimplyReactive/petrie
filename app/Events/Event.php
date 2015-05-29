@@ -1,6 +1,6 @@
 <?php
 
-namespace Petrie\Events;
+namespace petrie\Events;
 
 abstract class Event
 {

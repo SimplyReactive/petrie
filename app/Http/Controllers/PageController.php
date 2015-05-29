@@ -1,6 +1,6 @@
 <?php
 
-namespace Petrie\Http\Controllers;
+namespace petrie\Http\Controllers;
 
 class PageController extends Controller
 {

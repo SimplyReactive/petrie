@@ -9,11 +9,11 @@
   "type": "project",
   "require": {
     "laravel/framework": "*",
-    "filp/whoops": "*",
     "illuminate/html": "*",
-    "rydurham/sentinel": "~2"
+    "rydurham/sentinel": "^2.1"
   },
   "require-dev": {
+    "filp/whoops": "*",
     "phpunit/phpunit": "*",
     "phpspec/phpspec": "*"
   },
@@ -22,8 +22,11 @@
       "database"
     ],
     "psr-4": {
-      "Petrie\\": "app/"
-    }
+      "petrie\\": "app/"
+    },
+    "files": [
+      "app/Http/helpers.php"
+    ]
   },
   "autoload-dev": {
     "classmap": [

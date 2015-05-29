@@ -1,5 +1,5 @@
 suites:
     main:
-        namespace: Petrie
-        psr4_prefix: Petrie
+        namespace: petrie
+        psr4_prefix: petrie
         src_path: app

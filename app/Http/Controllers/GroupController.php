@@ -1,4 +1,6 @@
-<?php namespace Petrie\Http\Controllers;
+<?php
+
+namespace petrie\Http\Controllers;
 
 use Vinkla\Hashids\HashidsManager;
 use Illuminate\Routing\Controller as BaseController;
@@ -6,6 +8,7 @@ use Illuminate\Pagination\Paginator;
 use Sentinel\FormRequests\GroupCreateRequest;
 use Sentinel\Repositories\Group\SentinelGroupRepositoryInterface;
 use Sentinel\Traits\SentinelRedirectionTrait;
+use Sentinel\Traits\SentinelViewfinderTrait;
 use View, Input, Redirect;
 
 class GroupController extends BaseController
@@ -15,6 +18,7 @@ class GroupController extends BaseController
      * Traits
      */
     use SentinelRedirectionTrait;
+    use SentinelViewfinderTrait;
 
     /**
      * Constructor
@@ -44,7 +48,7 @@ class GroupController extends BaseController
         $pagedData   = array_slice($groups, $currentPage * $perPage, $perPage);
         $groups      = new Paginator($pagedData, $perPage, $currentPage);
 
-        return view('groups.index', ['groups' => $groups]);
+        return $this->viewFinder('Sentinel::groups.index', ['groups' => $groups]);
     }
 
     /**
@@ -54,7 +58,7 @@ class GroupController extends BaseController
      */
     public function create()
     {
-        return view('groups.create');
+        return $this->viewFinder('Sentinel::groups.create');
     }
 
     /**
@@ -86,7 +90,7 @@ class GroupController extends BaseController
         // Pull the group from storage
         $group = $this->groupRepository->retrieveById($id);
 
-        return view('groups.show', ['group' => $group]);
+        return $this->viewFinder('Sentinel::groups.show', ['group' => $group]);
     }
 
     /**
@@ -102,7 +106,7 @@ class GroupController extends BaseController
         // Pull the group from storage
         $group = $this->groupRepository->retrieveById($id);
 
-        return view('groups.edit', [
+        return $this->viewFinder('Sentinel::groups.edit', [
             'group' => $group,
             'permissions' => $group->getPermissions()
         ]);
