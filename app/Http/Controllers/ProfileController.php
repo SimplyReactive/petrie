@@ -93,7 +93,7 @@ class ProfileController extends BaseController
     /**
      * Process a password change request
      *
-     * @return Redirect
+     * @return Symfony\Component\HttpFoundation\Response
      */
     public function changePassword(ChangePasswordRequest $request)
     {
