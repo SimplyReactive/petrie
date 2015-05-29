@@ -5,7 +5,6 @@ namespace petrie\Http\Controllers;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Session;
 use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use Sentinel\FormRequests\ChangePasswordRequest;
 use Sentinel\FormRequests\UserUpdateRequest;

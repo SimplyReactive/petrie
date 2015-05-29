@@ -4,7 +4,9 @@ namespace petrie\Http\Controllers;
 
 use Cartalyst\Sentry\Facades\Laravel\Sentry;
 use Illuminate\Routing\Controller as BaseController;
+use Illuminate\Session;
 use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Response;
 use Sentinel\FormRequests\LoginRequest;
 use Sentinel\Repositories\Session\SentinelSessionRepositoryInterface;
